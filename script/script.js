@@ -295,3 +295,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 1000);
 
 });
+
+
+/* ========== Mobile Accordion Dropdown ========== */
+document.querySelectorAll('.mob-dd-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    // Close all others
+    document.querySelectorAll('.mob-dd-toggle').forEach(function(t) {
+      t.setAttribute('aria-expanded', 'false');
+      var list = t.nextElementSibling;
+      if (list) list.classList.remove('open');
+    });
+    // Toggle clicked one
+    if (!expanded) {
+      this.setAttribute('aria-expanded', 'true');
+      var list = this.nextElementSibling;
+      if (list) list.classList.add('open');
+    }
+  });
+});
