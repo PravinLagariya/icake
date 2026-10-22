@@ -1,0 +1,132 @@
+
+.diet-section{
+    padding:80px 0;
+    overflow:hidden;
+}
+
+.container{
+    width:1200px;
+    max-width:90%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:80px;
+}
+.content{
+    width:70%;
+}
+.tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
+    font-weight:600;
+    color:#ff2d87;
+    letter-spacing:1px;
+    margin-bottom:25px;
+}
+
+.tag:before{
+    content:"";
+    width:60px;
+    height:2px;
+    background:#ff2d87;
+    display:block;
+}
+
+h1 span{
+    display:block;
+    color:#ff2d87;
+}
+
+.line{
+    width:320px;
+    height:2px;
+    background:#ff6aa5;
+    margin:30px 0;
+}
+
+.info-box{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:25px;
+    border-left:6px solid #ff2d87;
+    background:linear-gradient(90deg,#fff,#fff3f8);
+    border-radius:12px;
+    margin:35px 0;
+    box-shadow:0 15px 40px rgba(0,0,0,.06);
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+
+.image-area{
+    width:30%;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.circle{
+    position:absolute;
+    width:430px;
+    height:430px;
+    background:radial-gradient(circle,#ffe8f3,#fff);
+    border-radius:50%;
+    z-index:-1;
+}
+
+.image-area img{
+    width:90%;
+    animation:float 5s ease-in-out infinite;
+    filter:drop-shadow(0 35px 40px rgba(0,0,0,.18));
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-18px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:991px){
+    .container{
+        flex-direction:column;
+    }
+
+    .content, .image-area{
+        width:100%;
+    }
+
+    h1{
+        font-size:44px;
+    }
+
+    .image-area{
+        margin-top:50px;
+    }
+
+    .circle{
+        width:420px;
+        height:420px;
+    }
+}

@@ -1,0 +1,339 @@
+.policy-hero {
+  padding: 70px 0 50px;
+  background: linear-gradient(
+    135deg,
+    var(--blush) 0%,
+    var(--cream) 60%,
+    var(--white) 100%
+  );
+  border-bottom: 1px solid rgba(209, 39, 100, 0.08);
+}
+
+.policy-hero-cnt {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.policy-hero h1 {
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 18px;
+}
+
+.policy-hero h1 em {
+  font-style: normal;
+  color: var(--primary);
+}
+
+.policy-hero p {
+  color: var(--gray-txt);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+/* ─── Policy Highlights Row ─── */
+.policy-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.p-highlight-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  border: 1.5px solid rgba(41, 44, 129, 0.1);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.p-highlight-card .ph-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--blush);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.p-highlight-card .ph-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--primary);
+}
+
+.p-highlight-card h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+
+.p-highlight-card p {
+  font-size: 0.85rem;
+  color: var(--gray-txt);
+  line-height: 1.5;
+}
+
+/* ─── Terms Grid ─── */
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.term-card {
+  background: var(--cream);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  border: 1.5px solid rgba(209, 39, 100, 0.1);
+}
+
+.term-card strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.term-card p {
+  font-size: 0.88rem;
+  color: var(--gray-txt);
+  line-height: 1.6;
+}
+
+/* ─── Timeline / Rules Cards ─── */
+.policy-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.rule-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 30px 24px;
+  border: 1.5px solid rgba(41, 44, 129, 0.1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.rule-card.featured-rule {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, #fffafc 0%, #fff0f5 100%);
+}
+
+.rule-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--blush);
+  color: var(--primary);
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.rule-tag.alert {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.rule-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+
+.rule-card ul {
+  padding-left: 18px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.rule-card li {
+  font-size: 0.88rem;
+  color: var(--gray-txt);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.rule-card p {
+  font-size: 0.88rem;
+  color: var(--gray-txt);
+  line-height: 1.65;
+}
+
+/* ─── Content Blocks / Policy Boxes ─── */
+.policy-box {
+  background: var(--cream);
+  border-radius: var(--radius-md);
+  padding: 36px 32px;
+  border: 1.5px solid rgba(41, 44, 129, 0.08);
+  margin-bottom: 30px;
+}
+
+.policy-box h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+
+.policy-box p {
+  color: var(--gray-txt);
+  font-size: 0.94rem;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.policy-box ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.policy-box li {
+  color: var(--gray-txt);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+/* ─── Special Quality Concerns Box ─── */
+.quality-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.q-step {
+  background: var(--white);
+  padding: 24px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(209, 39, 100, 0.15);
+  text-align: center;
+}
+
+.q-step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.q-step h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+
+.q-step p {
+  font-size: 0.85rem;
+  color: var(--gray-txt);
+  line-height: 1.55;
+}
+
+/* ─── Allergen & Dietary Banner ─── */
+.allergen-banner {
+  background: linear-gradient(135deg, #241b2f 0%, #292c81 100%);
+  border-radius: var(--radius-md);
+  padding: 36px 32px;
+  color: var(--white);
+  margin-top: 24px;
+}
+
+.allergen-banner h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.allergen-banner p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* ─── Contact Box ─── */
+.policy-contact-card {
+  background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
+  border-radius: var(--radius-md);
+  padding: 40px 36px;
+  border: 1.5px solid rgba(209, 39, 100, 0.15);
+  text-align: center;
+}
+
+.policy-contact-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+
+.policy-contact-card p {
+  color: var(--gray-txt);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.p-contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.p-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.p-contact-item:hover {
+  text-decoration: underline;
+}
+
+/* ─── Responsive Adjustments ─── */
+@media (max-width: 950px) {
+  .policy-highlights,
+  .policy-rules-grid,
+  .quality-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .policy-hero {
+    padding: 50px 0 36px;
+  }
+  .policy-box {
+    padding: 24px 18px;
+  }
+}

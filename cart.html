@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Cart — Irresistible Cakes</title>
+  <meta name="description" content="Review your custom cake selections, add-ons, and proceed to checkout at iCakes." />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+  <!-- common css -->
+  <link rel="stylesheet" href="style/Root.css" />
+  <link rel="stylesheet" href="style/Header.css" />
+  <link rel="stylesheet" href="style/productInner.css" />
+  <link rel="stylesheet" href="style/newstyle.css" />
+
+  <style>
+    /* ============================================
+         CART PAGE — PREMIUM REDESIGN
+         Uses Root.css CSS variables throughout.
+      ============================================ */
+
+    /* ---------- Page Shell ---------- */
+    .cart-page {
+      padding: 40px 0 100px;
+    }
+
+    /* ---------- Page Header / Breadcrumb ---------- */
+    .cart-page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .cart-page-title {
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-page-title svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--primary);
+    }
+
+    .cart-item-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      margin-left: 4px;
+    }
+
+    .cart-continue-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: gap 0.3s var(--ease);
+    }
+
+    .cart-continue-link:hover {
+      gap: 10px;
+    }
+
+    .cart-continue-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ---------- Main Grid Layout ---------- */
+    .cart-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* ---------- Cart Item Cards ---------- */
+    .cart-items-col {}
+
+    .cart-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--sh);
+      margin-bottom: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(209, 39, 100, 0.06);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .cart-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--sh-lg);
+    }
+
+    .cart-card-inner {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 0;
+    }
+
+    .cart-card-img {
+      width: 100px;
+      height: 100%;
+      min-height: 110px;
+      object-fit: cover;
+      border-radius: 0;
+      flex-shrink: 0;
+    }
+
+    .cart-card-body {
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cart-card-name {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+
+    .cart-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .cart-meta-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      background: var(--gray-soft);
+      padding: 3px 10px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .cart-meta-pill svg {
+      width: 11px;
+      height: 11px;
+    }
+
+    .cart-card-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 18px 20px;
+      min-width: 140px;
+    }
+
+    .cart-card-price {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .cart-card-price-orig {
+      font-size: 0.78rem;
+      color: var(--gray-mid);
+      text-decoration: line-through;
+      font-weight: 500;
+      display: block;
+      text-align: right;
+    }
+
+    /* Qty Stepper */
+    .qty-stepper {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid rgba(209, 39, 100, 0.2);
+      border-radius: 50px;
+      overflow: hidden;
+      background: var(--gray-soft);
+    }
+
+    .qty-stepper button {
+      width: 34px;
+      height: 34px;
+      background: transparent;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      border: none;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-stepper button:hover {
+      background: var(--blush);
+    }
+
+    .qty-stepper span {
+      width: 38px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+
+    /* Remove Button */
+    .cart-remove-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gray-mid);
+      background: none;
+      border: none;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+
+    .cart-remove-btn svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .cart-remove-btn:hover {
+      color: #c0392b;
+    }
+
+    /* ---------- Add-Ons Card ---------- */
+    .addons-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--sh);
+      border: 1px solid rgba(209, 39, 100, 0.06);
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .addons-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 16px 24px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .addons-header svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.9;
+    }
+
+    .addons-body {
+      padding: 0 24px;
+    }
+
+    .addon-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px dashed rgba(74, 42, 31, 0.1);
+    }
+
+    .addon-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .addon-label {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+
+    .addon-label .addon-price {
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      font-weight: 500;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .radio-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gray-soft);
+      border-radius: 50px;
+      padding: 3px;
+    }
+
+    .radio-opt {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      cursor: pointer;
+    }
+
+    .radio-opt input[type="radio"] {
+      display: none;
+    }
+
+    .radio-opt span {
+      padding: 5px 16px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gray-mid);
+      transition: all 0.25s var(--ease);
+      user-select: none;
+    }
+
+    .radio-opt input[type="radio"]:checked+span {
+      background: var(--white);
+      color: var(--primary);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .addons-footer {
+      padding: 16px 24px;
+      border-top: 1px solid rgba(74, 42, 31, 0.06);
+    }
+
+    /* ---------- Order Summary Sidebar ---------- */
+    .summary-col {
+      position: sticky;
+      top: 100px;
+    }
+
+    .summary-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--sh);
+      border: 1px solid rgba(209, 39, 100, 0.06);
+      overflow: hidden;
+    }
+
+    .summary-head {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 18px 24px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-head svg {
+      width: 16px;
+      height: 16px;
+      opacity: 0.7;
+    }
+
+    .summary-body {
+      padding: 20px 24px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(74, 42, 31, 0.07);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .summary-row span:last-child {
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .summary-row.total-row {
+      padding-top: 16px;
+      margin-top: 4px;
+      border-top: 2px solid rgba(74, 42, 31, 0.1);
+      border-bottom: none;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+
+    .summary-row.total-row span:last-child {
+      color: var(--primary);
+      font-size: 1.35rem;
+    }
+
+    .summary-footer {
+      padding: 0 24px 24px;
+    }
+
+    .btn-checkout {
+      width: 100%;
+      padding: 15px 24px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px -6px rgba(209, 39, 100, 0.4);
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .btn-checkout:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px -8px rgba(209, 39, 100, 0.5);
+    }
+
+    .btn-checkout svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .btn-checkout:disabled {
+      background: var(--gray-mid);
+      box-shadow: none;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-guest {
+      width: 100%;
+      padding: 12px 24px;
+      border: 2px solid rgba(209, 39, 100, 0.25);
+      border-radius: 50px;
+      background: transparent;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+    }
+
+    .btn-guest:hover {
+      background: var(--blush);
+      border-color: var(--primary);
+    }
+
+    .summary-secure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--gray-mid);
+      font-weight: 600;
+      margin-top: 14px;
+    }
+
+    .summary-secure svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* Payment Icons */
+    .payment-icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .pay-icon {
+      height: 22px;
+      padding: 3px 10px;
+      background: var(--gray-soft);
+      border-radius: 5px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--gray-mid);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Promo Code */
+    .promo-wrap {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      margin-bottom: 4px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed rgba(74, 42, 31, 0.1);
+    }
+
+    .promo-input {
+      flex: 1;
+      padding: 10px 14px;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      border: 1.5px solid rgba(74, 42, 31, 0.15);
+      border-radius: var(--r-sm);
+      outline: none;
+      color: var(--charcoal);
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+
+    .promo-input:focus {
+      border-color: var(--primary);
+    }
+
+    .promo-input::placeholder {
+      color: var(--gray-mid);
+    }
+
+    .btn-promo {
+      padding: 10px 16px;
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: background 0.2s;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-promo:hover {
+      background: var(--secondary-light);
+    }
+
+    /* Empty Cart */
+    .cart-empty-state {
+      text-align: center;
+      padding: 60px 24px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--sh);
+    }
+
+    .cart-empty-state svg {
+      width: 56px;
+      height: 56px;
+      stroke: var(--primary-light);
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    .cart-empty-state h3 {
+      font-size: 1.2rem;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .cart-empty-state p {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+
+    .cart-empty-state .btn-shop {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s var(--ease);
+    }
+
+    .cart-empty-state .btn-shop:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -6px rgba(209, 39, 100, 0.4);
+    }
+
+    /* Add More Section */
+    .add-more {
+      padding: 48px 0 20px;
+    }
+
+    .add-more h2 {
+      font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--charcoal);
+    }
+
+    .tile-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 8px;
+    }
+
+    .tile-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tile {
+      flex: 0 0 auto;
+      width: 180px;
+      height: 180px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--sh);
+      transition: transform 0.4s var(--ease);
+      cursor: pointer;
+    }
+
+    .tile:hover {
+      transform: translateY(-6px);
+    }
+
+    .tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+
+    .tile:hover img {
+      transform: scale(1.08);
+    }
+
+    .tile::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(43, 31, 28, .75) 0%, transparent 55%);
+    }
+
+    .tile span {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      z-index: 2;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 960px) {
+      .cart-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-col {
+        position: relative;
+        top: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cart-card-inner {
+        grid-template-columns: 80px 1fr;
+      }
+
+      .cart-card-controls {
+        flex-direction: row;
+        align-items: center;
+        grid-column: 1 / -1;
+        padding: 0 16px 16px;
+      }
+
+      .cart-card-img {
+        min-height: 90px;
+      }
+
+      .cart-page {
+        padding: 24px 0 90px;
+      }
+
+      .c {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="c">
+      <div class="tb-l">
+        <span class="tb-deal">Sale</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          (905) 850-2253
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Pickup Locations
+        </span>
+      </div>
+      <div class="tb-r">
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+          </svg>
+          Chat with a Cake Expert
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="hdr">
+    <div class="c">
+      <div class="hdr-i">
+        <div class="logo dashbord-logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+          <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+        </div>
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="#">About Us</a>
+          <a class="nav-link" href="#">Cakes</a>
+          <a class="nav-link" href="#">Desserts</a>
+          <a class="nav-link" href="#">Quality</a>
+          <a class="nav-link" href="#">Flavour</a>
+          <a class="nav-link" href="#">City</a>
+          <a class="nav-link" href="#">Cakes Finder</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn search" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+          <button class="icon-btn cart" aria-label="Cart" onclick="window.location.href='cart.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-count" id="cartBadge">2</span>
+          </button>
+          <div class="logo mobile-logo" onclick="window.location.href='index.html'">
+            <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+          </div>
+          <button class="burger" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 5h16" />
+              <path d="M4 12h16" />
+              <path d="M4 19h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Banner -->
+  <div class="pi-hero-banner">
+    <div class="c">
+      <nav class="pi-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <a href="cart.html">Cart</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ============ CART SECTION ============ -->
+  <section class="cart-page">
+    <div class="c">
+
+      <!-- Page Header -->
+      <div class="cart-page-header">
+        <h1 class="cart-page-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
+          Your Cart
+          <span class="cart-item-badge" id="itemCount">2</span>
+        </h1>
+        <a href="index.html" class="cart-continue-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5m0 0 7 7m-7-7 7-7" />
+          </svg>
+          Continue Shopping
+        </a>
+      </div>
+
+      <!-- Main Grid -->
+      <div class="cart-grid">
+        <!-- Left: Items + Add-ons -->
+        <div class="cart-items-col">
+
+          <!-- Cart Items -->
+          <div id="cartItemsList">
+            <!-- Item 1 -->
+            <div class="cart-card" data-unit-price="305" data-id="item-1">
+              <div class="cart-card-inner">
+                <img class="cart-card-img"
+                  src="https://images.unsplash.com/photo-1519654793190-2301a7ee76d7?auto=format&fit=crop&w=200&q=80"
+                  alt="Unicorn Birthday Cake" />
+                <div class="cart-card-body">
+                  <div class="cart-card-name">Unicorn 2 Tier Birthday Cake For Kids/Girl</div>
+                  <div class="cart-card-meta">
+                    <span class="cart-meta-pill">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path
+                          d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                      </svg>
+                      2 Tier (6 & 8 inch) Fondant
+                    </span>
+                    <span class="cart-meta-pill">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z" />
+                        <path d="m15 9-6 6m0-6 6 6" />
+                      </svg>
+                      French Vanilla
+                    </span>
+                  </div>
+                </div>
+                <div class="cart-card-controls">
+                  <div>
+                    <span class="cart-card-price" id="price-item-1">$305</span>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+                    <div class="qty-stepper">
+                      <button type="button" class="qty-minus" data-target="qty-item-1">−</button>
+                      <span class="qty-val" id="qty-item-1">1</span>
+                      <button type="button" class="qty-plus" data-target="qty-item-1">+</button>
+                    </div>
+                    <button class="cart-remove-btn" data-remove="item-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6h18" />
+                        <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
+                      </svg>
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="cart-card" data-unit-price="59" data-id="item-2">
+              <div class="cart-card-inner">
+                <img class="cart-card-img"
+                  src="https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=200&q=80"
+                  alt="Buttercream Birthday Cake" />
+                <div class="cart-card-body">
+                  <div class="cart-card-name">Regular Buttercream Birthday Cake For Man/Woman</div>
+                  <div class="cart-card-meta">
+                    <span class="cart-meta-pill">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path
+                          d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                      </svg>
+                      Round 8 inch
+                    </span>
+                    <span class="cart-meta-pill">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z" />
+                        <path d="m15 9-6 6m0-6 6 6" />
+                      </svg>
+                      Chocolate Chocolate
+                    </span>
+                  </div>
+                </div>
+                <div class="cart-card-controls">
+                  <div>
+                    <span class="cart-card-price" id="price-item-2">$59</span>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+                    <div class="qty-stepper">
+                      <button type="button" class="qty-minus" data-target="qty-item-2">−</button>
+                      <span class="qty-val" id="qty-item-2">1</span>
+                      <button type="button" class="qty-plus" data-target="qty-item-2">+</button>
+                    </div>
+                    <button class="cart-remove-btn" data-remove="item-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6h18" />
+                        <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
+                      </svg>
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty State (hidden initially) -->
+          <div class="cart-empty-state" id="cartEmptyState" style="display:none;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+            <h3>Your cart is empty</h3>
+            <p>Looks like you haven't added any cakes yet. Browse our collection and pick your favourite!</p>
+            <a href="index.html" class="btn-shop">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" width="16" height="16">
+                <path d="M19 12H5m0 0 7 7m-7-7 7-7" />
+              </svg>
+              Browse Cakes
+            </a>
+          </div>
+
+          <!-- Add-Ons -->
+          <div class="addons-section">
+            <div class="addons-header">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+              Enhance Your Order — Add-Ons
+            </div>
+            <div class="addons-body">
+              <div class="addon-row">
+                <div class="addon-label">
+                  Add Matching Cupcakes
+                  <span class="addon-price">+$18 per dozen</span>
+                </div>
+                <div class="radio-group">
+                  <label class="radio-opt"><input type="radio" name="addon-cupcake" value="18"><span>Yes</span></label>
+                  <label class="radio-opt"><input type="radio" name="addon-cupcake" value="0"
+                      checked><span>No</span></label>
+                </div>
+              </div>
+              <div class="addon-row">
+                <div class="addon-label">
+                  Add Birthday Candles
+                  <span class="addon-price">+$5</span>
+                </div>
+                <div class="radio-group">
+                  <label class="radio-opt"><input type="radio" name="addon-candles" value="5"
+                      checked><span>Yes</span></label>
+                  <label class="radio-opt"><input type="radio" name="addon-candles" value="0"><span>No</span></label>
+                </div>
+              </div>
+              <div class="addon-row">
+                <div class="addon-label">
+                  Add Number Candles
+                  <span class="addon-price">+$8</span>
+                </div>
+                <div class="radio-group">
+                  <label class="radio-opt"><input type="radio" name="addon-numcandles"
+                      value="8"><span>Yes</span></label>
+                  <label class="radio-opt"><input type="radio" name="addon-numcandles" value="0"
+                      checked><span>No</span></label>
+                </div>
+              </div>
+              <div class="addon-row">
+                <div class="addon-label">
+                  Add Greeting Card
+                  <span class="addon-price">+$6</span>
+                </div>
+                <div class="radio-group">
+                  <label class="radio-opt"><input type="radio" name="addon-card" value="6"
+                      checked><span>Yes</span></label>
+                  <label class="radio-opt"><input type="radio" name="addon-card" value="0"><span>No</span></label>
+                </div>
+              </div>
+              <div class="addon-row">
+                <div class="addon-label">
+                  Acrylic Cake Topper
+                  <span class="addon-price">+$25</span>
+                </div>
+                <div class="radio-group">
+                  <label class="radio-opt"><input type="radio" name="addon-topper" value="25"><span>Yes</span></label>
+                  <label class="radio-opt"><input type="radio" name="addon-topper" value="0"
+                      checked><span>No</span></label>
+                </div>
+              </div>
+              <div class="addon-row">
+                <div class="addon-label">
+                  Acrylic Number Topper
+                  <span class="addon-price">+$15</span>
+                </div>
+                <div class="radio-group">
+                  <label class="radio-opt"><input type="radio" name="addon-numtopper"
+                      value="15"><span>Yes</span></label>
+                  <label class="radio-opt"><input type="radio" name="addon-numtopper" value="0"
+                      checked><span>No</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="addons-footer">
+              <button class="btn-submit" id="applyAddonsBtn"
+                style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border:none;border-radius:50px;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));color:#fff;font-weight:700;font-size:0.88rem;cursor:pointer;transition:all 0.3s var(--ease);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" width="15" height="15">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Apply Add-Ons
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Order Summary -->
+        <div class="summary-col">
+          <div class="summary-card">
+            <div class="summary-head">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+              Order Summary
+            </div>
+            <div class="summary-body">
+              <!-- Promo Code -->
+              <div class="promo-wrap">
+                <input type="text" class="promo-input" id="promoInput" placeholder="Promo / Gift code" />
+                <button class="btn-promo" onclick="applyPromo()">Apply</button>
+              </div>
+              <div id="promoMsg" style="font-size:0.78rem;font-weight:700;margin-bottom:8px;display:none;"></div>
+
+              <div class="summary-row">
+                <span>Items (<span id="summaryItemCount">2</span>)</span>
+                <span id="summarySubtotal">$364</span>
+              </div>
+              <div class="summary-row">
+                <span>Add-Ons</span>
+                <span id="summaryAddons">$11</span>
+              </div>
+              <div class="summary-row" id="promoRow" style="display:none;">
+                <span>Promo Discount</span>
+                <span id="promoDiscount" style="color:var(--green);">-$0</span>
+              </div>
+              <div class="summary-row">
+                <span>Taxes (13% HST)</span>
+                <span id="summaryTax">$48.75</span>
+              </div>
+              <div class="summary-row total-row">
+                <span>Total</span>
+                <span id="summaryTotal">$423.75</span>
+              </div>
+            </div>
+            <div class="summary-footer">
+              <button class="btn-checkout" id="checkoutBtn" onclick="window.location.href='checkout.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14m-7-7 7 7-7 7" />
+                </svg>
+                Proceed to Checkout
+              </button>
+              <button class="btn-guest" onclick="window.location.href='guest.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                  <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 00-3-3.87" />
+                  <path d="M16 3.13a4 4 0 010 7.75" />
+                </svg>
+                Checkout as Guest
+              </button>
+              <div class="summary-secure">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Secure 256-bit SSL Encrypted Checkout
+              </div>
+              <div class="payment-icons">
+                <span class="pay-icon">VISA</span>
+                <span class="pay-icon">MC</span>
+                <span class="pay-icon">AMEX</span>
+                <span class="pay-icon">PayPal</span>
+                <span class="pay-icon">Apple Pay</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add More Items -->
+  <section class="add-more">
+    <div class="c">
+      <h2>You May Also Want</h2>
+      <div class="tile-track">
+        <a class="tile" href="#"><img
+            src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=300&q=75"
+            alt="Cupcakes"><span>Cupcakes</span></a>
+        <a class="tile" href="#"><img
+            src="https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=300&q=75"
+            alt="Cake Pops"><span>Cake Pops</span></a>
+        <a class="tile" href="#"><img
+            src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=300&q=75"
+            alt="Cookies"><span>Cookies</span></a>
+        <a class="tile" href="#"><img
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=300&q=75"
+            alt="Cheesecake"><span>Cheesecake</span></a>
+        <a class="tile" href="#"><img
+            src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=300&q=75"
+            alt="Wedding"><span>Wedding</span></a>
+        <a class="tile" href="#"><img
+            src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=300&q=75"
+            alt="Specialty"><span>Specialty</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="ftr">
+    <div class="c">
+      <div class="ftr-g">
+        <div>
+          <div class="ftr-logo">
+            <img src="image/iCakes.png" alt="logo" />
+          </div>
+          <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+          <div style="margin-top: 20px">
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              (905) 850-2253
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-mail-icon lucide-mail">
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+              </svg>
+              info@icakes.ca
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-map-pin-icon lucide-map-pin">
+                <path
+                  d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5
+            </div>
+            <button class="btn-p">All Locations</button>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Shop</h4>
+          <div class="ftr-links">
+            <a href="#">All Cakes</a>
+            <a href="#">Wedding Cakes</a>
+            <a href="#">Birthday Cakes</a>
+            <a href="#">Kids Cakes</a>
+            <a href="#">Corporate Cakes</a>
+            <a href="#">Desserts</a>
+            <a href="#">Cupcakes</a>
+            <a href="#">Cake Pops</a>
+            <a href="#">Cake Finder</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Company</h4>
+          <div class="ftr-links">
+            <a href="#">About Us</a>
+            <a href="#">Quality</a>
+            <a href="#">Flavours</a>
+            <a href="#">Locations</a>
+            <a href="#">Blog</a>
+            <a href="#">Wholesale</a>
+            <a href="#">Partnership</a>
+            <a href="#">Contact</a>
+            <a href="#">FAQs</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Legal</h4>
+          <div class="ftr-links">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Return Policy</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+          <h4 style="margin-top: 28px">Hours</h4>
+          <div class="ftr-links">
+            <a href="#">Tue – Sat: 10AM – 6PM</a>
+            <a href="#">Sunday: 10AM – 1PM</a>
+            <a href="#">Sunday: Closed</a>
+          </div>
+        </div>
+      </div>
+      <div class="ftr-bot">
+        <p>
+          © 2026 iCakes.ca · Irresistible Cakes Since 1962 · All rights
+          reserved.
+        </p>
+        <div class="ftr-bot-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-house-icon lucide-house">
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path
+          d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      </svg>
+      <span>Home</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-list-icon lucide-list">
+        <path d="M3 5h.01" />
+        <path d="M3 12h.01" />
+        <path d="M3 19h.01" />
+        <path d="M8 5h13" />
+        <path d="M8 12h13" />
+        <path d="M8 19h13" />
+      </svg>
+      <span>Products</span>
+    </div>
+    <div class="bottom-bat-button cart">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-shopping-bag-icon lucide-shopping-bag">
+        <path d="M16 10a4 4 0 0 1-8 0" />
+        <path d="M3.103 6.034h17.794" />
+        <path
+          d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+      </svg>
+      <span class="cart-count">3</span>
+      <span>Cart</span>
+    </div>
+    <div class="bottom-bat-button" onclick="window.location.href='login.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-log-in-icon lucide-log-in">
+        <path d="m10 17 5-5-5-5" />
+        <path d="M15 12H3" />
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+      </svg>
+      <span>Login</span>
+    </div>
+    <div class="bottom-bat-button" onclick="window.location.href='signup.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-user-key-icon lucide-user-key">
+        <path d="M20 11v6" />
+        <path d="M20 13h2" />
+        <path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578" />
+        <circle cx="10" cy="7" r="4" />
+        <circle cx="20" cy="19" r="2" />
+      </svg>
+      <span>Signup</span>
+    </div>
+  </div>
+
+  <button class="bktop" id="bktop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="lucide lucide-arrow-up-icon lucide-arrow-up">
+      <path d="m5 12 7-7 7 7" />
+      <path d="M12 19V5" />
+    </svg>
+  </button>
+
+   <!-- 2. LIVE MOCKUP CANVAS ENGINE -->
+          <div class="pd-mockup-engine-box">
+            <div class="engine-header">
+              <span class="sec-lbl">Interactive Customization</span>
+              <h3>Live Canvas Preview</h3>
+              <p>Selected product cake preview with border color &amp; custom photo</p>
+            </div>
+
+            <!-- Shape Toggle Bar -->
+            <div class="shape-toggle-bar">
+              <button type="button" class="shape-btn active" data-shape="heart">Heart Shape</button>
+              <button type="button" class="shape-btn" data-shape="round">Round Shape</button>
+            </div>
+
+            <!-- LIVE CANVAS CONTAINER (300px x 300px) -->
+            <div class="pd-canvas-container" id="liveCanvas">
+              <!-- LAYER 1: BASE CAKE IMAGE FROM SELECTED PRODUCT SLIDER -->
+              <img id="layerCakeBase" class="canvas-layer-photo"
+                src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="Selected Cake Design"
+                style="clip-path: path('M 150 260 C 15 170, 15 65, 95 40 C 130 27, 150 60, 150 60 C 150 60, 170 27, 205 40 C 285 65, 285 170, 150 260 Z');" />
+
+              <!-- LAYER 2: CUSTOMER UPLOADED PHOTO OVERLAY -->
+              <img id="layerPhoto" class="canvas-layer-photo" src="" alt="Uploaded Photo"
+                style="clip-path: path('M 150 260 C 15 170, 15 65, 95 40 C 130 27, 150 60, 150 60 C 150 60, 170 27, 205 40 C 285 65, 285 170, 150 260 Z'); display:none; opacity:0.9;" />
+
+              <!-- LAYER 3: COLOR TRIM & BORDER MASK SVG -->
+              <svg id="layerBorder" class="canvas-layer-border" viewBox="0 0 300 300"
+                xmlns="http://www.w3.org/2000/svg">
+                <path id="heartBorderPath"
+                  d="M 150 265 C 10 175, 10 70, 90 45 C 125 32, 150 65, 150 65 C 150 65, 175 32, 210 45 C 290 70, 290 175, 150 265 Z"
+                  fill="none" stroke="#FF1493" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+
+              <!-- LAYER 4: OUTER FRAME MASK SVG -->
+              <svg id="layerFrame" class="canvas-layer-frame" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <mask id="cakeFrameCutout">
+                    <rect width="300" height="300" fill="white" />
+                    <path id="frameCutoutPath"
+                      d="M 150 265 C 10 175, 10 70, 90 45 C 125 32, 150 65, 150 65 C 150 65, 175 32, 210 45 C 290 70, 290 175, 150 265 Z"
+                      fill="black" />
+                  </mask>
+                </defs>
+                <rect width="300" height="300" fill="#fdfbf7" mask="url(#cakeFrameCutout)" />
+              </svg>
+
+              <!-- LAYER 5: LIVE PIPING TEXT OVERLAY -->
+              <div id="layerPiping" class="canvas-layer-piping">Happy Birthday!</div>
+            </div>
+
+            <!-- BUILDER CONTROLS BOX -->
+            <div class="pd-builder-box">
+              <!-- 01. UPLOAD PHOTO FILE -->
+              <div>
+                <div class="pd-step-lbl"><span class="num">1</span> Upload Image (Overlay on Selected Cake)</div>
+                <div class="pd-file-btn-wrap">
+                  <input type="file" id="photoUpload" class="pd-file-input" accept="image/*" />
+                  <label for="photoUpload" class="pd-file-btn">
+                    <div class="pd-file-btn-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                      </svg>
+                    </div>
+                    <div class="pd-file-btn-text">
+                      <span class="pd-file-btn-title">Click or Drag &amp; Drop Photo</span>
+                      <span class="pd-file-btn-sub">Supports JPG, PNG, WEBP (Max 10MB)</span>
+                    </div>
+                  </label>
+                  <div id="fileNameBadge" class="file-preview-name"></div>
+                  <button type="button" id="btnRemovePhoto" class="pd-remove-photo-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    Remove Uploaded Image
+                  </button>
+                </div>
+              </div>
+
+              <!-- 02. BORDER COLOR -->
+              <div>
+                <div class="pd-step-lbl">
+                  <span class="num">2</span> Cake Border Color:
+                  <strong id="selectedBorderLabel" style="margin-left:4px;color:var(--primary);">Deep Pink</strong>
+                </div>
+                <div class="pd-swatches">
+                  <button type="button" class="swatch-btn" style="background:#000080;" data-hex="#000080"
+                    data-colorname="Navy Blue" title="Navy Blue"></button>
+                  <button type="button" class="swatch-btn" style="background:#4169E1;" data-hex="#4169E1"
+                    data-colorname="Royal Blue" title="Royal Blue"></button>
+                  <button type="button" class="swatch-btn" style="background:#FFB6C1;" data-hex="#FFB6C1"
+                    data-colorname="Light Pink" title="Light Pink"></button>
+                  <button type="button" class="swatch-btn active" style="background:#FF1493;" data-hex="#FF1493"
+                    data-colorname="Deep Pink" title="Deep Pink"></button>
+                  <button type="button" class="swatch-btn" style="background:#800080;" data-hex="#800080"
+                    data-colorname="Purple" title="Purple"></button>
+                  <button type="button" class="swatch-btn" style="background:#C8A2C8;" data-hex="#C8A2C8"
+                    data-colorname="Lilac" title="Lilac"></button>
+                  <button type="button" class="swatch-btn" style="background:#FF0000;" data-hex="#FF0000"
+                    data-colorname="Red" title="Red"></button>
+                  <button type="button" class="swatch-btn" style="background:#FF8C00;" data-hex="#FF8C00"
+                    data-colorname="Dark Orange" title="Dark Orange"></button>
+                  <button type="button" class="swatch-btn" style="background:#2E8B57;" data-hex="#2E8B57"
+                    data-colorname="Sea Green" title="Sea Green"></button>
+                  <button type="button" class="swatch-btn" style="background:#FFD700;" data-hex="#FFD700"
+                    data-colorname="Gold" title="Gold"></button>
+                  <button type="button" class="swatch-btn" style="background:#1A1A1A;" data-hex="#1A1A1A"
+                    data-colorname="Black" title="Black"></button>
+                </div>
+              </div>
+
+              <!-- 03. WRITING MESSAGE & COLOR -->
+              <div>
+                <div class="pd-step-lbl"><span class="num">3</span> Writing Message &amp; Color</div>
+                <input type="text" id="pipingMessage" class="pd-piping-input" placeholder="e.g. Happy Birthday Sarah!"
+                  maxlength="35" value="Happy Birthday!" />
+                <div style="margin-top:10px;display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:0.78rem;font-weight:600;color:var(--gray-txt);">Text Color:</span>
+                  <div style="display:flex;gap:6px;">
+                    <button type="button" class="swatch-btn piping-color-btn active"
+                      style="background:#ffffff;width:24px;height:24px;" data-hex="#ffffff" title="White"></button>
+                    <button type="button" class="swatch-btn piping-color-btn"
+                      style="background:#4169e1;width:24px;height:24px;" data-hex="#4169e1" title="Blue"></button>
+                    <button type="button" class="swatch-btn piping-color-btn"
+                      style="background:#ff0000;width:24px;height:24px;" data-hex="#ff0000" title="Red"></button>
+                    <button type="button" class="swatch-btn piping-color-btn"
+                      style="background:#1a1a1a;width:24px;height:24px;" data-hex="#1a1a1a" title="Black"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    // ---- Data ----
+    const items = {
+      'item-1': { unitPrice: 305, qty: 1 },
+      'item-2': { unitPrice: 59, qty: 1 },
+    };
+    let promoDiscount = 0;
+    const TAX_RATE = 0.13;
+
+    // ---- Helpers ----
+    const money = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+    function calcAddonTotal() {
+      let total = 0;
+      document.querySelectorAll('.radio-group input[type=radio]:checked').forEach(r => {
+        total += parseFloat(r.value) || 0;
+      });
+      return total;
+    }
+
+    function recalc() {
+      let subtotal = 0;
+      let count = 0;
+      document.querySelectorAll('#cartItemsList .cart-card').forEach(card => {
+        const id = card.dataset.id;
+        const unit = parseFloat(card.dataset.unitPrice);
+        const qty = parseInt(document.getElementById('qty-' + id)?.textContent || 1);
+        const lineTotal = unit * qty;
+        subtotal += lineTotal;
+        count++;
+        const priceEl = document.getElementById('price-' + id);
+        if (priceEl) priceEl.textContent = money(lineTotal);
+      });
+      const addons = calcAddonTotal();
+      const discounted = Math.max(0, subtotal + addons - promoDiscount);
+      const tax = discounted * TAX_RATE;
+      const grand = discounted + tax;
+
+      document.getElementById('summarySubtotal').textContent = money(subtotal);
+      document.getElementById('summaryAddons').textContent = money(addons);
+      document.getElementById('summaryTax').textContent = money(tax);
+      document.getElementById('summaryTotal').textContent = money(grand);
+      document.getElementById('summaryItemCount').textContent = count;
+      document.getElementById('itemCount').textContent = count;
+      document.getElementById('cartBadge').textContent = count;
+
+      const hasItems = count > 0;
+      document.getElementById('checkoutBtn').disabled = !hasItems;
+      document.getElementById('cartEmptyState').style.display = hasItems ? 'none' : 'block';
+      document.querySelector('.addons-section').style.display = hasItems ? '' : 'none';
+    }
+
+    // ---- Qty Steppers ----
+    document.querySelectorAll('.qty-plus').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const spanId = btn.dataset.target;
+        const span = document.getElementById(spanId);
+        span.textContent = parseInt(span.textContent) + 1;
+        recalc();
+      });
+    });
+    document.querySelectorAll('.qty-minus').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const spanId = btn.dataset.target;
+        const span = document.getElementById(spanId);
+        const val = parseInt(span.textContent);
+        if (val > 1) { span.textContent = val - 1; recalc(); }
+      });
+    });
+
+    // ---- Remove ----
+    document.querySelectorAll('.cart-remove-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.remove;
+        const card = document.querySelector(`[data-id="${id}"]`);
+        if (card) {
+          card.style.transition = 'opacity 0.3s, transform 0.3s';
+          card.style.opacity = '0';
+          card.style.transform = 'translateX(30px)';
+          setTimeout(() => { card.remove(); recalc(); }, 300);
+        }
+      });
+    });
+
+    // ---- Add-ons radio live update ----
+    document.querySelectorAll('.radio-group input[type=radio]').forEach(r => {
+      r.addEventListener('change', recalc);
+    });
+
+    // ---- Apply Addons button ----
+    document.getElementById('applyAddonsBtn').addEventListener('click', () => {
+      recalc();
+      document.getElementById('applyAddonsBtn').textContent = '✓ Applied!';
+      setTimeout(() => { document.getElementById('applyAddonsBtn').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Apply Add-Ons`; }, 1500);
+    });
+
+    // ---- Promo Code ----
+    function applyPromo() {
+      const code = document.getElementById('promoInput').value.trim().toUpperCase();
+      const msgEl = document.getElementById('promoMsg');
+      const promoRow = document.getElementById('promoRow');
+      const codes = { 'CAKE10': 10, 'SWEET20': 20, 'ICAKES15': 15 };
+      if (codes[code]) {
+        promoDiscount = codes[code];
+        msgEl.textContent = `✓ Promo applied! You save $${promoDiscount}.`;
+        msgEl.style.color = 'var(--green)';
+        promoRow.style.display = 'flex';
+        document.getElementById('promoDiscount').textContent = `-$${promoDiscount.toFixed(2)}`;
+      } else {
+        promoDiscount = 0;
+        msgEl.textContent = '✗ Invalid promo code. Try CAKE10, SWEET20, or ICAKES15.';
+        msgEl.style.color = 'var(--primary)';
+        promoRow.style.display = 'none';
+      }
+      msgEl.style.display = 'block';
+      recalc();
+    }
+    document.getElementById('promoInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') applyPromo();
+    });
+
+    // ---- Init ----
+    recalc();
+  </script>
+</body>
+
+</html>

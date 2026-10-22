@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout — Irresistible Cakes</title>
+  <meta name="description"
+    content="Complete your custom cake order at iCakes. Secure checkout with multiple payment options." />
+
+  <!-- common css -->
+  <link rel="stylesheet" href="style/Root.css" />
+  <link rel="stylesheet" href="style/Header.css" />
+  <link rel="stylesheet" href="style/productInner.css" />
+  <link rel="stylesheet" href="style/newstyle.css" />
+  <link rel="stylesheet" href="style/auth.css" />
+
+  <style>
+    /* ============================================
+         CHECKOUT PAGE — PREMIUM DESIGN
+         Uses Root.css CSS variables throughout.
+      ============================================ */
+        
+    /* ---------- Info Box Component ---------- */
+    .info-box {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 20px 22px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--blush) 100%);
+      border: 1px solid rgba(209, 39, 100, 0.15);
+      border-left: 5px solid var(--primary);
+      border-radius: var(--radius-md);
+      margin: 20px 0;
+      box-shadow: 0 8px 24px rgba(209, 39, 100, 0.06);
+    }
+
+    .info-box-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .info-box-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(209, 39, 100, 0.12);
+    }
+
+    .info-box-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--choco);
+      letter-spacing: -0.2px;
+    }
+
+    .info-box-body {
+      font-size: 0.85rem;
+      color: var(--gray-txt);
+      line-height: 1.55;
+    }
+
+    .info-box-subtitle {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .info-box-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .info-box-list li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 0.84rem;
+      color: var(--gray-txt);
+      line-height: 1.5;
+    }
+
+    .info-box-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--primary);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .info-box-footer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(209, 39, 100, 0.06);
+      border: 1px solid rgba(209, 39, 100, 0.12);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .info-box-footer svg {
+      flex-shrink: 0;
+      color: var(--primary);
+    }
+
+    /* ---------- T&C Checkbox & Side Drawer ---------- */
+    .tc-agreement-row {
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: var(--cream);
+      border: 1px solid rgba(209, 39, 100, 0.15);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .tc-agreement-row:hover {
+      background: var(--blush);
+      border-color: var(--primary);
+    }
+
+    .tc-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .tc-checkbox-label input[type="checkbox"] {
+      display: none;
+    }
+
+    .tc-custom-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--primary-light);
+      border-radius: 5px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s var(--ease);
+    }
+
+    .tc-checkbox-label input[type="checkbox"]:checked + .tc-custom-box {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .tc-custom-box::after {
+      content: '';
+      width: 5px;
+      height: 9px;
+      border: solid var(--white);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      margin-bottom: 2px;
+    }
+
+    .tc-checkbox-label input[type="checkbox"]:checked + .tc-custom-box::after {
+      opacity: 1;
+    }
+
+    .tc-label-text {
+      font-size: 0.88rem;
+      color: var(--gray-txt);
+      line-height: 1.4;
+    }
+
+    .tc-link {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .tc-link:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Side Drawer Overlay */
+    .tc-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 27, 46, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+    }
+
+    .tc-drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Side Drawer Panel */
+    .tc-drawer-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 480px;
+      max-width: 90vw;
+      height: 100vh;
+      background: var(--white);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.18);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 0.84, 0.44, 1);
+      z-index: 10000;
+    }
+
+    .tc-drawer-overlay.active .tc-drawer-panel {
+      transform: translateX(0);
+    }
+
+    .tc-drawer-header {
+      padding: 22px 24px;
+      border-bottom: 1px solid rgba(41, 44, 129, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--cream);
+    }
+
+    .tc-drawer-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+    }
+
+    .tc-drawer-title-wrap h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--choco);
+      margin: 0;
+    }
+
+    .tc-drawer-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(41, 44, 129, 0.06);
+      color: var(--choco);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .tc-drawer-close:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .tc-drawer-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .tc-sec {
+      background: var(--cream);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--primary);
+    }
+
+    .tc-sec h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .tc-sec p {
+      font-size: 0.84rem;
+      color: var(--gray-txt);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .tc-drawer-footer {
+      padding: 18px 24px;
+      border-top: 1px solid rgba(41, 44, 129, 0.08);
+      background: var(--white);
+    }
+
+    .tc-accept-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    /* ---------- Steps Progress Bar ---------- */
+    .checkout-progress {
+      background: var(--white);
+      border-bottom: 1px solid rgba(74, 42, 31, 0.06);
+      padding: 0;
+    }
+
+    .checkout-progress .c {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .step-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 24px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-mid);
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s var(--ease);
+      cursor: default;
+      position: relative;
+    }
+
+    .step-item::after {
+      content: '›';
+      position: absolute;
+      right: 0;
+      font-size: 1.4rem;
+      color: rgba(74, 42, 31, 0.15);
+    }
+
+    .step-item:last-child::after {
+      display: none;
+    }
+
+    .step-item.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      font-weight: 800;
+    }
+
+    .step-item.done {
+      color: var(--green);
+      border-bottom-color: var(--green);
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: rgba(74, 42, 31, 0.08);
+      color: var(--gray-mid);
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+
+    .step-item.active .step-num {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .step-item.done .step-num {
+      background: var(--green);
+      color: #fff;
+    }
+
+    /* ---------- Main Checkout Layout ---------- */
+    .checkout-page {
+      padding: 36px 0 100px;
+    }
+
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ---------- Section Blocks ---------- */
+    .co-block {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--sh);
+      border: 1px solid rgba(209, 39, 100, 0.05);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .co-block-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(74, 42, 31, 0.07);
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .co-block-head svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--primary);
+    }
+
+    .co-block-head .step-badge {
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .co-block-body {
+      padding: 24px;
+    }
+
+    /* ---------- Form Fields ---------- */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-row.full {
+      grid-template-columns: 1fr;
+    }
+
+    .form-row.three {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .form-label span.req {
+      color: var(--primary);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--charcoal);
+      background: var(--white);
+      border: 1.5px solid rgba(74, 42, 31, 0.15);
+      border-radius: var(--r-sm);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+
+    .form-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--gold-pale);
+      background: var(--cream);
+    }
+
+    .form-input::placeholder {
+      color: var(--gray-mid);
+    }
+
+    .form-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888899' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 16px;
+      padding-right: 40px;
+    }
+
+    .form-input-hint {
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      margin-top: -2px;
+    }
+
+    /* ---------- Pickup / Delivery Toggle ---------- */
+    .delivery-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .delivery-tab {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 18px 16px;
+      border: 2px solid rgba(74, 42, 31, 0.12);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      text-align: center;
+    }
+
+    .delivery-tab input[type="radio"] {
+      display: none;
+    }
+
+    .delivery-tab .tab-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gray-soft);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .delivery-tab .tab-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--gray-mid);
+    }
+
+    .delivery-tab .tab-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+
+    .delivery-tab .tab-sub {
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    .delivery-tab:has(input:checked) {
+      border-color: var(--primary);
+      background: var(--gold-pale);
+    }
+
+    .delivery-tab:has(input:checked) .tab-icon {
+      background: var(--primary);
+    }
+
+    .delivery-tab:has(input:checked) .tab-icon svg {
+      stroke: #fff;
+    }
+
+    /* ---------- Payment Methods ---------- */
+    .payment-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pay-method {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      border: 2px solid rgba(74, 42, 31, 0.12);
+      border-radius: var(--r);
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+
+    .pay-method input[type="radio"] {
+      display: none;
+    }
+
+    .pay-method:has(input:checked) {
+      border-color: var(--primary);
+      background: var(--gold-pale);
+    }
+
+    .pay-method-icon {
+      width: 46px;
+      height: 30px;
+      background: var(--gray-soft);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 900;
+      color: var(--gray-mid);
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+
+    .pay-method-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .pay-method-sub {
+      font-size: 0.76rem;
+      color: var(--ink-soft);
+    }
+
+    /* Card Number Input Special Styling */
+    .card-fields {
+      display: none;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(74, 42, 31, 0.1);
+    }
+
+    .card-fields.visible {
+      display: block;
+    }
+
+    .card-input-wrap {
+      position: relative;
+    }
+
+    .card-input-wrap .card-brand {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--gray-mid);
+      background: var(--gray-soft);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .card-input-wrap .form-input {
+      padding-right: 80px;
+    }
+
+    /* ---------- Order Summary Sidebar ---------- */
+    .co-summary {
+      position: sticky;
+      top: 100px;
+    }
+
+    .co-summary-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--sh);
+      border: 1px solid rgba(209, 39, 100, 0.05);
+      overflow: hidden;
+    }
+
+    .co-summary-head {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #3d2e4a 100%);
+      color: #fff;
+      padding: 18px 24px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .co-summary-items {
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(74, 42, 31, 0.07);
+    }
+
+    .co-summary-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(74, 42, 31, 0.07);
+    }
+
+    .co-summary-item:last-child {
+      border-bottom: none;
+    }
+
+    .co-si-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .co-si-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .co-si-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.3;
+    }
+
+    .co-si-meta {
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      margin-top: 2px;
+    }
+
+    .co-si-price {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .co-si-qty {
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.68rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .co-summary-totals {
+      padding: 16px 24px;
+    }
+
+    .co-tot-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      border-bottom: 1px solid rgba(74, 42, 31, 0.06);
+    }
+
+    .co-tot-row:last-child {
+      border-bottom: none;
+    }
+
+    .co-tot-row.grand {
+      font-size: 1rem;
+      font-weight: 800;
+      padding-top: 12px;
+      border-top: 2px solid rgba(74, 42, 31, 0.1);
+    }
+
+    .co-tot-row.grand span:last-child {
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+
+    .co-summary-cta {
+      padding: 0 24px 24px;
+    }
+
+    .btn-place-order {
+      width: 100%;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 8px 28px -6px rgba(209, 39, 100, 0.45);
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .btn-place-order:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px -8px rgba(209, 39, 100, 0.55);
+    }
+
+    .btn-place-order svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .co-secure-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 14px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      color: var(--gray-mid);
+    }
+
+    .co-secure-note svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* ---------- Order Confirmation Modal ---------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 20, 40, 0.55);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 30px 80px -20px rgba(30, 20, 40, 0.35);
+      animation: popIn 0.4s var(--ease);
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.85) translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .modal-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .modal-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: #2e7d32;
+    }
+
+    .modal-box h2 {
+      font-size: 1.6rem;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+
+    .modal-box p {
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .modal-order-no {
+      background: var(--gray-soft);
+      border-radius: var(--r-sm);
+      padding: 12px 20px;
+      margin: 20px 0;
+      font-size: 0.88rem;
+      color: var(--charcoal);
+      font-weight: 700;
+    }
+
+    .modal-order-no span {
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .btn-modal-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+
+    .btn-modal-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -6px rgba(41, 44, 129, 0.35);
+    }
+    
+    .coupon-code {
+      display: flex;
+      margin: 10px;
+      border-radius:20px;
+      gap:10px;
+    }
+    /* ---------- Responsive ---------- */
+    @media (max-width: 960px) {
+      .checkout-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .co-summary {
+        position: relative;
+        top: 0;
+      }
+
+      .form-row.three {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .checkout-progress {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .checkout-progress::-webkit-scrollbar {
+        display: none;
+      }
+
+      .checkout-progress .c {
+        display: flex;
+        align-items: stretch;
+        width: max-content;
+        min-width: 100%;
+      }
+
+      .step-item {
+        flex: 0 0 auto;
+        padding: 14px 18px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row.three {
+        grid-template-columns: 1fr;
+      }
+
+      .delivery-tabs {
+        flex-direction: column;
+      }
+
+      .checkout-page {
+        padding: 20px 0 90px;
+      }
+
+      .co-block-body {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="c">
+      <div class="tb-l">
+        <span class="tb-deal">Sale</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          (905) 850-2253
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Pickup Locations
+        </span>
+      </div>
+      <div class="tb-r">
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+          </svg>
+          Chat with a Cake Expert
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="hdr">
+    <div class="c">
+      <div class="hdr-i">
+        <div class="logo dashbord-logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+          <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+        </div>
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="#">About Us</a>
+          <a class="nav-link" href="#">Cakes</a>
+          <a class="nav-link" href="#">Desserts</a>
+          <a class="nav-link" href="#">Quality</a>
+          <a class="nav-link" href="#">Flavour</a>
+          <a class="nav-link" href="#">City</a>
+          <a class="nav-link" href="#">Cakes Finder</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn search" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+          <button class="icon-btn cart" aria-label="Cart" onclick="window.location.href='cart.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-count">2</span>
+          </button>
+          <div class="logo mobile-logo" onclick="window.location.href='index.html'">
+            <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+          </div>
+          <button class="burger" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 5h16" />
+              <path d="M4 12h16" />
+              <path d="M4 19h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="pi-hero-banner">
+    <div class="c">
+      <nav class="pi-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <a href="cart.html">Cart</a>
+        <span class="sep">›</span>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ========== Checkout Progress Bar ========== -->
+  <div class="checkout-progress">
+    <div class="c">
+      <div class="step-item done">
+        <span class="step-num">✓</span> Cart
+      </div>
+      <div class="step-item active">
+        <span class="step-num">2</span> Checkout Details
+      </div>
+      <div class="step-item">
+        <span class="step-num">3</span> Payment
+      </div>
+      <div class="step-item">
+        <span class="step-num">4</span> Confirmation
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== Main Checkout ========== -->
+  <section class="checkout-page">
+    <div class="c">
+      <div class="checkout-grid">
+        <!-- ===== Left Column ===== -->
+        <div class="checkout-left">
+
+          <!-- BLOCK 1: Contact Info -->
+          <div class="co-block">
+            <div class="co-block-head">
+              <span class="step-badge">1</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              Contact Information
+            </div>
+            <div class="co-block-body">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="firstName">First Name <span class="req">*</span></label>
+                  <input type="text" id="firstName" class="form-input" placeholder="John" required
+                    autocomplete="given-name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="lastName">Last Name <span class="req">*</span></label>
+                  <input type="text" id="lastName" class="form-input" placeholder="Doe" required
+                    autocomplete="family-name" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address <span class="req">*</span></label>
+                  <input type="email" id="email" class="form-input" placeholder="john@example.com" required
+                    autocomplete="email" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="phone">Mobile Number <span class="req">*</span></label>
+                  <input type="tel" id="phone" class="form-input" placeholder="(905) 555-0199" required
+                    autocomplete="tel" oninput="formatPhone(this)" />
+                </div>
+              </div>
+              <div class="form-row full">
+                <div class="form-group">
+                  <label class="form-label" for="orderNotes">Special Instructions / Cake Message</label>
+                  <textarea id="orderNotes" class="form-input" rows="3"
+                    placeholder="e.g. 'Happy Birthday Sarah!' — write text you'd like on the cake, or any delivery notes..."
+                    style="resize:vertical;"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BLOCK 2: Pickup / Delivery -->
+          <div class="co-block">
+            <div class="co-block-head">
+              <span class="step-badge">2</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Pickup / Delivery
+            </div>
+            <div class="co-block-body">
+              <!-- Toggle -->
+              <div class="delivery-tabs">
+                <label class="delivery-tab">
+                  <input type="radio" name="delivery_type" value="pickup" checked onchange="toggleDelivery('pickup')" />
+                  <div class="tab-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                      <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                  </div>
+                  <div class="tab-title">In-Store Pickup</div>
+                  <div class="tab-sub">Free · Ready in 24–48 hrs</div>
+                </label>
+                <label class="delivery-tab">
+                  <input type="radio" name="delivery_type" value="delivery" onchange="toggleDelivery('delivery')" />
+                  <div class="tab-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <rect x="1" y="3" width="15" height="13" />
+                      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                      <circle cx="5.5" cy="18.5" r="2.5" />
+                      <circle cx="18.5" cy="18.5" r="2.5" />
+                    </svg>
+                  </div>
+                  <div class="tab-title">Delivery</div>
+                  <div class="tab-sub">From $15 · 2–8 hr window</div>
+                </label>
+              </div>
+
+              <!-- Pickup Location (visible by default) -->
+              <div id="pickupFields">
+                <div class="form-row full">
+                  <div class="form-group">
+                    <label class="form-label" for="pickupLocation">Select Pickup Location <span class="req">*</span></label>
+                    <select id="pickupLocation" class="form-input form-select">
+                      <option value="">Choose a store...</option>
+                      <option value="woodbridge">4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5</option>
+                      <option value="vaughan">9100 Jane St, Unit 12, Vaughan, ON L4K 0A4</option>
+                      <option value="brampton">145 Main St N, Unit 5, Brampton, ON L6W 1Y7</option>
+                      <option value="mississauga">2980 Drew Rd, Mississauga, ON L4T 0A7</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="pickupDate">Pickup Date <span class="req">*</span></label>
+                    <input type="date" id="pickupDate" class="form-input" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="pickupTime">Preferred Time</label>
+                    <select id="pickupTime" class="form-input form-select">
+                      <option value="">Any available</option>
+                      <option>10:00 AM – 12:00 PM</option>
+                      <option>12:00 PM – 2:00 PM</option>
+                      <option>2:00 PM – 4:00 PM</option>
+                      <option>4:00 PM – 6:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- <div class="form-row full">
+                  <div class="form-group">
+                    <label class="form-label" for="remark">Instructions (optional)</label>
+                    <input type="text" id="instructions" class="form-input" placeholder="Your Message" autocomplete="Instructions" />
+                  </div>
+                </div> -->
+                <div class="info-box">
+                  <div class="info-box-header">
+                    <div class="info-box-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/>
+                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                        <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/>
+                        <path d="M2 7h20"/>
+                      </svg>
+                    </div>
+                    <div class="info-box-title">Important Pickup Information</div>
+                  </div>
+                  <div class="info-box-body">
+                    <strong class="info-box-subtitle">Pickup Schedule:</strong>
+                    <ul class="info-box-list">
+                      <li><strong>Friday:</strong> 6:00 PM to 9:00 PM</li>
+                      <li><strong>Saturday – Tuesday:</strong> 9:00 AM to 9:00 PM</li>
+                      <li><strong>Wednesday &amp; Thursday:</strong> No pickups at secondary locations. Pick up from our main location at 4040 Steeles Avenue West, Unit 23, Woodbridge, or opt for doorstep delivery.</li>
+                    </ul>
+                    <div class="info-box-footer">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                      </svg>
+                      <span>This location remains open on all statutory holidays in Ontario.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Delivery Fields (hidden by default) -->
+              <div id="deliveryFields" style="display:none;">
+                <div class="form-row full">
+                  <div class="form-group">
+                    <label class="form-label" for="area">Select your area<span class="req">*</span></label>
+                    <input type="text" id="area" class="form-input" placeholder="Search your place" autocomplete="area" />
+                  </div>
+                </div>
+                <div class="form-row full">
+                  <div class="form-group">
+                    <label class="form-label" for="street">Complete address/ delivery instructions (like unit number, buzz code, contact person number etc)<span class="req">*</span></label>
+                    <input type="text" id="street" class="form-input" placeholder="123 Maple Avenue, Unit 4"
+                      autocomplete="street-address" />
+                  </div>
+                </div>
+                <div class="form-row two">
+                  <!-- <div class="form-group">
+                    <label class="form-label" for="name">Name <span class="req">*</span></label>
+                    <input type="text" id="name" class="form-input" placeholder="Enter Your Name"
+                      autocomplete="address-level2" />
+                  </div> -->
+                  <!-- <div class="form-group">
+                    <label class="form-label" for="province">Province <span class="req">*</span></label>
+                    <select id="province" class="form-input form-select">
+                      <option>Ontario</option>
+                      <option>Quebec</option>
+                      <option>British Columbia</option>
+                      <option>Alberta</option>
+                      <option>Manitoba</option>
+                      <option>Saskatchewan</option>
+                      <option>Nova Scotia</option>
+                      <option>New Brunswick</option>
+                      <option>Newfoundland</option>
+                      <option>PEI</option>
+                    </select>
+                  </div> -->
+                  <!-- <div class="form-group">
+                    <label class="form-label" for="phone">Phone <span class="req">*</span></label>
+                    <input type="text" id="phone" class="form-input" placeholder="0213456789" autocomplete="phone-code" />
+                  </div> -->
+                </div>
+                <div class="form-row two">
+                  <div class="form-group">
+                    3rd Party Delivery (Cheaper) <input type="radio" name="delivery-type" />
+                  </div>
+                  <div class="form-group">
+                    Special Delivery Service<input type="radio" name="delivery-type" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="deliveryDate">Delivery Date <span class="req">*</span></label>
+                    <input type="date" id="deliveryDate" class="form-input" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="deliveryWindow">Delivery Window</label>
+                    <select id="deliveryWindow" class="form-input form-select">
+                      <option>Morning (10AM – 1PM)</option>
+                      <option>Afternoon (1PM – 4PM)</option>
+                      <option>Evening (4PM – 7PM)</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- <div class="form-row full">
+                  <div class="form-group">
+                    <label class="form-label" for="remark">Remark (optional)</label>
+                    <input type="text" id="remark" class="form-input" placeholder="Your Message" autocomplete="remark" />
+                  </div>
+                </div> -->
+                <div class="info-box">
+                  <div class="info-box-header">
+                    <div class="info-box-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="1" y="3" width="15" height="13" rx="2" ry="2"/>
+                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="18.5" cy="18.5" r="2.5"/>
+                      </svg>
+                    </div>
+                    <div class="info-box-title">Important Delivery Information</div>
+                  </div>
+                  <div class="info-box-body">
+                    <strong class="info-box-subtitle">Delivery Timings &amp; Coverage:</strong>
+                    <ul class="info-box-list">
+                      <li><strong>GTA Wide Coverage:</strong> Deliveries are available across Toronto, Mississauga, Brampton, Scarborough, Etobicoke &amp; GTA.</li>
+                      <li><strong>Delivery Slots:</strong> Select your preferred window (Morning: 10AM–1PM, Afternoon: 1PM–4PM, Evening: 4PM–7PM).</li>
+                      <li><strong>Special Instructions:</strong> Please provide unit/buzz code details in the instructions field for seamless delivery.</li>
+                    </ul>
+                    <div class="info-box-footer">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                      </svg>
+                      <span>Please ensure someone is available at the delivery location during your selected time slot.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BLOCK 3: Payment -->
+          <div class="co-block">
+            <div class="co-block-head">
+              <span class="step-badge">3</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                <line x1="1" y1="10" x2="23" y2="10" />
+              </svg>
+              Payment Method
+            </div>
+            <div class="co-block-body">
+              <div class="payment-methods">
+                <!-- Credit Card -->
+                <label class="pay-method" for="pay-card" onclick="showCardFields(true)">
+                  <input type="radio" id="pay-card" name="payment" value="card" checked />
+                  <div class="pay-method-icon" style="font-size: 0.6rem; letter-spacing: 0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" width="20" height="20">
+                      <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                      <line x1="1" y1="10" x2="23" y2="10" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="pay-method-label">Credit / Debit Card</div>
+                    <div class="pay-method-sub">Visa, Mastercard, Amex</div>
+                  </div>
+                </label>
+
+                <!-- PayPal -->
+                <!-- <label class="pay-method" for="pay-paypal" onclick="showCardFields(false)">
+                  <input type="radio" id="pay-paypal" name="payment" value="paypal" />
+                  <div class="pay-method-icon" style="color: #003087; background: #e8f0fe;">PP</div>
+                  <div>
+                    <div class="pay-method-label">PayPal</div>
+                    <div class="pay-method-sub">Pay securely via PayPal</div>
+                  </div>
+                </label> -->
+
+                <!-- Apple Pay -->
+                <!-- <label class="pay-method" for="pay-apple" onclick="showCardFields(false)">
+                  <input type="radio" id="pay-apple" name="payment" value="apple" />
+                  <div class="pay-method-icon" style="background: #000; color: #fff;">🍎</div>
+                  <div>
+                    <div class="pay-method-label">Apple Pay</div>
+                    <div class="pay-method-sub">Touch ID · Fast & Secure</div>
+                  </div>
+                </label> -->
+
+                <!-- Cash on Pickup -->
+                <label class="pay-method" for="e-transfer" onclick="showCardFields(false)">
+                  <input type="radio" id="e-transfer" name="payment" value="e-transfer" />
+                  <div class="pay-method-icon" style="color: var(--green); background: #e8f5e9;">$</div>
+                  <div>
+                    <div class="pay-method-label">E-Transfer</div>
+                    <!-- <div class="pay-method-sub">Cash or card at store — pickup only</div> -->
+                  </div>
+                </label>
+              </div>
+
+              <!-- Credit Card Fields -->
+              <div class="card-fields visible" id="cardFields">
+                <div class="form-row full">
+                  <div class="form-group">
+                    <label class="form-label" for="cardName">Cardholder Name <span class="req">*</span></label>
+                    <input type="text" id="cardName" class="form-input" placeholder="John A. Doe"
+                      autocomplete="cc-name" />
+                  </div>
+                </div>
+                <div class="form-row full">
+                  <div class="form-group">
+                    <label class="form-label" for="cardNumber">Card Number <span class="req">*</span></label>
+                    <div class="card-input-wrap">
+                      <input type="text" id="cardNumber" class="form-input" placeholder="1234 5678 9012 3456"
+                        maxlength="19" autocomplete="cc-number" oninput="formatCardNumber(this)" />
+                      <span class="card-brand" id="cardBrand">VISA</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="cardExpiry">Expiry Date <span class="req">*</span></label>
+                    <input type="text" id="cardExpiry" class="form-input" placeholder="MM / YY" maxlength="7"
+                      autocomplete="cc-exp" oninput="formatExpiry(this)" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cardCvv">CVV / CVC <span class="req">*</span></label>
+                    <input type="text" id="cardCvv" class="form-input" placeholder="•••" maxlength="4"
+                      autocomplete="cc-csc" />
+                    <span class="form-input-hint">3 digits on back (4 for Amex)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Right: Order Summary Sidebar ===== -->
+        <div class="co-summary">
+          <div class="co-summary-card">
+            <div class="co-summary-head">Your Order</div>
+            <div class="coupon-code">
+              <input type="text" class="form-input" placeholder="Enter Your Coupon Code">
+              <input type="submit" class="btn-p" value="Apply">
+            </div>
+
+            <!-- Items -->
+            <div class="co-summary-items">
+              <div class="co-summary-item">
+                <img class="co-si-img"
+                  src="https://images.unsplash.com/photo-1519654793190-2301a7ee76d7?auto=format&fit=crop&w=120&q=80"
+                  alt="Unicorn Cake" />
+                <div class="co-si-body">
+                  <div class="co-si-name">Unicorn 2 Tier Birthday Cake</div>
+                  <div class="co-si-meta">2 Tier Fondant · French Vanilla</div>
+                </div>
+                <span class="co-si-qty">1</span>
+                <div class="co-si-price">$305.00</div>
+              </div>
+              <div class="co-summary-item">
+                <img class="co-si-img"
+                  src="https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=120&q=80"
+                  alt="Buttercream Cake" />
+                <div class="co-si-body">
+                  <div class="co-si-name">Regular Buttercream Birthday Cake</div>
+                  <div class="co-si-meta">Round 8 inch · Chocolate</div>
+                </div>
+                <span class="co-si-qty">1</span>
+                <div class="co-si-price">$59.00</div>
+              </div>
+            </div>
+
+            <!-- Totals -->
+            <div class="co-summary-totals">
+              <div class="co-tot-row">
+                <span>Subtotal (2 items)</span>
+                <span>$364.00</span>
+              </div>
+              <div class="co-tot-row" id="discountRow">
+                <span>Discount</span>
+                <span>$00.00</span>
+              </div>
+              <div class="co-tot-row">
+                <span>Add-Ons (Candles, Card)</span>
+                <span>$11.00</span>
+              </div>
+              <div class="co-tot-row" id="coDeliveryRow" style="display:none;">
+                <span>Delivery Fee</span>
+                <span id="coDeliveryFee">$15.00</span>
+              </div>
+              <div class="co-tot-row">
+                <span>Service Charge / Applicable Taxes</span>
+                <span>$48.75</span>
+              </div>
+              <div class="co-tot-row grand" id="coGrandRow">
+                <span>Total</span>
+                <span id="coGrandTotal">$423.75</span>
+              </div>
+              <!-- Terms & Conditions Confirmation Checkbox -->
+              <div class="tc-agreement-row">
+                <label class="tc-checkbox-label">
+                  <input type="checkbox" id="agreeTerms" required />
+                  <span class="tc-custom-box"></span>
+                  <span class="tc-label-text">
+                    I agree to the <a href="javascript:void(0)" id="openTcDrawer" class="tc-link">Terms &amp; Conditions</a> and <a href="javascript:void(0)" id="openPrivacyDrawer" class="tc-link">Privacy Policy</a> <span class="req">*</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            
+
+            <!-- CTA -->
+            <div class="co-summary-cta">
+              <button class="btn-place-order" id="placeOrderBtn" onclick="placeOrder()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Place Order
+              </button>
+            </div>
+          </div>
+
+          <!-- Back to cart link -->
+          <div style="text-align:center;margin-top:14px;">
+            <a href="cart.html"
+              style="font-size:0.83rem;font-weight:700;color:var(--gray-mid);display:inline-flex;align-items:center;gap:5px;transition:color 0.2s;"
+              onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-mid)'">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" width="14" height="14">
+                <path d="M19 12H5m0 0 7 7m-7-7 7-7" />
+              </svg>
+              Return to Cart
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Order Confirmation Modal ========== -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-box">
+      <div class="modal-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+          <polyline points="22 4 12 14.01 9 11.01" />
+        </svg>
+      </div>
+      <h2>Order Placed!</h2>
+      <p>Thank you for your order. We're already getting to work on your beautiful cake. You'll receive a confirmation
+        email shortly.</p>
+      <div class="modal-order-no">
+        Order Number: <span id="orderNumber">#IC-20260809-4821</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--ink-soft);">
+        Questions? Call us at <strong>(905) 850-2253</strong> or email <strong>info@icakes.ca</strong>
+      </p>
+      <button class="btn-modal-home" onclick="window.location.href='index.html'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          width="16" height="16">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        Back to Home
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="ftr">
+    <div class="c">
+      <div class="ftr-g">
+        <div>
+          <div class="ftr-logo">
+            <img src="image/iCakes.png" alt="logo" />
+          </div>
+          <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+          <div style="margin-top: 20px">
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              (905) 850-2253
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-mail-icon lucide-mail">
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+              </svg>
+              info@icakes.ca
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-map-pin-icon lucide-map-pin">
+                <path
+                  d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5
+            </div>
+            <button class="btn-p">All Locations</button>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Shop</h4>
+          <div class="ftr-links">
+            <a href="#">All Cakes</a>
+            <a href="#">Wedding Cakes</a>
+            <a href="#">Birthday Cakes</a>
+            <a href="#">Kids Cakes</a>
+            <a href="#">Corporate Cakes</a>
+            <a href="#">Desserts</a>
+            <a href="#">Cupcakes</a>
+            <a href="#">Cake Pops</a>
+            <a href="#">Cake Finder</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Company</h4>
+          <div class="ftr-links">
+            <a href="#">About Us</a>
+            <a href="#">Quality</a>
+            <a href="#">Flavours</a>
+            <a href="#">Locations</a>
+            <a href="#">Blog</a>
+            <a href="#">Wholesale</a>
+            <a href="#">Partnership</a>
+            <a href="#">Contact</a>
+            <a href="#">FAQs</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Legal</h4>
+          <div class="ftr-links">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Return Policy</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+          <h4 style="margin-top: 28px">Hours</h4>
+          <div class="ftr-links">
+            <a href="#">Tue – Sat: 10AM – 6PM</a>
+            <a href="#">Sunday: 10AM – 1PM</a>
+            <a href="#">Sunday: Closed</a>
+          </div>
+        </div>
+      </div>
+      <div class="ftr-bot">
+        <p>
+          © 2026 iCakes.ca · Irresistible Cakes Since 1962 · All rights
+          reserved.
+        </p>
+        <div class="ftr-bot-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-house-icon lucide-house">
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path
+          d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      </svg>
+      <span>Home</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-list-icon lucide-list">
+        <path d="M3 5h.01" />
+        <path d="M3 12h.01" />
+        <path d="M3 19h.01" />
+        <path d="M8 5h13" />
+        <path d="M8 12h13" />
+        <path d="M8 19h13" />
+      </svg>
+      <span>Products</span>
+    </div>
+    <div class="bottom-bat-button cart">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-shopping-bag-icon lucide-shopping-bag">
+        <path d="M16 10a4 4 0 0 1-8 0" />
+        <path d="M3.103 6.034h17.794" />
+        <path
+          d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+      </svg>
+      <span class="cart-count">3</span>
+      <span>Cart</span>
+    </div>
+    <div class="bottom-bat-button" onclick="window.location.href='login.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-log-in-icon lucide-log-in">
+        <path d="m10 17 5-5-5-5" />
+        <path d="M15 12H3" />
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+      </svg>
+      <span>Login</span>
+    </div>
+    <div class="bottom-bat-button" onclick="window.location.href='signup.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-user-key-icon lucide-user-key">
+        <path d="M20 11v6" />
+        <path d="M20 13h2" />
+        <path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578" />
+        <circle cx="10" cy="7" r="4" />
+        <circle cx="20" cy="19" r="2" />
+      </svg>
+      <span>Signup</span>
+    </div>
+  </div>
+
+  <!-- T&C SIDE DRAWER OVERLAY & PANEL -->
+  <div id="tcDrawerOverlay" class="tc-drawer-overlay">
+    <div class="tc-drawer-panel">
+      <!-- Drawer Header -->
+      <div class="tc-drawer-header">
+        <div class="tc-drawer-title-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <h3>Terms &amp; Conditions</h3>
+        </div>
+        <button type="button" id="closeTcDrawer" class="tc-drawer-close" aria-label="Close">&times;</button>
+      </div>
+
+      <!-- Drawer Body (Scrollable) -->
+      <div class="tc-drawer-body">
+        <div class="tc-sec">
+          <h4>1. Custom Order &amp; Design Agreement</h4>
+          <p>All custom cake designs, photo prints, and color specifications submitted during checkout are final. Minor color variations may occur due to food-grade icing dyes and natural ingredients.</p>
+        </div>
+
+        <div class="tc-sec">
+          <h4>2. Cancellation &amp; Refund Policy</h4>
+          <p>Cancellations requested at least 48 hours prior to the scheduled pickup or delivery time are eligible for a full store credit or refund. Orders cancelled under 48 hours are non-refundable as preparation begins in advance.</p>
+        </div>
+
+        <div class="tc-sec">
+          <h4>3. Pickup &amp; Delivery Terms</h4>
+          <p>For in-store pickup, please present your order confirmation email. For doorstep delivery, please ensure someone is present during your selected time window. Re-delivery fees may apply if no one is available.</p>
+        </div>
+
+        <div class="tc-sec">
+          <h4>4. Dietary &amp; Allergen Disclaimer</h4>
+          <p>While we offer eggless, gluten-free, halal, and nut-free options, our kitchen handles dairy and wheat. If you have severe life-threatening allergies, please consult our staff prior to ordering.</p>
+        </div>
+      </div>
+
+      <!-- Drawer Footer -->
+      <div class="tc-drawer-footer">
+        <button type="button" id="btnAcceptTc" class="btn-p tc-accept-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          I Accept &amp; Agree
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button class="bktop" id="bktop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="lucide lucide-arrow-up-icon lucide-arrow-up">
+      <path d="m5 12 7-7 7 7" />
+      <path d="M12 19V5" />
+    </svg>
+  </button>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    // ---- Phone Formatter ----
+    function formatPhone(input) {
+      let v = input.value.replace(/\D/g, '').substring(0, 10);
+      if (v.length > 6) input.value = `(${v.substring(0, 3)}) ${v.substring(3, 6)}-${v.substring(6)}`;
+      else if (v.length > 3) input.value = `(${v.substring(0, 3)}) ${v.substring(3)}`;
+      else if (v.length > 0) input.value = `(${v}`;
+      else input.value = '';
+    }
+
+    // ---- Card Number Formatter ----
+    function formatCardNumber(input) {
+      let v = input.value.replace(/\D/g, '').substring(0, 16);
+      input.value = v.match(/.{1,4}/g)?.join(' ') || v;
+      const brand = document.getElementById('cardBrand');
+      if (v.startsWith('4')) { brand.textContent = 'VISA'; brand.style.display = 'flex'; }
+      else if (/^5[1-5]/.test(v)) { brand.textContent = 'MC'; brand.style.display = 'flex'; }
+      else if (/^3[47]/.test(v)) { brand.textContent = 'AMEX'; brand.style.display = 'flex'; }
+      else { brand.style.display = 'none'; }
+    }
+
+    // ---- Expiry Formatter ----
+    function formatExpiry(input) {
+      let v = input.value.replace(/\D/g, '').substring(0, 4);
+      if (v.length >= 2) input.value = v.substring(0, 2) + ' / ' + v.substring(2);
+      else input.value = v;
+    }
+
+    // ---- Toggle Card Fields ----
+    function showCardFields(show) {
+      document.getElementById('cardFields').classList.toggle('visible', show);
+    }
+
+    // ---- Toggle Pickup / Delivery ----
+    function toggleDelivery(type) {
+      const pickupFields = document.getElementById('pickupFields');
+      const deliveryFields = document.getElementById('deliveryFields');
+      const coDeliveryRow = document.getElementById('coDeliveryRow');
+      const coGrandTotal = document.getElementById('coGrandTotal');
+
+      if (type === 'pickup') {
+        pickupFields.style.display = '';
+        deliveryFields.style.display = 'none';
+        coDeliveryRow.style.display = 'none';
+        coGrandTotal.textContent = '$423.75';
+      } else {
+        pickupFields.style.display = 'none';
+        deliveryFields.style.display = '';
+        coDeliveryRow.style.display = 'flex';
+        coGrandTotal.textContent = '$438.75';
+      }
+    }
+
+    // ---- Set minimum date ----
+    const today = new Date().toISOString().split('T')[0];
+    const pickupDateInput = document.getElementById('pickupDate');
+    const deliveryDateInput = document.getElementById('deliveryDate');
+    if (pickupDateInput) pickupDateInput.min = today;
+    if (deliveryDateInput) deliveryDateInput.min = today;
+    
+    // Default to day after today
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const tomorrowStr = tomorrow.toISOString().split('T')[0];
+    if (pickupDateInput) pickupDateInput.value = tomorrowStr;
+    if (deliveryDateInput) deliveryDateInput.value = tomorrowStr;
+
+    // ---- Generate Order Number ----
+    function generateOrderNo() {
+      const d = new Date();
+      const dateStr = d.toISOString().slice(0, 10).replace(/-/g, '');
+      const rand = Math.floor(1000 + Math.random() * 9000);
+      return `#IC-${dateStr}-${rand}`;
+    }
+
+    // ---- Validate & Place Order ----
+    function placeOrder() {
+      const required = [
+        { id: 'firstName', label: 'First Name' },
+        { id: 'lastName', label: 'Last Name' },
+        { id: 'email', label: 'Email Address' },
+        { id: 'phone', label: 'Mobile Number' },
+      ];
+
+      for (let field of required) {
+        const el = document.getElementById(field.id);
+        if (el && !el.value.trim()) {
+          el.focus();
+          el.style.borderColor = 'var(--primary)';
+          el.style.boxShadow = '0 0 0 4px var(--gold-pale)';
+          setTimeout(() => { el.style.borderColor = ''; el.style.boxShadow = ''; }, 2000);
+          alert(`Please fill in your ${field.label}.`);
+          return;
+        }
+      }
+
+      // Check Terms & Conditions agreement
+      const agreeTerms = document.getElementById('agreeTerms');
+      if (agreeTerms && !agreeTerms.checked) {
+        agreeTerms.focus();
+        const row = agreeTerms.closest('.tc-agreement-row');
+        if (row) {
+          row.style.borderColor = 'var(--primary)';
+          row.style.boxShadow = '0 0 0 4px var(--gold-pale)';
+          setTimeout(() => { row.style.borderColor = ''; row.style.boxShadow = ''; }, 2500);
+        }
+        alert('Please accept the Terms & Conditions to complete your order.');
+        return;
+      }
+
+      // Check card fields if card payment selected
+      const payCardEl = document.getElementById('pay-card');
+      const payCard = payCardEl ? payCardEl.checked : false;
+      if (payCard) {
+        const cardFields = [
+          { id: 'cardName', label: 'Cardholder Name' },
+          { id: 'cardNumber', label: 'Card Number' },
+          { id: 'cardExpiry', label: 'Expiry Date' },
+          { id: 'cardCvv', label: 'CVV' },
+        ];
+        for (let f of cardFields) {
+          const el = document.getElementById(f.id);
+          if (el && !el.value.trim()) {
+            el.focus();
+            alert(`Please fill in your ${f.label}.`);
+            return;
+          }
+        }
+      }
+
+      // Show confirmation
+      const orderNoEl = document.getElementById('orderNumber');
+      if (orderNoEl) orderNoEl.textContent = generateOrderNo();
+      const confirmModalEl = document.getElementById('confirmModal');
+      if (confirmModalEl) confirmModalEl.classList.add('show');
+
+      // Animate button
+      const btn = document.getElementById('placeOrderBtn');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Order Placed!';
+      }
+    }
+
+    // ---- Terms & Conditions Side Drawer Control ----
+    const tcOverlay = document.getElementById('tcDrawerOverlay');
+    const openTcBtn = document.getElementById('openTcDrawer');
+    const openPrivacyBtn = document.getElementById('openPrivacyDrawer');
+    const closeTcBtn = document.getElementById('closeTcDrawer');
+    const acceptTcBtn = document.getElementById('btnAcceptTc');
+    const agreeCheckbox = document.getElementById('agreeTerms');
+
+    function openTcDrawer() {
+      if (tcOverlay) tcOverlay.classList.add('active');
+    }
+
+    function closeTcDrawer() {
+      if (tcOverlay) tcOverlay.classList.remove('active');
+    }
+
+    if (openTcBtn) openTcBtn.addEventListener('click', openTcDrawer);
+    if (openPrivacyBtn) openPrivacyBtn.addEventListener('click', openTcDrawer);
+    if (closeTcBtn) closeTcBtn.addEventListener('click', closeTcDrawer);
+
+    if (tcOverlay) {
+      tcOverlay.addEventListener('click', function (e) {
+        if (e.target === this) closeTcDrawer();
+      });
+    }
+
+    if (acceptTcBtn) {
+      acceptTcBtn.addEventListener('click', function () {
+        if (agreeCheckbox) agreeCheckbox.checked = true;
+        closeTcDrawer();
+      });
+    }
+
+    // ---- Close modal on overlay click ----
+    const confirmModal = document.getElementById('confirmModal');
+    if (confirmModal) {
+      confirmModal.addEventListener('click', function (e) {
+        if (e.target === this) this.classList.remove('show');
+      });
+    }
+  </script>
+</body>
+
+</html>

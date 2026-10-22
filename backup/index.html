@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Irresistible Cakes — Static</title>
+    <meta name="description" content="Static HTML/CSS/JS homepage for Irresistible Cakes." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="c">
+        <div class="tb-l">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (905) 850-2253
+          </span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Woodbridge, ON
+          </span>
+        </div>
+        <div class="tb-r">
+          <a href="#">Login</a>
+          <a href="#">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="hdr">
+      <div class="c">
+        <div class="hdr-i">
+        <div class="logo">
+          <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+        </div>
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About Us</a>
+          <a class="nav-link" href="#quality">Quality</a>
+          <a class="nav-link" href="#flavour">Flavour</a>
+          <a class="nav-link" href="#blogs">Blogs</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+          <button class="icon-btn" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </button>
+          <button class="burger" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+      </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <div class="mobile-header">
+        <img src="https://www.icakes.ca/assets/images/icakeslogo.webp" style="height:44px" alt="logo" />
+        <button class="mobile-close" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="#quality">Quality</a>
+      <a href="#flavour">Flavour</a>
+      <a href="#blogs">Blogs</a>
+    </nav>
+
+    <section id="hero">
+      <div class="c">
+        <div class="hero">
+          <div class="hero-track">
+            <div class="hero-slide active" data-index="0">
+              <div class="hero-content">
+                <div class="hero-tag"><span></span>Freshly Baked Daily</div>
+                <h1 class="hero-title">Find the Perfect Cake, <em>Right Around the Corner</em></h1>
+                <p class="hero-copy">Grab-N-Go cakes available daily — crafted for every occasion and ready when you are.</p>
+                <div class="hero-cta-group">
+                  <button class="btn-p">Shop Cakes <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg></button>
+                </div>
+              </div>
+              <div class="hero-bg">
+                <img src="https://www.icakes.ca/upload/slider/176451713422.jpg" alt="Freshly baked cake" />
+              </div>
+            </div>
+
+            <div class="hero-slide" data-index="1">
+              <div class="hero-content">
+                <div class="hero-tag"><span></span>Allergy Conscious</div>
+                <h1 class="hero-title"><em>Halal, Nut-Free</em><br>&amp; Lactose-Free Cakes</h1>
+                <p class="hero-copy">Always available — without compromising on taste, quality, or creativity.</p>
+                <div class="hero-cta-group">
+                  <button class="btn-p">Our Quality Promise <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg></button>
+                </div>
+              </div>
+              <div class="hero-bg">
+                <img src="https://www.icakes.ca/upload/slider/176436819031.png" alt="Allergy conscious cakes" />
+              </div>
+            </div>
+
+            <div class="hero-slide" data-index="2">
+              <div class="hero-content">
+                <div class="hero-tag"><span></span>Custom Designs</div>
+                <h1 class="hero-title">Freshly Baked in<br><em>Designs That Steal</em><br>the Show</h1>
+                <p class="hero-copy">Custom cakes crafted to your vision — weddings, birthdays, corporate events, and more.</p>
+                <div class="hero-cta-group">
+                  <button class="btn-p">Explore Designs <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg></button>
+                </div>
+              </div>
+              <div class="hero-bg">
+                <img src="https://www.icakes.ca/upload/slider/176436919241.png" alt="Custom cake designs" />
+              </div>
+            </div>
+
+            <div class="hero-slide" data-index="3">
+              <div class="hero-content">
+                <div class="hero-tag"><span></span>Kids Favourites</div>
+                <h1 class="hero-title">Custom Soccer Cakes<br><em>Made for Every Fun</em></h1>
+                <p class="hero-copy">Themed cakes that make kids' parties unforgettable — Paw Patrol, Peppa Pig, Cocomelon & more.</p>
+                <div class="hero-cta-group">
+                  <button class="btn-p">Shop Kids Cakes <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg></button>
+                </div>
+              </div>
+              <div class="hero-bg">
+                <img src="https://www.icakes.ca/upload/slider/178167504630.png" alt="Kids themed cakes" />
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="hero-controls">
+            <button class="hero-arrow hero-arrow-prev" aria-label="Previous slide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="hero-arrow hero-arrow-next" aria-label="Next slide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+          </div>
+
+          <div class="hero-dots">
+            <button class="hero-dot active" data-i="0" aria-label="Slide 1"></button>
+            <button class="hero-dot" data-i="1" aria-label="Slide 2"></button>
+            <button class="hero-dot" data-i="2" aria-label="Slide 3"></button>
+            <button class="hero-dot" data-i="3" aria-label="Slide 4"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="tbar">
+      <div class="c">
+        <div class="tbar-g">
+          <div class="t-item anim">
+            <div class="t-ico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck-icon lucide-truck"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+            </div>
+            <div class="t-txt"><strong>Delivery Available</strong><span>Across Toronto & GTA</span></div>
+          </div>
+          <div class="t-item anim">
+            <div class="t-ico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cake-icon lucide-cake"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/></svg>
+            </div>
+            <div class="t-txt"><strong>2,500+ Designs</strong><span>Browse our full collection</span></div>
+          </div>
+          <div class="t-item anim">
+            <div class="t-ico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-nut-off-icon lucide-nut-off"><path d="M12 4V2"/><path d="M5 10v4a7.004 7.004 0 0 0 5.277 6.787c.412.104.802.292 1.102.592L12 22l.621-.621c.3-.3.69-.488 1.102-.592a7.01 7.01 0 0 0 4.125-2.939"/><path d="M19 10v3.343"/><path d="M12 12c-1.349-.573-1.905-1.005-2.5-2-.546.902-1.048 1.353-2.5 2-1.018-.644-1.46-1.08-2-2-1.028.71-1.69.918-3 1 1.081-1.048 1.757-2.03 2-3 .194-.776.84-1.551 1.79-2.21m11.654 5.997c.887-.457 1.28-.891 1.556-1.787 1.032.916 1.683 1.157 3 1-1.297-1.036-1.758-2.03-2-3-.5-2-4-4-8-4-.74 0-1.461.068-2.15.192"/><line x1="2" x2="22" y1="2" y2="22"/></svg>
+            </div>
+            <div class="t-txt"><strong>100% Nut-Free Bakery</strong><span>Safe for allergy concerns</span></div>
+          </div>
+          <div class="t-item anim">
+            <div class="t-ico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days-icon lucide-calendar-days"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+            </div>
+            <div class="t-txt"><strong>Since 1962</strong><span>Over 60 years of baking</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="cats">
+      <div class="c">
+        <div class="cats-hd">
+          <div>
+            <p class="sec-lbl">Browse by Occasion</p>
+            <h2 class="sec-ttl">Every Celebration<br><em>Deserves a Cake</em></h2>
+          </div>
+          <button class="btn-o">View All Cakes</button>
+        </div>
+        <div class="cat-g">
+          <div class="cat-c anim" style="grid-column: span 2; grid-row: span 2;">
+            <img class="cat-img" src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="Wedding Cakes" />
+            <div class="cat-ov"></div>
+            <div class="cat-lbl">Wedding Cakes<small>Our most requested</small></div>
+          </div>
+          <div class="cat-c anim">
+            <img class="cat-img" src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="Birthday" />
+            <div class="cat-ov"></div>
+            <div class="cat-lbl">Birthday</div>
+          </div>
+          <div class="cat-c anim">
+            <img class="cat-img" src="https://www.icakes.ca/upload/category/baby-shower-cakes.png" alt="Baby Shower" />
+            <div class="cat-ov"></div>
+            <div class="cat-lbl">Baby Shower</div>
+          </div>
+          <div class="cat-c anim">
+            <img class="cat-img" src="https://www.icakes.ca/upload/category/corporate-cakes.png" alt="Corporate" />
+            <div class="cat-ov"></div>
+            <div class="cat-lbl">Corporate</div>
+          </div>
+          <div class="cat-c anim">
+            <img class="cat-img" src="https://www.icakes.ca/upload/category/graduation-cake.png" alt="Graduation" />
+            <div class="cat-ov"></div>
+            <div class="cat-lbl">Graduation</div>
+          </div>
+          <div class="cat-c anim">
+            <img class="cat-img" src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="Kids" />
+            <div class="cat-ov"></div>
+            <div class="cat-lbl">Kids</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trending">
+      <div class="c">
+        <div class="trend-in">
+          <div class="trend-hd">
+            <h3>🔥 Trending Right Now</h3>
+            <button class="btn-o" style="border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8)">See All</button>
+          </div>
+          <div class="chips">
+            <button class="chip"><img src="https://www.icakes.ca/upload/products/cakes/ftrimg/kids-cakes/paw-patrol-cake.webp" alt="Paw Patrol" />Paw Patrol</button>
+            <button class="chip"><img src="https://www.icakes.ca/upload/products/cakes/ftrimg/anniversarycakes/heart-shape-bow-fondant-photo-anniversary-cake-from-irresistible-cakes-brampton.webp" alt="Photo Cakes" />Photo Cakes</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="prods">
+      <div class="c">
+        <div class="prods-hd">
+          <div>
+            <p class="sec-lbl">Customer Favourites</p>
+            <h2 class="sec-ttl">Most Selling <em>Cakes</em></h2>
+          </div>
+          <button class="btn-o">View All</button>
+        </div>
+        <div class="prod-g">
+          <div class="prod-c anim">
+            <div class="prod-img">
+              <img src="https://www.icakes.ca/upload/products/cakes/gallery/weddingcakes/rustic-nature--silk-flowers-floral--3-tier-buttercream-wedding-cake.webp" alt="Rustic Silk Flowers Wedding Cake" />
+            </div>
+            <div class="prod-body">
+              <p class="prod-nm">Rustic Silk Flowers Wedding Cake</p>
+              <div class="prod-pr-row"><span class="prod-pr">$446.25</span></div>
+              <button class="prod-btn">Order Now</button>
+            </div>
+          </div>
+          <div class="prod-c anim">
+            <div class="prod-img">
+              <img src="https://www.icakes.ca/upload/products/cakes/gallery/weddingcakes/rustic-nature--silk-flowers-floral--3-tier-buttercream-wedding-cake.webp" alt="Rustic Silk Flowers Wedding Cake" />
+            </div>
+            <div class="prod-body">
+              <p class="prod-nm">Rustic Silk Flowers Wedding Cake</p>
+              <div class="prod-pr-row"><span class="prod-pr">$446.25</span></div>
+              <button class="prod-btn">Order Now</button>
+            </div>
+          </div>
+          <div class="prod-c anim">
+            <div class="prod-img">
+              <img src="https://www.icakes.ca/upload/products/cakes/gallery/weddingcakes/rustic-nature--silk-flowers-floral--3-tier-buttercream-wedding-cake.webp" alt="Rustic Silk Flowers Wedding Cake" />
+            </div>
+            <div class="prod-body">
+              <p class="prod-nm">Rustic Silk Flowers Wedding Cake</p>
+              <div class="prod-pr-row"><span class="prod-pr">$446.25</span></div>
+              <button class="prod-btn">Order Now</button>
+            </div>
+          </div>
+          <div class="prod-c anim">
+            <div class="prod-img">
+              <img src="https://www.icakes.ca/upload/products/cakes/gallery/weddingcakes/rustic-nature--silk-flowers-floral--3-tier-buttercream-wedding-cake.webp" alt="Rustic Silk Flowers Wedding Cake" />
+            </div>
+            <div class="prod-body">
+              <p class="prod-nm">Rustic Silk Flowers Wedding Cake</p>
+              <div class="prod-pr-row"><span class="prod-pr">$446.25</span></div>
+              <button class="prod-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dietary">
+      <div class="c">
+        <div class="diet-g">
+          <div class="diet-vis">
+            <img src="https://www.icakes.ca/upload/products/cakes/ftrimg/weddingcakes/rustic-nature--silk-flowers-floral--3-tier-buttercream-wedding-cake.webp" alt="Quality cakes" />
+            <div class="diet-float" style="top:24px;right:24px"><strong class="stat-n">100%</strong><span>Nut-Free Facility</span></div>
+            <div class="diet-float" style="bottom:24px;left:24px"><strong class="stat-n">60+</strong><span>Years Baking</span></div>
+          </div>
+          <div>
+            <p class="sec-lbl">Our Promise</p>
+            <h2 class="sec-ttl">Baked Safe.<br><em>Tasted Better.</em></h2>
+            <p style="color:var(--gray-txt);margin-top:18px;max-width:440px">Our entire bakery is 100% nut-free — no peanuts or tree nuts at any stage of production. We cater to all dietary needs without ever compromising on taste or creativity.</p>
+            <div class="dbadges">
+              <div class="db anim">
+                <div class="db-ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-nut-off-icon lucide-nut-off"><path d="M12 4V2"/><path d="M5 10v4a7.004 7.004 0 0 0 5.277 6.787c.412.104.802.292 1.102.592L12 22l.621-.621c.3-.3.69-.488 1.102-.592a7.01 7.01 0 0 0 4.125-2.939"/><path d="M19 10v3.343"/><path d="M12 12c-1.349-.573-1.905-1.005-2.5-2-.546.902-1.048 1.353-2.5 2-1.018-.644-1.46-1.08-2-2-1.028.71-1.69.918-3 1 1.081-1.048 1.757-2.03 2-3 .194-.776.84-1.551 1.79-2.21m11.654 5.997c.887-.457 1.28-.891 1.556-1.787 1.032.916 1.683 1.157 3 1-1.297-1.036-1.758-2.03-2-3-.5-2-4-4-8-4-.74 0-1.461.068-2.15.192"/><line x1="2" x2="22" y1="2" y2="22"/></svg>
+                </div>
+                <div>
+                  <div class="db-ttl">Nut-Free Bakery</div>
+                  <div class="db-dsc">Entire facility is peanut & tree-nut free</div>
+                </div>
+              </div>
+              <div class="db anim">
+                <div class="db-ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-milk-off-icon lucide-milk-off"><path d="M8 2h8"/><path d="M9 2v1.343M15 2v2.789a4 4 0 0 0 .672 2.219l.656.984a4 4 0 0 1 .672 2.22v1.131M7.8 7.8l-.128.192A4 4 0 0 0 7 10.212V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3"/><path d="M7 15a6.47 6.47 0 0 1 5 0 6.472 6.472 0 0 0 3.435.435"/><line x1="2" x2="22" y1="2" y2="22"/></svg>
+                </div>
+                <div>
+                  <div class="db-ttl">Lactose-Free Options</div>
+                  <div class="db-dsc">Delicious dairy-free alternatives available</div>
+                </div>
+              </div>
+              <div class="db anim">
+                <div class="db-ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-landmark-icon lucide-landmark"><path d="M10 18v-7"/><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/></svg>
+                </div>
+                <div>
+                  <div class="db-ttl">Halal Certified</div>
+                  <div class="db-dsc">All products are alcohol-free and gelatine-free.</div>
+                </div>
+              </div>
+              <div class="db anim">
+                <div class="db-ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-vegan-icon lucide-vegan"><path d="M16 8q6 0 6-6-6 0-6 6"/><path d="M17.41 3.59a10 10 0 1 0 3 3"/><path d="M2 2a26.6 26.6 0 0 1 10 20c.9-6.82 1.5-9.5 4-14"/></svg>
+                </div>
+                <div>
+                  <div class="db-ttl">Eggless & Vegan</div>
+                  <div class="db-dsc">Vegetarian, vegan, and eggless options by special order.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dietary story">
+      <div class="c">
+        <div class="diet-g">
+          <div>
+            <p class="sec-lbl">Our Story</p>
+            <h2 class="sec-ttl">Irresistible Cakes,<br><em>Since 1962</em></h2>
+            <p style="color:var(--gray-txt);margin-top:18px;line-height:1.75">"Taste the Difference" isn't just a tagline — it's been our promise for over six decades.</p>
+            <div class="dbadges">
+              <div class="db anim"><div class="stat-n">62+</div><div class="stat-l">Years in Business</div></div>
+              <div class="db anim"><div class="stat-n">10</div><div class="stat-l">GTA Locations</div></div>
+              <div class="db anim"><div class="stat-n">2.5K+</div><div class="stat-l">Cake Designs</div></div>
+              <div class="db anim"><div class="stat-n">5★</div><div class="stat-l">Customer Reviews</div></div>
+            </div>
+            <div style="margin-top:28px"><button class="btn-p">Our Full Story <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg></button></div>
+          </div>
+          <div class="diet-vis">
+            <img src="https://www.icakes.ca/upload/products/cakes/gallery/weddingcakes/rustic-nature--silk-flowers-floral--3-tier-buttercream-wedding-cake.webp" alt="iCakes bakery" />
+            <div class="about-fl">
+              <div class="about-fl-ico">🏆</div>
+              <div class="about-fl-txt"><strong>Award-Winning Bakery</strong><span>Trusted by thousands across the GTA</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="locs">
+      <div class="c">
+        <div class="locs-hd">
+          <p class="sec-lbl">Find Us Near You</p>
+          <h2 class="sec-ttl">10 Locations Across the <em>GTA</em></h2>
+          <p>Serving Toronto, Woodbridge, Vaughan, Mississauga, Brampton, Etobicoke, and Scarborough.</p>
+        </div>
+        <div class="locs-g">
+          <div class="loc anim">
+            <img class="loc-thumb" src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp" alt="Woodbridge" />
+            <div class="loc-body">
+              <span class="loc-badge">Main Showroom</span>
+              <div class="loc-nm">Woodbridge</div>
+              <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+              <div class="loc-ctcs">
+                <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</a>
+                <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> info@icakes.ca</a>
+              </div>
+            </div>
+          </div>
+          <div class="loc anim">
+            <img class="loc-thumb" src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp" alt="Woodbridge" />
+            <div class="loc-body">
+              <span class="loc-badge">Main Showroom</span>
+              <div class="loc-nm">Woodbridge</div>
+              <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+              <div class="loc-ctcs">
+                <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</a>
+                <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> info@icakes.ca</a>
+              </div>
+            </div>
+          </div>
+          <div class="loc anim">
+            <img class="loc-thumb" src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp" alt="Woodbridge" />
+            <div class="loc-body">
+              <span class="loc-badge">Main Showroom</span>
+              <div class="loc-nm">Woodbridge</div>
+              <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+              <div class="loc-ctcs">
+                <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</a>
+                <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> info@icakes.ca</a>
+              </div>
+            </div>
+          </div>
+          <div class="loc anim">
+            <img class="loc-thumb" src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp" alt="Woodbridge" />
+            <div class="loc-body">
+              <span class="loc-badge">Main Showroom</span>
+              <div class="loc-nm">Woodbridge</div>
+              <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+              <div class="loc-ctcs">
+                <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</a>
+                <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> info@icakes.ca</a>
+              </div>
+            </div>
+          </div>
+          <div class="loc anim">
+            <img class="loc-thumb" src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp" alt="Woodbridge" />
+            <div class="loc-body">
+              <span class="loc-badge">Main Showroom</span>
+              <div class="loc-nm">Woodbridge</div>
+              <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+              <div class="loc-ctcs">
+                <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</a>
+                <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> info@icakes.ca</a>
+              </div>
+            </div>
+          </div>
+          <div class="loc anim">
+            <img class="loc-thumb" src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp" alt="Woodbridge" />
+            <div class="loc-body">
+              <span class="loc-badge">Main Showroom</span>
+              <div class="loc-nm">Woodbridge</div>
+              <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+              <div class="loc-ctcs">
+                <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</a>
+                <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> info@icakes.ca</a>
+              </div>
+            </div>
+          </div>
+          <div class="loc anim">
+            <img class="loc-thumb" src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp" alt="Woodbridge" />
+            <div class="loc-body">
+              <span class="loc-badge">Main Showroom</span>
+              <div class="loc-nm">Woodbridge</div>
+              <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+              <div class="loc-ctcs">
+                <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</a>
+                <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> info@icakes.ca</a>
+              </div>
+            </div>
+          </div>
+          <div class="loc anim">
+            <img class="loc-thumb" src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp" alt="Woodbridge" />
+            <div class="loc-body">
+              <span class="loc-badge">Main Showroom</span>
+              <div class="loc-nm">Woodbridge</div>
+              <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+              <div class="loc-ctcs">
+                <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</a>
+                <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> info@icakes.ca</a>
+              </div>
+            </div>
+          </div>
+          <div class="loc anim">
+            <img class="loc-thumb" src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp" alt="Woodbridge" />
+            <div class="loc-body">
+              <span class="loc-badge">Main Showroom</span>
+              <div class="loc-nm">Woodbridge</div>
+              <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+              <div class="loc-ctcs">
+                <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</a>
+                <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> info@icakes.ca</a>
+              </div>
+            </div>
+          </div>
+          <div class="loc anim">
+            <img class="loc-thumb" src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp" alt="Woodbridge" />
+            <div class="loc-body">
+              <span class="loc-badge">Main Showroom</span>
+              <div class="loc-nm">Woodbridge</div>
+              <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+              <div class="loc-ctcs">
+                <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</a>
+                <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> info@icakes.ca</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testis">
+      <div class="c">
+        <div class="testi-hd">
+          <p class="sec-lbl">Happy Customers</p>
+          <h2 class="sec-ttl">What People Are <em>Saying</em></h2>
+        </div>
+        <div class="testi-wrap">
+          <div class="testi-track" id="testiTrack">
+            <div class="testi-card">
+              <div class="t-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="t-quote">"Outstanding cakes!! Most creative and excellent..."</p>
+              <div class="t-auth"><img class="t-av" src="https://www.icakes.ca/upload/clientfeedback/169488163839.jpg" alt="Anita Bell"><div><div class="t-nm">Anita Bell</div><div class="t-via">Google Review</div></div></div>
+            </div>
+            <div class="testi-card">
+              <div class="t-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="t-quote">"The flavor, quality..."</p>
+              <div class="t-auth"><img class="t-av" src="https://www.icakes.ca/upload/clientfeedback/168604952419.jpg" alt="Hibbat"><div><div class="t-nm">Hibbat</div><div class="t-via">Google Review</div></div></div>
+            </div>
+            <div class="testi-card">
+              <div class="t-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="t-quote">"The flavor, quality..."</p>
+              <div class="t-auth"><img class="t-av" src="https://www.icakes.ca/upload/clientfeedback/168604952419.jpg" alt="Hibbat"><div><div class="t-nm">Hibbat</div><div class="t-via">Google Review</div></div></div>
+            </div>
+            <div class="testi-card">
+              <div class="t-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="t-quote">"The flavor, quality..."</p>
+              <div class="t-auth"><img class="t-av" src="https://www.icakes.ca/upload/clientfeedback/168604952419.jpg" alt="Hibbat"><div><div class="t-nm">Hibbat</div><div class="t-via">Google Review</div></div></div>
+            </div>
+            <div class="testi-card">
+              <div class="t-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="t-quote">"The flavor, quality..."</p>
+              <div class="t-auth"><img class="t-av" src="https://www.icakes.ca/upload/clientfeedback/168604952419.jpg" alt="Hibbat"><div><div class="t-nm">Hibbat</div><div class="t-via">Google Review</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-ctrls">
+          <button class="t-btn" id="testiPrev" aria-label="Previous slide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="t-btn" id="testiNext" aria-label="Next slide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog">
+      <div class="c">
+        <div class="blog-hd">
+          <div>
+            <p class="sec-lbl">From the Bakery</p>
+            <h2 class="sec-ttl">Cake <em>Inspiration</em></h2>
+          </div>
+          <button class="btn-o">All Articles</button>
+        </div>
+        <div class="blog-g">
+          <div class="blog-c anim">
+            <div class="blog-img">
+              <img src="https://www.icakes.ca/upload/blogs/wedding-cakes-to-steal-the-show-what-s-trending-for-2026-weddings.webp" alt="The Ultimate Wedding Cake Design Guide" />
+              <span class="blog-cat">Wedding</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-date">June 2026</div>
+              <div class="blog-ttl">The Ultimate Wedding Cake Design Guide</div>
+              <div class="blog-read">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg></div>
+            </div>
+          </div>
+          <div class="blog-c anim">
+            <div class="blog-img">
+              <img src="https://www.icakes.ca/upload/blogs/wedding-cakes-to-steal-the-show-what-s-trending-for-2026-weddings.webp" alt="The Ultimate Wedding Cake Design Guide" />
+              <span class="blog-cat">Wedding</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-date">June 2026</div>
+              <div class="blog-ttl">The Ultimate Wedding Cake Design Guide</div>
+              <div class="blog-read">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg></div>
+            </div>
+          </div>
+          <div class="blog-c anim">
+            <div class="blog-img">
+              <img src="https://www.icakes.ca/upload/blogs/wedding-cakes-to-steal-the-show-what-s-trending-for-2026-weddings.webp" alt="The Ultimate Wedding Cake Design Guide" />
+              <span class="blog-cat">Wedding</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-date">June 2026</div>
+              <div class="blog-ttl">The Ultimate Wedding Cake Design Guide</div>
+              <div class="blog-read">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="news">
+      <div class="c">
+        <div class="news-in">
+          <div>
+            <p class="sec-lbl">Stay in the Loop</p>
+            <h2 class="sec-ttl">Get Deals &amp;<br><em>New Designs</em></h2>
+            <p style="color:var(--gray-txt);margin-top:12px">Be the first to know about seasonal specials.</p>
+            <form id="newsForm" class="news-form">
+              <input id="newsInp" type="email" class="news-inp" placeholder="Enter your email address" required />
+              <button class="btn-p" id="newsBtn">Subscribe</button>
+            </form>
+          </div>
+          <div class="news-vis">
+            <img src="https://www.icakes.ca/upload/products/cakes/ftrimg/kidscakes/soccer-sports-messi-edible-photo-picture-cake-from-icakes-brampton.webp" alt="newsletter" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ftr">
+      <div class="c">
+        <div class="ftr-g">
+          <div>
+            <div class="ftr-logo">
+              <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="logo" />
+            </div>
+            <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+            <div style="margin-top:20px">
+              <div class="ftr-ci">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (905) 850-2253
+              </div>
+              <div class="ftr-ci">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                info@icakes.ca
+              </div>
+              <div class="ftr-ci">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5
+              </div>
+            </div>
+          </div>
+          <div class="ftr-col">
+            <h4>Shop</h4>
+            <div class="ftr-links">
+              <a href="#">All Cakes</a>
+              <a href="#">Wedding Cakes</a>
+              <a href="#">Birthday Cakes</a>
+              <a href="#">Kids Cakes</a>
+              <a href="#">Corporate Cakes</a>
+              <a href="#">Desserts</a>
+              <a href="#">Cupcakes</a>
+              <a href="#">Cake Pops</a>
+              <a href="#">Cake Finder</a>
+            </div>
+          </div>
+          <div class="ftr-col">
+            <h4>Company</h4>
+            <div class="ftr-links">
+              <a href="#">About Us</a>
+              <a href="#">Quality</a>
+              <a href="#">Flavours</a>
+              <a href="#">Locations</a>
+              <a href="#">Blog</a>
+              <a href="#">Wholesale</a>
+              <a href="#">Partnership</a>
+              <a href="#">Contact</a>
+              <a href="#">FAQs</a>
+            </div>
+          </div>
+          <div class="ftr-col">
+            <h4>Legal</h4>
+            <div class="ftr-links">
+              <a href="#">Terms & Conditions</a>
+              <a href="#">Return Policy</a>
+              <a href="#">Shipping Policy</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+            <h4 style="margin-top: 28px;">Hours</h4>
+            <div class="ftr-links">
+              <a href="#">Tue – Sat: 10AM – 6PM</a>
+              <a href="#">Sunday: 10AM – 1PM</a>
+              <a href="#">Sunday: Closed</a>
+            </div>
+          </div>
+        </div>
+        <div class="ftr-bot">
+          <p>© 2026 iCakes.ca · Irresistible Cakes Since 1962 · All rights reserved.</p>
+          <div class="ftr-bot-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button class="bktop" id="bktop">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-icon lucide-arrow-up"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+    </button>
+    <script src="script.js" defer></script>
+  </body>
+</html>

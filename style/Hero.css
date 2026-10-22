@@ -1,0 +1,229 @@
+/* Hero Section */
+
+.hero-title em {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.hero {
+  position: relative;
+  /* height: clamp(520px, 78vh, 820px); */
+  overflow: hidden;
+  background: var(--choco);
+}
+
+.h-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  display: flex;
+  align-items: center;
+  height: auto;
+  padding-bottom: 30px;
+}
+
+.h-slide.active {
+  opacity: 1;
+}
+
+.h-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+  transition: transform 7s ease;
+}
+
+/* Animate the active/current slide */
+.slick-slide.slick-current .h-bg,
+.slick-slide.slick-active .h-bg {
+  transform: scale(1);
+}
+
+.h-ov {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(30, 27, 46, 0.82) 0%,
+    rgba(30, 27, 46, 0.4) 60%,
+    transparent 100%
+  );
+}
+
+.h-cnt {
+  position: relative;
+  z-index: 2;
+  max-width: 50%;
+  padding: 50px clamp(24px, 6vw, 80px);
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .h-cnt {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .h-cnt {
+    max-width: 100%;
+  }
+}
+
+.h-eye {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(226, 50, 125, 0.25);
+  border: 1px solid rgba(226, 50, 125, 0.5);
+  padding: 6px 14px;
+  border-radius: 50px;
+  color: var(--gold-l);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.h-eye span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold-l);
+  display: inline-block;
+}
+
+.h-ttl {
+  font-family: var(--serif);
+  font-size: clamp(34px, 5.5vw, 64px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.12;
+  margin-bottom: 18px;
+}
+
+.h-ttl em {
+  font-style: italic;
+  color: var(--gold-l);
+}
+
+.h-sub {
+  font-size: clamp(14px, 1.6vw, 17px);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 420px;
+}
+
+.h-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.h-badges {
+  position: absolute;
+  bottom: 45px;
+  right: clamp(24px, 5vw, 60px);
+  display: flex;
+  gap: 12px;
+  z-index: 2;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.h-badge {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  padding: 8px 16px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Slick Dots */
+
+.slick-track {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Slick Dots */
+.slick-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex !important;
+  gap: 8px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  z-index: 20;
+}
+
+.slick-dots li {
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+.slick-dots li button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li button::before {
+  display: none;
+}
+
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+
+/* Active Dot */
+.slick-dots li.slick-active button {
+  width: 28px;
+  border-radius: 4px;
+  background: var(--gold);
+}
+
+
+@media (max-width: 700px) {
+
+  .hero-badges {
+    display: none;
+  }
+
+  .hero-arrows {
+    display: none;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+  .hero-dots {
+    bottom: 22px;
+  }
+
+}

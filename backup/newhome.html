@@ -1,0 +1,4147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Cakes Toronto & GTA | Irresistible Cakes (iCakes) — Nut-Free Bakery Since 1962</title>
+  <meta name="description"
+    content="Custom birthday, wedding & celebration cakes in Toronto & the GTA. Nut-free, halal, lactose-free and eggless cakes from a trusted GTA cake bakery since 1962. 10 pickup locations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #d12764;
+      --primary-dark: #a81e51;
+      --primary-light: #f8a5c2;
+      --secondary: #292c81;
+      --secondary-light: #4c51b8;
+      --white: #ffffff;
+      --cream: #fff8fa;
+      --blush: #fdeef3;
+      --charcoal: #241b2f;
+      --gold: #e8b96a;
+      --ink-soft: #6b6178;
+      --font-display: 'Lobster', sans-serif;
+      --font-body: "Poppins", sans-serif;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 20px 60px -20px rgba(41, 44, 129, 0.25);
+      --shadow-card: 0 10px 30px -10px rgba(209, 39, 100, 0.18);
+      --ease: cubic-bezier(.16, .84, .44, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--charcoal);
+      background: var(--cream);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--secondary);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      position: relative;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .section-head {
+      max-width: 680px;
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--ink-soft);
+      font-size: 1.03rem;
+      line-height: 1.65;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 13px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: .92rem;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      box-shadow: 0 14px 34px -10px rgba(209, 39, 100, .55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -10px rgba(209, 39, 100, .65);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, .14);
+      border: 1.5px solid rgba(255, 255, 255, .55);
+      color: var(--white);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, .28);
+      transform: translateY(-3px);
+    }
+
+    .btn-line {
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, .65);
+      color: var(--white);
+    }
+
+    .btn-line:hover {
+      background: rgba(255, 255, 255, .16);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--secondary);
+      color: var(--secondary);
+    }
+
+    .btn-outline:hover {
+      background: var(--secondary);
+      color: var(--white);
+    }
+
+    .btn-wa {
+      background: var(--white);
+      border: 1.5px solid var(--primary);
+      color: var(--primary-dark);
+    }
+
+    .btn-wa:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .9s var(--ease), transform .9s var(--ease);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger>* {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+
+    .reveal-stagger.in>* {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger.in>*:nth-child(1) {
+      transition-delay: .05s
+    }
+
+    .reveal-stagger.in>*:nth-child(2) {
+      transition-delay: .15s
+    }
+
+    .reveal-stagger.in>*:nth-child(3) {
+      transition-delay: .25s
+    }
+
+    .reveal-stagger.in>*:nth-child(4) {
+      transition-delay: .35s
+    }
+
+    .reveal-stagger.in>*:nth-child(5) {
+      transition-delay: .45s
+    }
+
+    .reveal-stagger.in>*:nth-child(6) {
+      transition-delay: .55s
+    }
+
+    .reveal-stagger.in>*:nth-child(7) {
+      transition-delay: .65s
+    }
+
+    .rosette-divider {
+      position: relative;
+      height: 70px;
+      margin-top: -1px;
+      z-index: 3;
+    }
+
+    .rosette-divider svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+    }
+
+    header.scrolled {
+      background: rgba(255, 248, 250, .88);
+      backdrop-filter: blur(14px) saturate(160%);
+      box-shadow: 0 4px 30px -10px rgba(41, 44, 129, .15);
+      padding: 11px 0;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.28rem;
+      color: var(--white);
+      transition: color .4s;
+    }
+
+    header.scrolled .logo {
+      color: var(--secondary);
+    }
+
+    .logo svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .logo-sub {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: .6rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .75;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      font-size: .88rem;
+      color: var(--white);
+      position: relative;
+      padding: 4px 0;
+      transition: color .4s;
+    }
+
+    header.scrolled .nav-links a {
+      color: var(--charcoal);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width .35s var(--ease);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    header.scrolled .btn-ghost {
+      background: rgba(41, 44, 129, .08);
+      border-color: rgba(41, 44, 129, .25);
+      color: var(--secondary);
+    }
+
+    header.scrolled .btn-ghost:hover {
+      background: rgba(41, 44, 129, .16);
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 26px;
+      z-index: 1001;
+    }
+
+    .burger span {
+      height: 2.5px;
+      width: 100%;
+      background: var(--white);
+      border-radius: 2px;
+      transition: .4s var(--ease);
+    }
+
+    header.scrolled .burger span {
+      background: var(--secondary);
+    }
+
+    .burger.open span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .burger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger.open span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 660px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--secondary);
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.4s var(--ease);
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: kenburns 9s var(--ease) forwards;
+    }
+
+    @keyframes kenburns {
+      from {
+        transform: scale(1.12) translate(0, 0);
+      }
+
+      to {
+        transform: scale(1) translate(-1%, -1%);
+      }
+    }
+
+    .hero-slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, rgb(15 15 20 / 85%) 10%, rgb(30 25 27 / 55%) 55%, rgb(20 20 23 / 35%) 100%);
+      ;
+    }
+
+    .hero .my-slider {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero .my-slider .hero-slide {
+      position: relative;
+      height: 100%;
+      opacity: 1;
+      inset: auto;
+    }
+
+    .hero .my-slider .hero-slide img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: kenburns 9s var(--ease) forwards;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+    }
+
+    .hero-inner {
+      max-width: 700px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .35);
+      backdrop-filter: blur(8px);
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: .76rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5.4vw, 4rem);
+      color: var(--white);
+      margin-bottom: 14px;
+      letter-spacing: -.01em;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, .88);
+      font-size: 1.08rem;
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 36px;
+      transform: translateX(-50%);
+      z-index: 6;
+    }
+
+    .hero-dots .slick-dots {
+      display: flex;
+      gap: 12px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero-dots .slick-dots li {
+      width: auto;
+      height: auto;
+    }
+
+    .hero-dots .slick-dots li button {
+      width: 34px;
+      height: 5px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .35);
+      transition: background .4s, width .4s;
+      padding: 0;
+      text-indent: -9999px;
+    }
+
+    .hero-dots .slick-dots li.slick-active button {
+      background: var(--gold);
+      width: 52px;
+    }
+
+    .hero-arrows {
+      position: absolute;
+      right: 34px;
+      bottom: 34px;
+      display: flex;
+      gap: 12px;
+      z-index: 6;
+    }
+
+    .hero-arrows button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .4);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .35s, transform .35s;
+    }
+
+    .hero-arrows button:hover {
+      background: rgba(255, 255, 255, .28);
+      transform: scale(1.08);
+    }
+
+    .hero-arrows svg {
+      width: 19px;
+      height: 19px;
+      stroke: var(--white);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      left: 34px;
+      bottom: 34px;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, .8);
+      font-size: .76rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(rgba(255, 255, 255, .9), transparent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: -32px;
+      left: 0;
+      width: 100%;
+      height: 32px;
+      background: var(--gold);
+      animation: scrollpulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollpulse {
+      0% {
+        top: -32px;
+      }
+
+      100% {
+        top: 32px;
+      }
+    }
+
+    /* STORY */
+    .story {
+      padding: 10px 0 100px;
+      background: var(--white);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: .9fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .story-media {
+      position: relative;
+    }
+
+    .story-media .img-main {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .story-media .img-main img {
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .story-float {
+      position: absolute;
+      bottom: -28px;
+      left: -28px;
+      background: rgba(255, 255, 255, .75);
+      backdrop-filter: blur(16px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, .6);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 230px;
+    }
+
+    .story-float svg {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .story-float strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      color: var(--secondary);
+    }
+
+    .story-float span {
+      font-size: .8rem;
+      color: var(--ink-soft);
+    }
+
+    .story-text h2 {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      margin-bottom: 20px;
+    }
+
+    .story-text p {
+      color: var(--ink-soft);
+      font-size: 1.02rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .story-points {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .story-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .story-point svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .story-point span {
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: .98rem;
+      line-height: 1.5;
+    }
+
+    /* STATS */
+    .stats {
+      padding: 80px 0;
+      background: var(--gold-pale);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* .stats::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, .08) 0, transparent 45%), radial-gradient(circle at 85% 70%, rgba(255, 255, 255, .07) 0, transparent 40%);
+    } */
+
+    .stats-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .stat-card {
+      background: var(--gold);
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: var(--radius-md);
+      padding: 38px 26px;
+      text-align: center;
+      transition: transform .4s var(--ease), background .4s var(--ease);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .stat-card svg {
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 16px;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 2.6rem;
+      color: var(--white);
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .stat-num .plus {
+      font-size: 1.6rem;
+      color: var(--gold-pale);
+    }
+
+    .stat-label {
+      color: rgba(255, 255, 255, .78);
+      font-size: .9rem;
+      margin-top: 10px;
+      letter-spacing: .02em;
+      line-height: 1.5;
+    }
+
+    /* PROCESS */
+    .how {
+      padding: 120px 0 100px;
+      background: var(--cream);
+    }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 44px;
+      left: 8%;
+      right: 8%;
+      height: 1.5px;
+      background: repeating-linear-gradient(90deg, var(--primary-light) 0 10px, transparent 10px 20px);
+      z-index: 0;
+    }
+
+    .how-step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 14px;
+    }
+
+    .how-num {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      margin: 0 auto 22px;
+      background: var(--white);
+      border: 1.5px solid var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-card);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--primary);
+      transition: transform .4s var(--ease), background .4s var(--ease);
+    }
+
+    .how-step:hover .how-num {
+      transform: translateY(-6px) scale(1.05);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+    }
+
+    .how-step h3 {
+      font-size: 1.08rem;
+      margin-bottom: 9px;
+    }
+
+    .how-step p {
+      color: var(--ink-soft);
+      font-size: .86rem;
+      line-height: 1.6;
+    }
+
+    .how-cta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+
+    /* CAKE TYPES */
+    .types {
+      padding: 110px 0;
+      background: var(--white);
+    }
+
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .type-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 340px;
+      box-shadow: var(--shadow-card);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+    }
+
+    .type-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px -20px rgba(41, 44, 129, .35);
+    }
+
+    .type-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s var(--ease);
+    }
+
+    .type-card:hover img {
+      transform: scale(1.09);
+    }
+
+    .type-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(36, 27, 47, .92) 0%, rgba(36, 27, 47, .35) 45%, transparent 70%);
+    }
+
+    .type-body {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 24px;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .type-body h3 {
+      color: var(--white);
+      font-size: 1.25rem;
+      margin-bottom: 5px;
+    }
+
+    .type-body span {
+      color: rgba(255, 255, 255, .75);
+      font-size: .82rem;
+    }
+
+    .type-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, .16);
+      border: 1px solid rgba(255, 255, 255, .4);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .4s, transform .4s;
+    }
+
+    .type-card:hover .type-arrow {
+      background: var(--primary);
+      transform: rotate(45deg);
+    }
+
+    .type-arrow svg {
+      width: 17px;
+      height: 17px;
+      stroke: var(--white);
+    }
+
+    /* FLAVOURS */
+    .flavours {
+      padding: 118px 0 100px;
+      background: linear-gradient(180deg, var(--blush) 0%, var(--cream) 100%);
+    }
+
+    .flavours-intro {
+      max-width: 760px;
+      margin: 0 auto 54px;
+      text-align: center;
+    }
+
+    .flavours-intro p {
+      color: var(--ink-soft);
+      font-size: 1.02rem;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .flavour-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .flavour-feature-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 26px 24px;
+      box-shadow: 0 8px 22px -10px rgba(41, 44, 129, .14);
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+    }
+
+    .flavour-feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 30px -12px rgba(209, 39, 100, .28);
+    }
+
+    .flavour-feature-card .swatch {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      margin-bottom: 16px;
+      box-shadow: inset 0 -6px 10px rgba(0, 0, 0, .12), 0 4px 10px rgba(0, 0, 0, .08);
+    }
+
+    .flavour-feature-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .flavour-feature-card p {
+      color: var(--ink-soft);
+      font-size: .87rem;
+      line-height: 1.6;
+    }
+
+    .flavour-note {
+      max-width: 700px;
+      margin: 44px auto 0;
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: .92rem;
+      line-height: 1.7;
+      background: rgba(255, 255, 255, .6);
+      border: 1px solid rgba(209, 39, 100, .12);
+      border-radius: var(--radius-md);
+      padding: 22px 28px;
+    }
+
+    .flavour-cta {
+      text-align: center;
+      margin-top: 38px;
+    }
+
+    /* DIETARY */
+    .dietary {
+      padding: 118px 0;
+      background: var(--white);
+    }
+
+    .dietary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .dietary-grid> :nth-child(4),
+    .dietary-grid> :nth-child(5) {
+      grid-column: span 1;
+    }
+
+    .dietary-card {
+      padding: 32px 26px;
+      border-radius: var(--radius-lg);
+      text-align: left;
+      background: var(--cream);
+      border: 1px solid rgba(209, 39, 100, .08);
+      transition: transform .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dietary-card:hover {
+      transform: translateY(-8px);
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .dietary-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, var(--blush), var(--white));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(209, 39, 100, .15);
+    }
+
+    .dietary-icon svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .dietary-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .dietary-card p {
+      color: var(--ink-soft);
+      font-size: .87rem;
+      line-height: 1.62;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .dietary-card .learn {
+      font-size: .83rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dietary-card .learn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform .3s;
+    }
+
+    .dietary-card:hover .learn svg {
+      transform: translateX(4px);
+    }
+
+    /* REVIEWS */
+    .reviews {
+      padding: 118px 0 128px;
+      position: relative;
+      overflow: hidden;
+      background: var(--choco);
+    }
+
+    .reviews .section-head h2,
+    .reviews .section-head p {
+      color: var(--white);
+    }
+
+    .reviews .section-head p {
+      color: rgba(255, 255, 255, .75);
+    }
+
+    .review-track-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .review-track {
+      display: flex;
+      transition: transform .7s var(--ease);
+    }
+
+    .review-card {
+      flex: 0 0 calc(33.333% - 18px);
+      margin-right: 18px;
+      background: var(--gold-pale);
+      border: 1px solid rgba(255, 255, 255, .16);
+      backdrop-filter: blur(16px) saturate(160%);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .review-card p {
+      color: var(--black);
+      font-size: .95rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      min-height: 130px;
+    }
+
+    .review-who {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .review-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .review-who strong {
+      color: var(--black);
+      display: block;
+      font-size: .93rem;
+    }
+
+    .review-who span {
+      color: var(--gray-txt);
+      font-size: .78rem;
+    }
+
+    .review-nav {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 42px;
+    }
+
+    .review-nav button {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .35s var(--ease);
+    }
+
+    .review-nav button:hover {
+      background: var(--gold);
+    }
+
+    .review-nav svg {
+      width: 17px;
+      height: 17px;
+      stroke: var(--white);
+    }
+
+    .review-nav button:hover svg {
+      stroke: var(--secondary);
+    }
+
+    /* LOCATIONS */
+    .locations {
+      padding: 118px 0;
+      background: var(--cream);
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .location-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 24px 18px;
+      text-align: center;
+      box-shadow: 0 8px 22px -12px rgba(41, 44, 129, .14);
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+    }
+
+    .location-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 28px -14px rgba(209, 39, 100, .28);
+    }
+
+    .location-card svg {
+      width: 30px;
+      height: 30px;
+      margin: 0 auto 12px;
+    }
+
+    .location-card strong {
+      display: block;
+      font-family: var(--font-display);
+      color: var(--secondary);
+      font-size: .98rem;
+      margin-bottom: 6px;
+    }
+
+    .location-card a {
+      font-size: .78rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* GUIDES */
+    .guides {
+      padding: 118px 0;
+      background: var(--white);
+    }
+
+    .guides-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .guide-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--cream);
+      box-shadow: var(--shadow-card);
+      transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+    }
+
+    .guide-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .guide-img {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .guide-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s var(--ease);
+    }
+
+    .guide-card:hover .guide-img img {
+      transform: scale(1.08);
+    }
+
+    .guide-body {
+      padding: 24px 24px 26px;
+    }
+
+    .guide-tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 10px;
+    }
+
+    .guide-body h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .guide-body p {
+      color: var(--ink-soft);
+      font-size: .87rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .guide-read {
+      font-size: .83rem;
+      font-weight: 700;
+      color: var(--secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .guide-read svg {
+      width: 14px;
+      height: 14px;
+      transition: transform .3s;
+    }
+
+    .guide-card:hover .guide-read svg {
+      transform: translateX(4px);
+    }
+
+    .guides-cta {
+      text-align: center;
+      margin-top: 46px;
+    }
+
+    /* CTA BAND */
+    .cta-band {
+      padding: 90px 0;
+      background: var(--cream);
+      display: flex;
+      justify-content: center;
+    }
+
+    .cta-box {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(120deg, var(--primary), var(--primary-dark) 60%, var(--secondary) 130%);
+      padding: 60px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .cta-box h2 {
+      color: var(--white);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      max-width: 440px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, .85);
+      max-width: 440px;
+      position: relative;
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+
+    .cta-box-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .cta-box-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .cta-box .btn-primary {
+      background: var(--white);
+      color: var(--primary-dark);
+      box-shadow: 0 14px 34px -10px rgba(0, 0, 0, .35);
+    }
+
+    .cta-box .btn-primary:hover {
+      background: var(--gold);
+      color: var(--secondary);
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 118px 0 130px;
+      background: var(--white);
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      border: 1px solid rgba(41, 44, 129, .12);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 26px;
+      text-align: left;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.02rem;
+      color: var(--secondary);
+    }
+
+    .faq-q .plus {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid rgba(209, 39, 100, .25);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .4s var(--ease), background .4s;
+    }
+
+    .faq-q .plus svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--primary);
+      transition: transform .4s var(--ease);
+    }
+
+    .faq-item.open .faq-q .plus {
+      background: var(--primary);
+    }
+
+    .faq-item.open .faq-q .plus svg {
+      stroke: var(--white);
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .5s var(--ease);
+    }
+
+    .faq-a-inner {
+      padding: 0 26px 24px;
+      color: var(--ink-soft);
+      font-size: .92rem;
+      line-height: 1.75;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255, 255, 255, .75);
+      padding: 76px 0 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+      gap: 40px;
+      margin-bottom: 56px;
+    }
+
+    .footer-brand .logo {
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: .9rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, .55);
+      max-width: 290px;
+      margin-bottom: 14px;
+    }
+
+    .footer-contact {
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .7);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .35s var(--ease);
+    }
+
+    .footer-social a:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--white);
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 11px;
+    }
+
+    .footer-col ul a {
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .6);
+      transition: color .3s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--gold);
+    }
+
+    .footer-form {
+      display: flex;
+      gap: 0;
+      margin-top: 6px;
+      border-radius: 100px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .footer-form input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 14px 18px;
+      color: var(--white);
+      font-size: .86rem;
+    }
+
+    .footer-form input::placeholder {
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .footer-form button {
+      padding: 14px 20px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-form svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: .8rem;
+      color: rgba(255, 255, 255, .45);
+    }
+
+    .footer-bottom a {
+      color: rgba(255, 255, 255, .45);
+    }
+
+    .footer-bottom a:hover {
+      color: var(--gold);
+    }
+
+    .to-top {
+      position: fixed;
+      right: 26px;
+      bottom: 26px;
+      z-index: 900;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 26px -8px rgba(209, 39, 100, .5);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: .4s var(--ease);
+    }
+
+    .to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .to-top svg {
+      width: 19px;
+      height: 19px;
+      stroke: var(--white);
+    }
+
+    /* ===================== MOBILE DRAWER ===================== */
+    .nav-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: min(340px, 84vw);
+      background: var(--white);
+      z-index: 1100;
+      padding: calc(var(--hdr-h) + 20px) 30px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      transform: translateX(100%);
+      transition: transform .5s var(--ease);
+      box-shadow: -14px 0 50px rgba(0, 0, 0, .15);
+      overflow-y: auto;
+    }
+
+    .nav-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .drawer-links a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--secondary);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(41, 44, 129, .08);
+    }
+
+    .drawer-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .drawer-icons .icon-btn {
+      color: var(--secondary);
+      border-color: rgba(41, 44, 129, .2);
+      background: rgba(41, 44, 129, .06);
+    }
+
+    .drawer-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .drawer-ctas .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 15px 20px;
+      font-size: .9rem;
+    }
+
+    .drawer-ctas .btn-secondary {
+      background: rgba(41, 44, 129, .06);
+      border-color: rgba(41, 44, 129, .25);
+      color: var(--secondary);
+    }
+
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(36, 27, 47, .45);
+      z-index: 1050;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .4s var(--ease), visibility .4s var(--ease);
+      backdrop-filter: blur(2px);
+    }
+
+    .scrim.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @media (min-width:1081px) {
+
+      .nav-drawer,
+      .scrim {
+        display: none;
+      }
+    }
+
+    /* Mobile: header shrinks further, search/cart icons hide (they live inside the drawer instead), only burger + primary CTA icon show */
+    @media (max-width:640px) {
+      :root {
+        --hdr-h: 72px;
+        --hdr-h-scrolled: 60px;
+      }
+
+      .icon-btn.desktop-only {
+        display: none;
+      }
+
+      .header-actions {
+        gap: 8px;
+      }
+
+      .logo img {
+        height: 70px !important;
+      }
+
+      header.hdr.scrolled .logo img {
+        height: 28px;
+      }
+    }
+
+    @media (max-width:1080px) {
+      .main-nav {
+        display: none;
+      }
+
+      .btn-chat span.label {
+        display: none;
+      }
+
+      .btn-chat {
+        padding: 12px;
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        justify-content: center;
+      }
+
+      .btn-chat svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .burger {
+        display: flex;
+      }
+    }
+
+    /* ===================== HEADER ===================== */
+    header.hdr {
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 0;
+      background: white;
+      transition: background .4s var(--ease), box-shadow .4s var(--ease);
+    }
+
+    header.hdr.scrolled {
+      background: rgba(255, 248, 250, .9);
+      backdrop-filter: blur(14px) saturate(160%);
+      box-shadow: 0 4px 30px -10px rgba(41, 44, 129, .15);
+    }
+
+    .hdr-i {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      height: var(--hdr-h);
+      transition: height .4s var(--ease);
+    }
+
+    header.hdr.scrolled .hdr-i {
+      height: var(--hdr-h-scrolled);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      height: 42px;
+      width: auto;
+      display: block;
+      transition: height .4s var(--ease), filter .4s var(--ease);
+    }
+
+    header.hdr.scrolled .logo img {
+      height: 34px;
+    }
+
+    /* On the dark hero the stock logo may need to read as white/light; swap via filter if your logo is dark-on-transparent */
+    .logo img.logo-invert {
+      filter: brightness(0) invert(1);
+    }
+
+    header.hdr.scrolled .logo img.logo-invert {
+      filter: none;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      font-size: .9rem;
+      color: var(--white);
+      position: relative;
+      padding: 4px 0;
+      transition: color .4s;
+      white-space: nowrap;
+    }
+
+    header.hdr.scrolled .nav-link {
+      color: var(--charcoal);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width .35s var(--ease);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, .4);
+      background: rgba(255, 255, 255, .08);
+      transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease);
+    }
+
+    .icon-btn:hover {
+      background: rgba(255, 255, 255, .2);
+      transform: translateY(-2px);
+    }
+
+    .icon-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    header.hdr.scrolled .icon-btn {
+      color: var(--secondary);
+      border-color: rgba(41, 44, 129, .2);
+      background: rgba(41, 44, 129, .06);
+    }
+
+    header.hdr.scrolled .icon-btn:hover {
+      background: rgba(41, 44, 129, .12);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px -8px rgba(209, 39, 100, .6);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, .1);
+      border: 1.5px solid rgba(255, 255, 255, .5);
+      color: var(--white);
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, .22);
+      transform: translateY(-2px);
+    }
+
+    header.hdr.scrolled .btn-secondary {
+      background: rgba(41, 44, 129, .06);
+      border-color: rgba(41, 44, 129, .25);
+      color: var(--secondary);
+    }
+
+    header.hdr.scrolled .btn-secondary:hover {
+      background: rgba(41, 44, 129, .14);
+    }
+
+    /* Only ONE burger, always the same element on every breakpoint */
+    .burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      z-index: 1200;
+      background: var(--gold) !important;
+      align-items: center;
+    }
+
+    .burger span {
+      height: 2.5px;
+      width: 22px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: .4s var(--ease);
+    }
+
+    header.hdr.scrolled .burger span {
+      background: var(--secondary);
+    }
+
+    .burger.open span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .burger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger.open span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* Once the drawer is open, force the icon dark regardless of scroll state (drawer sits on a light background) */
+    .burger.open span {
+      background: var(--secondary) !important;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width:1080px) {
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .types-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flavour-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dietary-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .review-card {
+        flex: 0 0 calc(50% - 18px);
+      }
+
+      .locations-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .guides-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .how-steps {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 20px;
+      }
+
+      .how-steps::before {
+        display: none;
+      }
+    }
+
+    @media (max-width:860px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: min(320px, 80vw);
+        background: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 100px 34px 34px;
+        gap: 22px;
+        transform: translateX(100%);
+        transition: transform .5s var(--ease);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, .12);
+        overflow-y: auto;
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        color: var(--charcoal) !important;
+        font-size: 1rem;
+      }
+
+      .nav-cta .btn-primary {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+
+      .story-media .img-main img {
+        height: 380px;
+      }
+
+      .types-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .review-card {
+        flex: 0 0 100%;
+      }
+
+      .cta-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 44px 28px;
+      }
+
+      .cta-box-actions {
+        justify-content: center;
+      }
+
+      .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .guides-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .how-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width:600px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .flavour-feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .dietary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .how-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-arrows {
+        display: none;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      .hero-dots {
+        bottom: 22px;
+      }
+
+      .story {
+        padding: 86px 0 64px;
+      }
+
+      .stats {
+        padding: 64px 0;
+      }
+
+      .how {
+        padding: 86px 0 64px;
+      }
+
+      .types {
+        padding: 76px 0;
+      }
+
+      .flavours {
+        padding: 86px 0 64px;
+      }
+
+      .dietary {
+        padding: 86px 0;
+      }
+
+      .reviews {
+        padding: 86px 0 96px;
+      }
+
+      .locations {
+        padding: 86px 0;
+      }
+
+      .guides {
+        padding: 86px 0;
+      }
+
+      .faq {
+        padding: 86px 0 96px;
+      }
+
+      .banner-card {
+        display: block !important;
+      }
+
+      .banner-text,
+      .banner-img {
+        width: 100% !important;
+      }
+
+      .c {
+        padding: 0px 30px !important;
+      }
+    }
+
+    .hero-title em {
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+
+    /* ===================== CATEGORY SCROLLER ===================== */
+    .cat-section {
+      background: var(--white);
+      border-bottom: 1px solid rgba(41, 44, 129, .08);
+      padding: 26px 0;
+      position: relative;
+    }
+
+    .cat-scroll-wrap {
+      position: relative;
+    }
+
+    .cat-track {
+      display: flex;
+      gap: 9px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 6px 64px 10px 6px;
+      cursor: grab;
+      scroll-behavior: smooth;
+    }
+
+    .cat-track.dragging {
+      cursor: grabbing;
+      scroll-behavior: auto;
+    }
+
+    .cat-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-item {
+      flex: 0 0 auto;
+      width: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      scroll-snap-align: start;
+      -webkit-user-select: none;
+      user-select: none;
+      --ring-tint: #fbe6ee;
+    }
+
+    .cat-ring {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ring-tint, var(--blush));
+      border: 2px solid transparent;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+    }
+
+    .cat-item:hover .cat-ring {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .cat-item.active .cat-ring {
+      border-color: var(--primary);
+    }
+
+    .cat-ring .cat-img-wrap {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--white);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, .08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+    }
+
+    .cat-ring .cat-img-wrap svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .cat-ring img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cat-label {
+      font-size: .8rem;
+      /* font-weight:600; */
+      color: var(--charcoal);
+      line-height: 1.3;
+    }
+
+    .cat-item.active .cat-label {
+      color: var(--primary);
+    }
+
+    .cat-arrow {
+      position: absolute;
+      top: 44px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 10px 24px -6px rgba(41, 44, 129, .28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 6;
+      transition: opacity .3s var(--ease), visibility .3s var(--ease), transform .3s var(--ease);
+    }
+
+    .cat-arrow svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--secondary);
+    }
+
+    .cat-arrow:hover {
+      transform: scale(1.08);
+    }
+
+    .cat-arrow.right {
+      right: 16px;
+    }
+
+    .cat-arrow.left {
+      left: 16px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .cat-arrow.left.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cat-arrow.right.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .cat-fade {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 96px;
+      background: linear-gradient(90deg, transparent, var(--white) 72%);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .cat-fade.left-fade {
+      right: auto;
+      left: 0;
+      background: linear-gradient(270deg, transparent, var(--white) 72%);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .cat-fade.left-fade.show {
+      opacity: 1;
+    }
+
+    @media (max-width:640px) {
+      .cat-section {
+        padding: 20px 0;
+      }
+
+      .cat-item {
+        width: 78px;
+      }
+
+      .cat-ring {
+        width: 78px;
+        height: 78px;
+      }
+
+      .cat-ring .cat-img-wrap {
+        width: 64px;
+        height: 64px;
+      }
+
+      .cat-label {
+        font-size: .74rem;
+      }
+
+      .cat-track {
+        gap: 22px;
+        padding-right: 52px;
+      }
+
+      .cat-arrow {
+        width: 38px;
+        height: 38px;
+        top: 20px;
+      }
+
+      .cat-fade {
+        width: 60px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="c">
+      <div class="tb-l">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          (905) 850-2253
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Woodbridge, ON
+        </span>
+      </div>
+      <div class="tb-r">
+        <a href="#">Login</a>
+        <a href="#">Sign Up</a>
+      </div>
+    </div>
+  </div>
+  <header class="hdr p-0">
+    <div class="c">
+      <div class="hdr-i">
+        <div class="logo">
+          <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+        </div>
+        <nav class="main-nav" id="navLinks">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About Us</a>
+          <a class="nav-link" href="#quality">Quality</a>
+          <a class="nav-link" href="#flavour">Flavour</a>
+          <a class="nav-link" href="#blogs">Blogs</a>
+        </nav>
+        <div class="nav-cta">
+          <div class="header-actions">
+            <button class="icon-btn" aria-label="Search">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+            <button class="icon-btn" aria-label="Cart">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                <path d="M3 6h18" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
+            </button>
+            <button class="btn btn-primary" aria-label="Chat">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-message-circle-more-icon lucide-message-circle-more">
+                <path
+                  d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+                <path d="M8 12h.01" />
+                <path d="M12 12h.01" />
+                <path d="M16 12h.01" />
+              </svg>
+              Chat with a Cake Expert
+            </button>
+            <button class="btn btn-primary" aria-label="Chat">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+                <path d="M16 14v2.2l1.6 1" />
+                <path d="M16 4h2a2 2 0 0 1 2 2v.832" />
+                <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2" />
+                <circle cx="16" cy="16" r="6" />
+                <rect x="8" y="2" width="8" height="4" rx="1" />
+              </svg>
+              Book an Appointment
+            </button>
+            <button class="burger" aria-label="Menu" id="burger">
+              <span></span><span></span><span></span>
+
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="scrim" id="scrim"></div>
+
+  <nav class="nav-drawer" id="navDrawer">
+    <div class="drawer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="#quality">Quality</a>
+      <a href="#flavour">Flavour</a>
+      <a href="#blogs">Blogs</a>
+    </div>
+    <div class="drawer-icons">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg></button>
+      <button class="icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+          <path d="M3 6h18" />
+          <path d="M16 10a4 4 0 0 1-8 0" />
+        </svg></button>
+    </div>
+    <div class="drawer-ctas">
+      <button class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path
+            d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+          <path d="M8 12h.01" />
+          <path d="M12 12h.01" />
+          <path d="M16 12h.01" />
+        </svg>
+        Chat with a Cake Expert
+      </button>
+      <button class="btn btn-secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M16 14v2.2l1.6 1" />
+          <path d="M16 4h2a2 2 0 0 1 2 2v.832" />
+          <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2" />
+          <circle cx="16" cy="16" r="6" />
+          <rect x="8" y="2" width="8" height="4" rx="1" />
+        </svg>
+        Book an Appointment
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===================== CATEGORY SCROLLER — sits right below the header/hero ===================== -->
+  <section class="cat-section" id="categoryScroller">
+    <div class="c">
+      <div class="cat-scroll-wrap">
+        <div class="cat-track" id="catTrack">
+
+          <div class="cat-item active" data-cat="all">
+            <div class="cat-ring">
+              <div class="cat-img-wrap">
+                <svg viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="18" fill="#d12764" /><text x="20" y="27" font-family="Fraunces, serif"
+                    font-size="20" font-weight="700" fill="#fff" text-anchor="middle">iC</text>
+                </svg>
+              </div>
+            </div>
+            <span class="cat-label">All Cakes</span>
+          </div>
+
+          <div class="cat-item" data-cat="ready">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                  alt="Wedding Cakes Toronto"></div>
+            </div>
+            <span class="cat-label">Wedding Cakes Toronto</span>
+          </div>
+
+          <div class="cat-item" data-cat="wedding">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/birthday-cake.png"
+                  alt="Wedding cakes"></div>
+            </div>
+            <span class="cat-label">Custom Birthday Cakes in Toronto</span>
+          </div>
+
+          <div class="cat-item" data-cat="graduation">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png"
+                  alt="Graduation cakes"></div>
+            </div>
+            <span class="cat-label">Kids Birthday Cakes</span>
+          </div>
+
+          <div class="cat-item" data-cat="kids">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/corporate-cakes.png"
+                  alt="Kids party cakes"></div>
+            </div>
+            <span class="cat-label">Corporate Cakes</span>
+          </div>
+          <div class="cat-item" data-cat="ready">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                  alt="Wedding Cakes Toronto"></div>
+            </div>
+            <span class="cat-label">Wedding Cakes Toronto</span>
+          </div>
+
+          <div class="cat-item" data-cat="wedding">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/birthday-cake.png"
+                  alt="Wedding cakes"></div>
+            </div>
+            <span class="cat-label">Custom Birthday Cakes in Toronto</span>
+          </div>
+
+          <div class="cat-item" data-cat="graduation">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png"
+                  alt="Graduation cakes"></div>
+            </div>
+            <span class="cat-label">Kids Birthday Cakes</span>
+          </div>
+
+          <div class="cat-item" data-cat="kids">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/corporate-cakes.png"
+                  alt="Kids party cakes"></div>
+            </div>
+            <span class="cat-label">Corporate Cakes</span>
+          </div>
+          <div class="cat-item" data-cat="ready">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                  alt="Wedding Cakes Toronto"></div>
+            </div>
+            <span class="cat-label">Wedding Cakes Toronto</span>
+          </div>
+
+          <div class="cat-item" data-cat="wedding">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/birthday-cake.png"
+                  alt="Wedding cakes"></div>
+            </div>
+            <span class="cat-label">Custom Birthday Cakes in Toronto</span>
+          </div>
+
+          <div class="cat-item" data-cat="graduation">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png"
+                  alt="Graduation cakes"></div>
+            </div>
+            <span class="cat-label">Kids Birthday Cakes</span>
+          </div>
+
+          <div class="cat-item" data-cat="kids">
+            <div class="cat-ring">
+              <div class="cat-img-wrap"><img src="https://www.icakes.ca/upload/category/corporate-cakes.png"
+                  alt="Kids party cakes"></div>
+            </div>
+            <span class="cat-label">Corporate Cakes</span>
+          </div>
+
+
+        </div>
+
+        <div class="cat-fade"></div>
+        <div class="cat-fade left-fade" id="leftFade"></div>
+
+        <button class="cat-arrow left" id="catLeft" aria-label="Scroll categories left">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <button class="cat-arrow right" id="catRight" aria-label="Scroll categories right">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- HERO -->
+  <section class="banner-section">
+    <div class="banner-wrapper">
+      <div class="my-slider">
+        <div>
+          <div class="c">
+            <div class="banner-card">
+              <div class="banner-text">
+                <h2>Custom <span>Birthday, Wedding & Celebration</span> Cakes in Toronto & the GTA</h2>
+                <p>Each custom cake is designed around your celebration, your style, and your guests. For more than 60
+                  years,
+                  iCakes has been baking birthday, wedding, and celebration cakes for families across Toronto and the
+                  GTA
+                  —
+                  from a dedicated nut-free bakery that has held its standard since the beginning.</p>
+                <a href="#types" class="btn btn-primary">Browse All Cakes</a>
+              </div>
+              <figure class="banner-img">
+                <img src="https://www.icakes.ca/upload/slider/176451713422.jpg"
+                  alt="Custom wedding cake made by a nut-free bakery in Toronto and the GTA">
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="c">
+            <div class="banner-card">
+              <div class="banner-text">
+                <h2>Custom <span>Birthday, Wedding & Celebration</span> Cakes in Toronto & the GTA</h2>
+                <p>Each custom cake is designed around your celebration, your style, and your guests. For more than 60
+                  years,
+                  iCakes has been baking birthday, wedding, and celebration cakes for families across Toronto and the
+                  GTA
+                  —
+                  from a dedicated nut-free bakery that has held its standard since the beginning.</p>
+                <a href="#types" class="btn btn-primary">Browse All Cakes</a>
+              </div>
+              <figure class="banner-img">
+                <img src="https://www.icakes.ca/upload/slider/176436819031.png"
+                  alt="Custom birthday cake from a Toronto GTA cake shop">
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="c">
+            <div class="banner-card">
+              <div class="banner-text">
+                <h2>Custom <span>Birthday, Wedding & Celebration</span> Cakes in Toronto & the GTA</h2>
+                <p>Each custom cake is designed around your celebration, your style, and your guests. For more than 60
+                  years,
+                  iCakes has been baking birthday, wedding, and celebration cakes for families across Toronto and the
+                  GTA
+                  —
+                  from a dedicated nut-free bakery that has held its standard since the beginning.</p>
+                <a href="#types" class="btn btn-primary">Browse All Cakes</a>
+              </div>
+              <figure class="banner-img">
+                <img src="https://www.icakes.ca/upload/slider/176436919241.png"
+                  alt="Nut-free cupcakes from a GTA cake bakery">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-dots" id="heroDots"></div>
+      <!-- <div class="hero-arrows">
+        <button id="heroPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M15 18l-6-6 6-6" />
+          </svg></button>
+        <button id="heroNext" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M9 18l6-6-6-6" />
+          </svg></button>
+      </div> -->
+    </div>
+
+    <div class="rosette-divider">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+        <path
+          d="M0,0 C120,60 240,10 360,35 C480,60 600,5 720,30 C840,55 960,10 1080,32 C1200,54 1320,15 1440,30 L1440,0 L0,0 Z"
+          fill="#fdeef3" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- <div class="rosette-divider">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+      <path
+        d="M0,0 C120,60 240,10 360,35 C480,60 600,5 720,30 C840,55 960,10 1080,32 C1200,54 1320,15 1440,30 L1440,0 L0,0 Z"
+        fill="#ffffff" />
+    </svg>
+  </div> -->
+
+  <!-- OUR STORY -->
+  <section class="story" id="story">
+    <div class="container story-grid">
+      <div class="story-media reveal">
+        <div class="img-main">
+          <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=80"
+            alt="Baker decorating a custom cake in a nut-free Toronto bakery kitchen">
+        </div>
+        <div class="story-float">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="19" fill="#fdeef3" stroke="#f8a5c2" />
+            <path d="M20 10c1.4 2 0 3.5 0 5.5S22 19 22 21c0 2.5-2 4-2 4s-2-1.5-2-4c0-2 2-3.5 2-5.5S18.6 12 20 10z"
+              fill="#d12764" />
+          </svg>
+          <div><strong>Est. 1962</strong><span>Toronto's trusted GTA cake bakery</span></div>
+        </div>
+      </div>
+
+      <div class="story-text reveal">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M4 19V6a2 2 0 012-2h8l6 6v9a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+          </svg>Our Story</span>
+        <h2>A GTA Cake Bakery That Has Earned Its Reputation — One Order at a Time</h2>
+        <p>Since 1962, one standard has guided every cake that leaves this bakery: it should be worth putting the name
+          on.</p>
+        <p>That means a fully nut-free facility — not just select products. Lactose-free milk is used as a core
+          ingredient, not a last-minute substitution. Every order carries a QC Passed stamp before it leaves the
+          building, following the same standard operating procedures refined over six decades.</p>
+        <p>The GTA has grown and diversified. So has our range of custom cakes. The standard behind it hasn't changed.
+        </p>
+
+        <div class="story-points">
+          <div class="story-point">
+            <svg viewBox="0 0 26 26" fill="none">
+              <circle cx="13" cy="13" r="12" fill="#fdeef3" stroke="#f8a5c2" />
+              <path d="M8 13.5l3.2 3.2L18 9.5" stroke="#d12764" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>100% nut-free facility — every surface, tool, and ingredient</span>
+          </div>
+          <div class="story-point">
+            <svg viewBox="0 0 26 26" fill="none">
+              <circle cx="13" cy="13" r="12" fill="#fdeef3" stroke="#f8a5c2" />
+              <path d="M8 13.5l3.2 3.2L18 9.5" stroke="#d12764" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Lactose-free milk built into the recipe, not swapped in later</span>
+          </div>
+          <div class="story-point">
+            <svg viewBox="0 0 26 26" fill="none">
+              <circle cx="13" cy="13" r="12" fill="#fdeef3" stroke="#f8a5c2" />
+              <path d="M8 13.5l3.2 3.2L18 9.5" stroke="#d12764" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>QC Passed stamp on every box before pickup</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="container stats-grid">
+      <div class="stat-card reveal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-calendar-days-icon lucide-calendar-days">
+          <path d="M8 2v4"></path>
+          <path d="M16 2v4"></path>
+          <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+          <path d="M3 10h18"></path>
+          <path d="M8 14h.01"></path>
+          <path d="M12 14h.01"></path>
+          <path d="M16 14h.01"></path>
+          <path d="M8 18h.01"></path>
+          <path d="M12 18h.01"></path>
+          <path d="M16 18h.01"></path>
+        </svg>
+        <div class="stat-num"><span class="count" data-target="1962" data-nocomma="1">0</span></div>
+        <div class="stat-label">Year iCakes first opened in the GTA</div>
+      </div>
+      <div class="stat-card reveal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-shopping-basket-icon lucide-shopping-basket">
+          <path d="m15 11-1 9" />
+          <path d="m19 11-4-7" />
+          <path d="M2 11h20" />
+          <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4" />
+          <path d="M4.5 15.5h15" />
+          <path d="m5 11 4-7" />
+          <path d="m9 11 1 9" />
+        </svg>
+        <div class="stat-num"><span class="count" data-target="35">0</span><span class="plus">+</span></div>
+        <div class="stat-label">Real-ingredient flavours, including eggless and gluten-free</div>
+      </div>
+      <div class="stat-card reveal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-map-pin-icon lucide-map-pin">
+          <path
+            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+          </path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <div class="stat-num"><span class="count" data-target="10">0</span></div>
+        <div class="stat-label">Pickup locations from Scarborough to Woodbridge</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="how" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.6">
+            <path d="M4 4h16v16H4z" />
+            <path d="M4 9h16M9 4v16" />
+          </svg>The Process</span>
+        <h2>How a Custom Cake Is Made</h2>
+        <p>Every cake is built around the occasion and the person it's for.</p>
+      </div>
+
+      <div class="how-steps reveal-stagger">
+        <div class="how-step">
+          <div class="how-num">01</div>
+          <h3>The Brief</h3>
+          <p>Bring the occasion, guest count, design references, and dietary requirements. Flavour, colour palette, and
+            inscription are all confirmed at this stage.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">02</div>
+          <h3>Design Confirmation</h3>
+          <p>Standard designs are matched to a current format. For wedding cakes, fondant, or photo printing, a
+            Woodbridge showroom consultation confirms the final design.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">03</div>
+          <h3>Fresh Baking</h3>
+          <p>Every cake is baked to order — nothing pre-made or stored in advance — following SOPs refined over decades.
+          </p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">04</div>
+          <h3>Quality Inspection</h3>
+          <p>Every cake is inspected before packaging. Only then does it receive the QC Passed stamp.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">05</div>
+          <h3>Pickup</h3>
+          <p>Choose your nearest GTA location at checkout. Orders are confirmed, labelled, and ready for collection.</p>
+        </div>
+      </div>
+
+      <div class="how-cta">
+        <a href="#contact" class="btn btn-primary">Order Now</a>
+        <a href="#contact" class="btn btn-outline">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAKE TYPES -->
+  <section class="types" id="types">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M4 21V11a2 2 0 012-2h12a2 2 0 012 2v10M2 21h20M12 3v3M9 9l3-3 3 3" />
+          </svg>
+          All Occasions
+        </span>
+        <h2>Shop by Cake Type</h2>
+        <p>Every design is available in nut-free, halal, and lactose-free format as standard.</p>
+      </div>
+
+      <div class="types-grid reveal-stagger">
+        <a class="type-card" href="#contact">
+          <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="Custom wedding cake Toronto">
+          <div class="type-body">
+            <div>
+              <h3>Wedding Cakes</h3>
+              <span>Tiered &amp; custom designs</span>
+            </div>
+            <div class="type-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="type-card" href="#contact">
+          <img src="https://www.icakes.ca/upload/category/birthday-cakes.png" alt="Custom birthday cake GTA">
+          <div class="type-body">
+            <div>
+              <h3>Birthday Cakes</h3>
+              <span>Themed &amp; personalised</span>
+            </div>
+            <div class="type-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="type-card" href="#contact">
+          <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=80"
+            alt="Nut-free kids birthday cake">
+          <div class="type-body">
+            <div>
+              <h3>Kids' Cakes</h3>
+              <span>Nut-free party favourites</span>
+            </div>
+            <div class="type-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="type-card" href="#contact">
+          <img
+            src="https://www.icakes.ca/upload/products/cakes/ftrimg/kidscakes/lol-surprise-edible-picture-photo--buttercream-birthday-cake-for-kids-girl.webp"
+            alt="Custom edible photo print cake">
+          <div class="type-body">
+            <div>
+              <h3>Custom Photo Cakes</h3>
+              <span>Edible print &amp; toppers</span>
+            </div>
+            <div class="type-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="type-card" href="#contact">
+          <img
+            src="https://www.icakes.ca/upload/products/desserts/ftrimg/cupcakes/peppa-pig-picture-edible-photo-cupcakes.webp"
+            alt="Cupcake tower GTA cake shop">
+          <div class="type-body">
+            <div>
+              <h3>Cupcakes &amp; Towers</h3>
+              <span>Boxed sets &amp; displays</span>
+            </div>
+            <div class="type-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="type-card" href="#contact">
+          <img
+            src="https://www.icakes.ca/upload/products/cakes/ftrimg/anniversarycakes/heart-shape-bow-fondant-photo-anniversary-cake-from-irresistible-cakes-brampton.webp"
+            alt="Anniversary celebration cake">
+          <div class="type-body">
+            <div>
+              <h3>Anniversary Cakes</h3>
+              <span>Romantic &amp; refined</span>
+            </div>
+            <div class="type-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- <div class="rosette-divider">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+      <path
+        d="M0,0 C120,60 240,10 360,35 C480,60 600,5 720,30 C840,55 960,10 1080,32 C1200,54 1320,15 1440,30 L1440,0 L0,0 Z"
+        fill="#fdeef3" />
+    </svg>
+  </div> -->
+
+  <!-- FLAVOURS -->
+  <section class="flavours" id="flavours">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.6">
+            <path d="M12 2c3 3 5 6 5 10a5 5 0 11-10 0c0-4 2-7 5-10z" />
+          </svg>The Flavours</span>
+        <h2>More Than 35 Flavours — Because the Cake Has to Taste as Good as It Looks</h2>
+      </div>
+
+      <div class="flavours-intro reveal">
+        <p>Design gets the attention. Flavour is what people talk about on the drive home. Every cake at iCakes is made
+          with real ingredients — fresh strawberries, 100% lemon juice, Brazilian café custard, rich cocoa — not
+          flavouring concentrates or artificial substitutes.</p>
+        <p>From decades-old classics to the flavours guests request after trying them at someone else's celebration, the
+          range covers the full spread of tastes and occasions.</p>
+      </div>
+
+      <div class="flavour-feature-grid reveal-stagger">
+        <div class="flavour-feature-card">
+          <div class="swatch" style="background:#f3e3c3;"></div>
+          <h3>French Vanilla</h3>
+          <p>Moist vanilla sponge with white French Vanilla custard. The most consistently ordered flavour on the menu.
+          </p>
+        </div>
+        <div class="flavour-feature-card">
+          <div class="swatch" style="background:#f2c744;"></div>
+          <h3>Lemon Raspberry</h3>
+          <p>Real lemon juice with raspberry custard — the flavour guests most often request on repeat.</p>
+        </div>
+        <div class="flavour-feature-card">
+          <div class="swatch" style="background:#3e2b23;"></div>
+          <h3>Black Forest</h3>
+          <p>Chocolate sponge, whipped cream, sweet cherries. A classic that holds well over long gatherings.</p>
+        </div>
+        <div class="flavour-feature-card">
+          <div class="swatch" style="background:#a97455;"></div>
+          <h3>Café Latte</h3>
+          <p>Italian vanilla sponge with Brazilian coffee custard. Popular for adult milestone celebrations.</p>
+        </div>
+        <div class="flavour-feature-card">
+          <div class="swatch" style="background:#8a9a5b;"></div>
+          <h3>Green Apple Cinnamon</h3>
+          <p>Vanilla sponge with green apple custard and cinnamon. Distinctive and consistently surprising.</p>
+        </div>
+        <div class="flavour-feature-card">
+          <div class="swatch" style="background:#e75480;"></div>
+          <h3>Vanilla Fresh Strawberry</h3>
+          <p>Fresh whipped cream and real sliced strawberries. The first choice for spring and summer parties.</p>
+        </div>
+        <div class="flavour-feature-card">
+          <div class="swatch" style="background:#6b3d2e;"></div>
+          <h3>Chocolate Cha Cha</h3>
+          <p>Milk chocolate sponge with Brazilian café custard, for guests who want chocolate with more depth.</p>
+        </div>
+      </div>
+
+      <p class="flavour-note reveal">Eggless versions are available across most flavours. Gluten-free is available
+        across select flavours. All 35+ options and their dietary variants are listed on the flavours page.</p>
+
+      <div class="flavour-cta reveal"><a href="#flavours" class="btn btn-primary">Explore All 35+ Flavours</a></div>
+    </div>
+  </section>
+
+  <!-- DIETARY -->
+  <section class="dietary" id="dietary">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.6">
+            <path
+              d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23.5 8.5 21.5 12.5 19 16.65 12 21 12 21z" />
+          </svg>Dietary Options</span>
+        <h2>Baked for Everyone at the Table</h2>
+        <p>Dietary needs shift from one celebration to the next — iCakes is built to cover them, not as exceptions, but
+          as part of how the bakery was designed to operate.</p>
+      </div>
+
+      <div class="dietary-grid reveal-stagger">
+        <div class="dietary-card">
+          <div class="dietary-icon"><svg viewBox="0 0 40 40" fill="none" stroke="#d12764" stroke-width="1.8">
+              <ellipse cx="20" cy="22" rx="9" ry="12" />
+              <path d="M20 10c-2 3-1 5-1 7" />
+              <line x1="9" y1="31" x2="31" y2="11" stroke="#292c81" />
+            </svg></div>
+          <h3>100% Nut-Free Facility</h3>
+          <p>The entire baking environment — every surface, tool, and ingredient — is completely nut-free. Not a
+            nut-free product from a shared kitchen, but a nut-free bakery where nuts have never been present. Our
+            allergen-safe cakes are trusted across Brampton and the wider GTA.</p>
+          <a href="#faq" class="learn">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></a>
+        </div>
+        <div class="dietary-card">
+          <div class="dietary-icon"><svg viewBox="0 0 40 40" fill="none" stroke="#d12764" stroke-width="1.8">
+              <path d="M16 8h8l1 6a5 5 0 01-10 0z" />
+              <path d="M15 20v9a2 2 0 002 2h6a2 2 0 002-2v-9" />
+              <line x1="9" y1="31" x2="31" y2="11" stroke="#292c81" />
+            </svg></div>
+          <h3>Lactose-Free</h3>
+          <p>Lactose-free, dairy-free-friendly milk is used as a core ingredient across most flavours — built into the
+            original recipe rather than offered as a substitution. Most guests with lactose intolerance need no
+            modification to the standard order.</p>
+          <a href="#faq" class="learn">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></a>
+        </div>
+        <div class="dietary-card">
+          <div class="dietary-icon"><svg viewBox="0 0 40 40" fill="none" stroke="#d12764" stroke-width="1.8">
+              <ellipse cx="17" cy="22" rx="8" ry="11" />
+              <path d="M26 14c3 1 5 4 5 8" stroke-linecap="round" />
+            </svg></div>
+          <h3>Eggless &amp; Vegan</h3>
+          <p>Eggless cakes are made on dedicated egg-free recipes across 13+ flavours, not a standard recipe with eggs
+            removed. Vegan cakes are also available on special order across the GTA — mark the requirement at order
+            time.</p>
+          <a href="#faq" class="learn">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></a>
+        </div>
+        <div class="dietary-card">
+          <div class="dietary-icon"><svg viewBox="0 0 40 40" fill="none" stroke="#d12764" stroke-width="1.8">
+              <path d="M20 8c2 4 5 5 5 10s-2 9-5 9-5-4-5-9 3-6 5-10z" />
+              <line x1="9" y1="31" x2="31" y2="11" stroke="#292c81" />
+            </svg></div>
+          <h3>Gluten-Free</h3>
+          <p>A dedicated gluten-free sponge base, not a flour substitution applied to the standard recipe. Available
+            across select flavours on special order — confirm the requirement when placing your order.</p>
+          <a href="#faq" class="learn">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></a>
+        </div>
+        <div class="dietary-card">
+          <div class="dietary-icon"><svg viewBox="0 0 40 40" fill="none" stroke="#d12764" stroke-width="1.8">
+              <path d="M23 10a11 11 0 100 20 9 9 0 010-20z" />
+              <path d="M29 16l1 2.4 2.5.3-1.9 1.7.6 2.5-2.2-1.3-2.2 1.3.6-2.5-1.9-1.7 2.5-.3z" fill="#d12764"
+                stroke="none" />
+            </svg></div>
+          <h3>Halal Friendly</h3>
+          <p>All products are halal, alcohol-free, and gelatine-free as standard, including every flavouring agent. The
+            vanilla used across the range contains no alcohol, so each product qualifies without a separate request.</p>
+          <a href="#faq" class="learn">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="justify-content:center;color:#e8b96a;"><svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.6">
+            <path
+              d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z" />
+          </svg>Loved Across the GTA</span>
+        <h2>What GTA Families Say</h2>
+        <p>500+ Google reviews across sixty years of celebrations.</p>
+      </div>
+
+      <div class="review-track-wrap reveal">
+        <div class="review-track" id="reviewTrack">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>"Our son has a severe nut allergy, so a fully nut-free bakery made this the easiest cake decision we've
+              made in years. The Black Forest was a hit with every guest."</p>
+            <div class="review-who">
+              <div class="review-avatar">R</div>
+              <div><strong>R. Singh</strong><span>Birthday Cake · Scarborough pickup</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>"The wedding cake was exactly what we designed at the Woodbridge showroom, right down to the piping. The
+              QC Passed sticker on the box was a nice touch too."</p>
+            <div class="review-who">
+              <div class="review-avatar">A</div>
+              <div><strong>A. Chen</strong><span>Wedding Cake · Woodbridge pickup</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>"Ordered a gluten-free cake for my mother-in-law and honestly, nobody at the party could tell. Café Latte
+              is now a family favourite."</p>
+            <div class="review-who">
+              <div class="review-avatar">M</div>
+              <div><strong>M. Costa</strong><span>Anniversary Cake · Etobicoke pickup</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>"Halal, nut-free, and it still tasted like a proper bakery cake — not always easy to find all three at
+              once. We'll be ordering again."</p>
+            <div class="review-who">
+              <div class="review-avatar">F</div>
+              <div><strong>F. Ahmed</strong><span>Kids' Birthday Cake · Brampton pickup</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>"Picked up from the downtown Toronto location on short notice and the Lemon Raspberry flavour did not
+              disappoint. Consistent every single time."</p>
+            <div class="review-who">
+              <div class="review-avatar">J</div>
+              <div><strong>J. Patel</strong><span>Celebration Cake · Downtown Toronto pickup</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-nav">
+        <button id="revPrev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M15 18l-6-6 6-6" />
+          </svg></button>
+        <button id="revNext" aria-label="Next reviews"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M9 18l6-6-6-6" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="locs">
+    <div class="c">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.6">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg>Pickup Near You</span>
+        <h2>10 Pickup Locations Across Toronto and the GTA</h2>
+        <p>Pre-order online, then collect from whichever location suits you. Most GTA families are within a short drive
+          of one of the ten pickup points — no long commute, whether you're in Scarborough, Brampton, Etobicoke, or
+          downtown Toronto.</p>
+      </div>
+      <div class="locs-g">
+        <div class="loc anim">
+          <img class="loc-thumb"
+            src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp"
+            alt="Woodbridge" />
+          <div class="loc-body">
+            <span class="loc-badge">Main Showroom</span>
+            <div class="loc-nm">Woodbridge</div>
+            <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+            <div class="loc-ctcs">
+              <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> (905) 850-2253</a>
+              <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> info@icakes.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="loc anim">
+          <img class="loc-thumb"
+            src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp"
+            alt="Woodbridge" />
+          <div class="loc-body">
+            <span class="loc-badge">Main Showroom</span>
+            <div class="loc-nm">Woodbridge</div>
+            <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+            <div class="loc-ctcs">
+              <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> (905) 850-2253</a>
+              <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> info@icakes.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="loc anim">
+          <img class="loc-thumb"
+            src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp"
+            alt="Woodbridge" />
+          <div class="loc-body">
+            <span class="loc-badge">Main Showroom</span>
+            <div class="loc-nm">Woodbridge</div>
+            <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+            <div class="loc-ctcs">
+              <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> (905) 850-2253</a>
+              <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> info@icakes.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="loc anim">
+          <img class="loc-thumb"
+            src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp"
+            alt="Woodbridge" />
+          <div class="loc-body">
+            <span class="loc-badge">Main Showroom</span>
+            <div class="loc-nm">Woodbridge</div>
+            <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+            <div class="loc-ctcs">
+              <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> (905) 850-2253</a>
+              <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> info@icakes.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="loc anim">
+          <img class="loc-thumb"
+            src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp"
+            alt="Woodbridge" />
+          <div class="loc-body">
+            <span class="loc-badge">Main Showroom</span>
+            <div class="loc-nm">Woodbridge</div>
+            <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+            <div class="loc-ctcs">
+              <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> (905) 850-2253</a>
+              <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> info@icakes.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="loc anim">
+          <img class="loc-thumb"
+            src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp"
+            alt="Woodbridge" />
+          <div class="loc-body">
+            <span class="loc-badge">Main Showroom</span>
+            <div class="loc-nm">Woodbridge</div>
+            <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+            <div class="loc-ctcs">
+              <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> (905) 850-2253</a>
+              <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> info@icakes.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="loc anim">
+          <img class="loc-thumb"
+            src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp"
+            alt="Woodbridge" />
+          <div class="loc-body">
+            <span class="loc-badge">Main Showroom</span>
+            <div class="loc-nm">Woodbridge</div>
+            <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+            <div class="loc-ctcs">
+              <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> (905) 850-2253</a>
+              <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> info@icakes.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="loc anim">
+          <img class="loc-thumb"
+            src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp"
+            alt="Woodbridge" />
+          <div class="loc-body">
+            <span class="loc-badge">Main Showroom</span>
+            <div class="loc-nm">Woodbridge</div>
+            <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+            <div class="loc-ctcs">
+              <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> (905) 850-2253</a>
+              <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> info@icakes.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="loc anim">
+          <img class="loc-thumb"
+            src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp"
+            alt="Woodbridge" />
+          <div class="loc-body">
+            <span class="loc-badge">Main Showroom</span>
+            <div class="loc-nm">Woodbridge</div>
+            <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+            <div class="loc-ctcs">
+              <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> (905) 850-2253</a>
+              <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> info@icakes.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="loc anim">
+          <img class="loc-thumb"
+            src="https://www.icakes.ca/upload/locations/new/irresistible-cakes-main-showroom-woodbridge.webp"
+            alt="Woodbridge" />
+          <div class="loc-body">
+            <span class="loc-badge">Main Showroom</span>
+            <div class="loc-nm">Woodbridge</div>
+            <div class="loc-addr">4040 Steeles Ave W, Unit 23<br>Woodbridge, ON L4L 4Y5</div>
+            <div class="loc-ctcs">
+              <a class="loc-ctc" href="tel:9058502253"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> (905) 850-2253</a>
+              <a class="loc-ctc" href="mailto:info@icakes.ca"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg> info@icakes.ca</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <section class="locations" id="locations">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.6">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg>Pickup Near You</span>
+        <h2>10 Pickup Locations Across Toronto and the GTA</h2>
+        <p>Pre-order online, then collect from whichever location suits you. Most GTA families are within a short drive
+          of one of the ten pickup points — no long commute, whether you're in Scarborough, Brampton, Etobicoke, or
+          downtown Toronto.</p>
+      </div>
+
+      <div class="locations-grid reveal-stagger">
+        <div class="location-card"><svg viewBox="0 0 24 24" fill="none" stroke="#d12764" stroke-width="1.7">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg><strong>Scarborough</strong><a href="#contact">View hours</a></div>
+        <div class="location-card"><svg viewBox="0 0 24 24" fill="none" stroke="#d12764" stroke-width="1.7">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg><strong>Downtown Toronto</strong><a href="#contact">View hours</a></div>
+        <div class="location-card"><svg viewBox="0 0 24 24" fill="none" stroke="#d12764" stroke-width="1.7">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg><strong>Etobicoke</strong><a href="#contact">View hours</a></div>
+        <div class="location-card"><svg viewBox="0 0 24 24" fill="none" stroke="#d12764" stroke-width="1.7">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg><strong>North York</strong><a href="#contact">View hours</a></div>
+        <div class="location-card"><svg viewBox="0 0 24 24" fill="none" stroke="#d12764" stroke-width="1.7">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg><strong>Mississauga</strong><a href="#contact">View hours</a></div>
+        <div class="location-card"><svg viewBox="0 0 24 24" fill="none" stroke="#d12764" stroke-width="1.7">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg><strong>Brampton</strong><a href="#contact">View hours</a></div>
+        <div class="location-card"><svg viewBox="0 0 24 24" fill="none" stroke="#d12764" stroke-width="1.7">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg><strong>Woodbridge<br><span
+              style="font-weight:400;font-size:.72rem;color:var(--ink-soft);">Showroom</span></strong><a
+            href="#contact">View hours</a></div>
+        <div class="location-card"><svg viewBox="0 0 24 24" fill="none" stroke="#d12764" stroke-width="1.7">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg><strong>Markham</strong><a href="#contact">View hours</a></div>
+        <div class="location-card"><svg viewBox="0 0 24 24" fill="none" stroke="#d12764" stroke-width="1.7">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg><strong>Richmond Hill</strong><a href="#contact">View hours</a></div>
+        <div class="location-card"><svg viewBox="0 0 24 24" fill="none" stroke="#d12764" stroke-width="1.7">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
+          </svg><strong>Oakville</strong><a href="#contact">View hours</a></div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- GUIDES -->
+  <section class="guides" id="guides">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.6">
+            <path d="M4 19V6a2 2 0 012-2h8l6 6v9a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+            <path d="M8 8h4M8 12h8M8 16h8" />
+          </svg>Guides &amp; Inspiration</span>
+        <h2>Cake Guides, Ordering Tips &amp; Celebration Ideas for GTA Families</h2>
+        <p>Written by the iCakes quality team — practical, honest, and specific to ordering in Toronto and the GTA.</p>
+      </div>
+
+      <div class="guides-grid reveal-stagger">
+        <a class="guide-card" href="#">
+          <div class="guide-img"><img
+              src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=700&q=80"
+              alt="Wedding cake ordering guide Toronto"></div>
+          <div class="guide-body">
+            <span class="guide-tag">Wedding Cakes</span>
+            <h3>How Far in Advance Should You Order a Wedding Cake in Toronto?</h3>
+            <p>Lead times for fondant, 2-tier, and photo-print designs — and how peak season affects them.</p>
+            <span class="guide-read">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="guide-card" href="#">
+          <div class="guide-img"><img
+              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+              alt="Nut-free birthday cake guide GTA"></div>
+          <div class="guide-body">
+            <span class="guide-tag">Allergy-Safe Baking</span>
+            <h3>Nut-Free Birthday Cakes: What GTA Parents Should Know</h3>
+            <p>What "fully nut-free facility" actually means, and the questions worth asking any bakery.</p>
+            <span class="guide-read">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="guide-card" href="#">
+          <div class="guide-img"><img
+              src="https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=700&q=80"
+              alt="Buttercream vs fondant cake guide"></div>
+          <div class="guide-body">
+            <span class="guide-tag">Design Tips</span>
+            <h3>Buttercream vs. Fondant: Choosing the Right Finish for Your GTA Celebration</h3>
+            <p>How weather, season, and design complexity should shape your finish choice.</p>
+            <span class="guide-read">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="guides-cta"><a href="#" class="btn btn-outline">View All Guides</a></div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-box-text">
+          <h2>Every Celebration Deserves a Cake Made for It</h2>
+          <p>Getting started is simple. A guest count, a flavour preference, a design reference saved on your phone —
+            that's enough. The team handles everything from there, right through to the QC check before you collect.</p>
+        </div>
+        <div class="cta-box-actions">
+          <a href="#types" class="btn btn-primary">Browse All Cakes</a>
+          <a href="#" class="btn btn-line" style="border-color:rgba(255,255,255,.7);">Book a Consultation</a>
+          <a href="https://wa.me/19056054900" target="_blank" rel="noopener" class="btn btn-wa">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 12a9 9 0 11-4.2-7.6L21 3l-1.4 4.2A8.96 8.96 0 0121 12z" />
+              <path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5" />
+            </svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.6">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M9.5 9.5a2.5 2.5 0 115 .5c0 1.5-2.5 1.5-2.5 3.5" />
+            <circle cx="12" cy="17" r=".6" fill="currentColor" />
+          </svg>Frequently Asked Questions</span>
+        <h2>Answers Before You Order</h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <button class="faq-q"><span>How far in advance do I need to order?</span><span class="plus"><svg
+                viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span></button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Standard buttercream designs take 3–5 days. Edible photo cakes take 5–7 days.
+              Fondant, 3D, or multi-tier designs need at least two weeks. During peak season — April through June — add
+              at least one extra week to any lead time. For urgent orders, WhatsApp the team at (905) 605-4900 before
+              placing; rush orders depend on current capacity and cannot always be guaranteed.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>What if I need to cancel or change my order?</span><span class="plus"><svg
+                viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span></button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Because most cakes are made to order, changes and cancellations are time-sensitive.
+              Contact us as early as possible by phone, WhatsApp, or email so we can accommodate your request — see our
+              Return Policy for full details.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>What occasions do you make cakes for?</span><span class="plus"><svg
+                viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span></button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Weddings, birthdays, kids' birthdays, anniversaries, baby showers, bridal showers,
+              sweet sixteens, graduations, baptisms, communions, engagements, corporate events, religious celebrations,
+              and holidays like Christmas — plus everyday moments that deserve a cake.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Can I get a custom cake with a photo, logo, or specific theme?</span><span
+              class="plus"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span></button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Yes — edible photo prints, character and cartoon cakes, logo and corporate
+              branding, 3D sculpted designs, and fully personalized themes are all things we build regularly for
+              customers across the GTA.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>What if I'm not sure what design I want?</span><span class="plus"><svg
+                viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span></button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Use our Cake Finder tool to search by style or occasion, browse trending designs,
+              or just get in touch — our team can walk you through options based on your event and budget.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="ftr">
+    <div class="c">
+      <div class="ftr-g">
+        <div>
+          <div class="ftr-logo">
+            <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="logo" />
+          </div>
+          <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+          <div style="margin-top:20px">
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              (905) 850-2253
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-mail-icon lucide-mail">
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+              </svg>
+              info@icakes.ca
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-map-pin-icon lucide-map-pin">
+                <path
+                  d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5
+            </div>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Shop</h4>
+          <div class="ftr-links">
+            <a href="#">All Cakes</a>
+            <a href="#">Wedding Cakes</a>
+            <a href="#">Birthday Cakes</a>
+            <a href="#">Kids Cakes</a>
+            <a href="#">Corporate Cakes</a>
+            <a href="#">Desserts</a>
+            <a href="#">Cupcakes</a>
+            <a href="#">Cake Pops</a>
+            <a href="#">Cake Finder</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Company</h4>
+          <div class="ftr-links">
+            <a href="#">About Us</a>
+            <a href="#">Quality</a>
+            <a href="#">Flavours</a>
+            <a href="#">Locations</a>
+            <a href="#">Blog</a>
+            <a href="#">Wholesale</a>
+            <a href="#">Partnership</a>
+            <a href="#">Contact</a>
+            <a href="#">FAQs</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Legal</h4>
+          <div class="ftr-links">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Return Policy</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+          <h4 style="margin-top: 28px;">Hours</h4>
+          <div class="ftr-links">
+            <a href="#">Tue – Sat: 10AM – 6PM</a>
+            <a href="#">Sunday: 10AM – 1PM</a>
+            <a href="#">Sunday: Closed</a>
+          </div>
+        </div>
+      </div>
+      <div class="ftr-bot">
+        <p>© 2026 iCakes.ca · Irresistible Cakes Since 1962 · All rights reserved.</p>
+        <div class="ftr-bot-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <button class="bktop" id="bktop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="lucide lucide-arrow-up-icon lucide-arrow-up">
+      <path d="m5 12 7-7 7 7" />
+      <path d="M12 19V5" />
+    </svg>
+  </button>
+  <script src="script.js" defer></script>
+  <script src="slider.js" defer></script>
+  <!-- <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button> -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const header = document.getElementById('siteHeader');
+      const burger = document.getElementById('burger');
+      const drawer = document.getElementById('navDrawer');
+      const scrim = document.getElementById('scrim');
+
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 30);
+      });
+
+      function openDrawer() {
+        burger.classList.add('open');
+        burger.setAttribute('aria-expanded', 'true');
+        drawer.classList.add('open');
+        scrim.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeDrawer() {
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.classList.remove('open');
+        scrim.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+      burger.addEventListener('click', function () {
+        drawer.classList.contains('open') ? closeDrawer() : openDrawer();
+      });
+      scrim.addEventListener('click', closeDrawer);
+      drawer.querySelectorAll('a, button').forEach(el => el.addEventListener('click', closeDrawer));
+      window.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+      // const burger = document.getElementById('burger');
+      const navLinks = document.getElementById('navLinks');
+      burger.addEventListener('click', function () {
+        burger.classList.toggle('open');
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        burger.classList.remove('open');
+        navLinks.classList.remove('open');
+      }));
+
+      /* Scroll reveal */
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: .15 });
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+      /* Animated counters */
+      const counters = document.querySelectorAll('.count');
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          const noComma = el.dataset.nocomma === '1';
+          const duration = 1600;
+          const start = performance.now();
+          function tick(now) {
+            const p = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            const val = Math.floor(eased * target);
+            el.textContent = noComma ? val : val.toLocaleString();
+            if (p < 1) requestAnimationFrame(tick); else el.textContent = noComma ? target : target.toLocaleString();
+          }
+          requestAnimationFrame(tick);
+          cio.unobserve(el);
+        });
+      }, { threshold: .5 });
+      counters.forEach(c => cio.observe(c));
+
+      /* Reviews carousel */
+      const track = document.getElementById('reviewTrack');
+      const cards = track.querySelectorAll('.review-card');
+      let revIndex = 0;
+      function perView() { return window.innerWidth <= 860 ? 1 : (window.innerWidth <= 1080 ? 2 : 3); }
+      function updateTrack() {
+        const pv = perView();
+        const max = Math.max(0, cards.length - pv);
+        revIndex = Math.min(revIndex, max);
+        const cardWidth = cards[0].getBoundingClientRect().width + 18;
+        track.style.transform = `translateX(-${revIndex * cardWidth}px)`;
+      }
+      document.getElementById('revNext').addEventListener('click', () => {
+        const pv = perView();
+        const max = Math.max(0, cards.length - pv);
+        revIndex = revIndex >= max ? 0 : revIndex + 1;
+        updateTrack();
+      });
+      document.getElementById('revPrev').addEventListener('click', () => {
+        const pv = perView();
+        const max = Math.max(0, cards.length - pv);
+        revIndex = revIndex <= 0 ? max : revIndex - 1;
+        updateTrack();
+      });
+      window.addEventListener('resize', updateTrack);
+      updateTrack();
+
+      /* FAQ accordion */
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const q = item.querySelector('.faq-q');
+        const a = item.querySelector('.faq-a');
+        if (item.classList.contains('open')) { a.style.maxHeight = a.scrollHeight + 'px'; }
+        q.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(other => {
+            if (other !== item) {
+              other.classList.remove('open');
+              other.querySelector('.faq-a').style.maxHeight = null;
+            }
+          });
+          item.classList.toggle('open', !isOpen);
+          a.style.maxHeight = !isOpen ? a.scrollHeight + 'px' : null;
+        });
+      });
+      window.addEventListener('resize', () => {
+        document.querySelectorAll('.faq-item.open').forEach(item => {
+          item.querySelector('.faq-a').style.maxHeight = item.querySelector('.faq-a').scrollHeight + 'px';
+        });
+      });
+
+    });
+
+
+    /* ---------- Category scroller ---------- */
+    const track = document.getElementById('catTrack');
+    const leftBtn = document.getElementById('catLeft');
+    const rightBtn = document.getElementById('catRight');
+    const leftFade = document.getElementById('leftFade');
+
+    function updateArrows() {
+      const max = track.scrollWidth - track.clientWidth - 4;
+      leftBtn.classList.toggle('show', track.scrollLeft > 8);
+      leftFade.classList.toggle('show', track.scrollLeft > 8);
+      rightBtn.classList.toggle('hide', track.scrollLeft >= max);
+    }
+    track.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+
+    rightBtn.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.7, behavior: 'smooth' }));
+    leftBtn.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.7, behavior: 'smooth' }));
+
+    /* Click to select */
+    track.querySelectorAll('.cat-item').forEach(item => {
+      item.addEventListener('click', () => {
+        track.querySelectorAll('.cat-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+    });
+
+    /* Desktop mouse-drag to scroll */
+    let isDown = false, startX, scrollStart;
+    track.addEventListener('mousedown', e => {
+      isDown = true; track.classList.add('dragging');
+      startX = e.pageX; scrollStart = track.scrollLeft;
+    });
+    window.addEventListener('mouseup', () => { isDown = false; track.classList.remove('dragging'); });
+    track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('dragging'); });
+    track.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      track.scrollLeft = scrollStart - (e.pageX - startX);
+    });
+  </script>
+</body>
+
+</html>

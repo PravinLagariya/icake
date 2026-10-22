@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Irresistible Cakes — Static</title>
+        <meta name="description" content="Static HTML/CSS/JS homepage for Irresistible Cakes." />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+        <!-- common css -->
+        <link rel="stylesheet" href="style/Root.css" />
+        <link rel="stylesheet" href="style/Header.css" />
+        <!-- common css -->
+        <link rel="stylesheet" href="style/newstyle.css" />
+        <link rel="stylesheet" href="style/InnerHero.css" />
+        <link rel="stylesheet" href="style/CardListing.css" />
+        <link rel="stylesheet" href="style/FAQ.css" />
+        <link rel="stylesheet" href="style/newhero.css" />
+        <link rel="stylesheet" href="style/legal.css" />
+
+    </head>
+    <body>
+        <div class="topbar">
+            <div class="c">
+            <div class="tb-l">
+                <span class="tb-deal">Sale</span>
+                <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                (905) 850-2253
+                </span>
+                <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                </svg>
+                Pickup Locations
+                </span>
+            </div>
+            <div class="tb-r">
+                <a href="#">Login</a>
+                <a href="#">Sign Up</a>
+                <a href="#" class="button-top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+                    viewBox="0 0 16 16">
+                    <path
+                    d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                </svg>
+                Chat with a Cake Expert
+                </a>
+                <a href="#" class="button-top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+                    <path d="M16 14v2.2l1.6 1"></path>
+                    <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+                    <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+                    <circle cx="16" cy="16" r="6"></circle>
+                    <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+                </svg>
+                Book an Appointment
+                </a>
+            </div>
+            </div>
+        </div>
+
+        <header class="hdr">
+            <div class="c">
+                <div class="search-box">
+                    <div class="c">
+                        <div class="search-box-inner">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-search-icon lucide-search">
+                                <path d="m21 21-4.34-4.34" />
+                                <circle cx="11" cy="11" r="8" />
+                            </svg>
+                            <input type="search" placeholder="Search any cake design..." name="" id="">
+                        </div>
+                        <div class="search-results">
+                            <div class="search-result-item">
+                                <div class="sri-img">
+                                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="">
+                                </div>
+                                <div class="sri-txt">
+                                    Wedding Cakes Toronto
+                                </div>
+                            </div>
+                            <div class="search-result-item">
+                                <div class="sri-img">
+                                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+                                </div>
+                                <div class="sri-txt">
+                                Custom Birthday Cakes in Toronto
+                                </div>
+                            </div>
+                            <div class="search-result-item">
+                                <div class="sri-img">
+                                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+                                </div>
+                                <div class="sri-txt">
+                                Kids Birthday Cakes
+                                </div>
+                            </div>
+                            <div class="search-result-item">
+                                <div class="sri-img">
+                                <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="">
+                                </div>
+                                <div class="sri-txt">
+                                Wedding Cakes Toronto
+                                </div>
+                            </div>
+                            <div class="search-result-item">
+                                <div class="sri-img">
+                                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+                                </div>
+                                <div class="sri-txt">
+                                Custom Birthday Cakes in Toronto
+                                </div>
+                            </div>
+                            <div class="search-result-item">
+                                <div class="sri-img">
+                                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+                                </div>
+                                <div class="sri-txt">
+                                Kids Birthday Cakes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hdr-i">
+                    <div class="logo dashbord-logo">
+                        <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+                    </div>
+                    <nav class="main-nav">
+                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="#">Cakes</a>
+                        <a class="nav-link" href="#">Desserts</a>
+                        <a class="nav-link" href="#">Quality</a>
+                        <a class="nav-link" href="#">Flavour</a>
+                        <a class="nav-link" href="#">City</a>
+                        <a class="nav-link" href="#">Cakes Finder</a>
+                        <a class="nav-link" href="#blogs">Blogs</a>
+                        <a class="nav-link" href="#blogs">Contact us</a>
+                    </nav>
+                    <div class="header-actions">
+                        <button class="icon-btn search" aria-label="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        </button>
+                        <button class="icon-btn cart" aria-label="Cart">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                            <path d="M3 6h18" />
+                            <path d="M16 10a4 4 0 0 1-8 0" />
+                        </svg>
+                        <span class="cart-count">3</span>
+                        </button>
+                        <div class="logo mobile-logo">
+                        <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+                        </div>
+                        <button class="burger" aria-label="Menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-menu-icon lucide-menu">
+                            <path d="M4 5h16" />
+                            <path d="M4 12h16" />
+                            <path d="M4 19h16" />
+                        </svg>
+                        </button>
+                    </div>
+                    </div>
+                    <div class="mobile-tb">
+                    <a href="#" class="button-top">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                        </svg>
+                        Chat with a Cake Expert
+                    </a>
+                    <a href="#" class="button-top">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+                        <path d="M16 14v2.2l1.6 1"></path>
+                        <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+                        <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+                        <circle cx="16" cy="16" r="6"></circle>
+                        <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+                        </svg>
+                        Book an Appointment
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-header">
+            <img src="https://www.icakes.ca/assets/images/icakeslogo.webp" style="height: 44px" alt="logo" />
+            <button class="mobile-close" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+            </div>
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="about.html">About Us</a>
+            <a class="nav-link" href="#">Cakes</a>
+            <a class="nav-link" href="#">Desserts</a>
+            <a class="nav-link" href="#">Quality</a>
+            <a class="nav-link" href="#">Flavour</a>
+            <a class="nav-link" href="#">City</a>
+            <a class="nav-link" href="#">Cakes Finder</a>
+            <a class="nav-link" href="#blogs">Blogs</a>
+            <a class="nav-link" href="#blogs">Contact us</a>
+        </nav>
+
+        <section class="hero" style="background-image: url('image/refund.png'); background-position: right bottom; height: 50vh;">
+            <div class="hero-slider">
+                <div class="h-slide">
+                    <div class="h-cnt">
+                        <h1 class="span">Terms & Conditions of Irresistible Cakes (iCakes) </h1>
+                        <div class="story-point">
+                            <a href="index.html">Home</a>
+                            <span class="sep">/</span><span class="cur">Terms & Conditions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="policy">
+            <div class=" reveal">
+                <div class="policy-pages">
+                    <h2 class="sec-ttl">1. Agreement to Terms</h2>
+                    <p>These Terms & Conditions govern the purchase of products and services from Irresistible Cakes (iCakes).</p>
+                    <p>By placing an order online, by telephone, by email, or in person, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree with these Terms, you should not place an order.</p>
+
+                    <h2 class="sec-ttl">2. Pricing, Currency & Payment</h2>
+                    <p>All prices are listed and processed in Canadian Dollars (CAD) unless otherwise stated.</p>
+
+                    <div class="container">
+                        <div class="section-title">
+                            <span>Payment requirements are as follows: </span>
+                        </div>
+                        <div class="cancel-grid">
+                            <div class="cancel-card">
+                                <h3>Regular Cakes & Products</h3>
+                                <p>Minimum 50% deposit for Woodbridge location pickup, 100% payment for other locations pickup and delivery</p>
+                            </div>
+                            <div class="cancel-card">
+                                <h3>Wedding Cakes & Large Celebration Orders</h3>
+                                <p>Minimum 30% deposit</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>For wedding cakes, large celebration cakes, and event orders requiring delivery, the remaining balance must be paid no later than fourteen (14) days prior to the event date unless otherwise agreed in writing.</p>
+                    <p>For pickup orders from our main location, any outstanding balance may be paid at the time of collection.</p>
+                    <p>Accepted payment methods include Visa, Mastercard, American Express, Debit, Cash, and E-Transfer.
+                    Irresistible Cakes reserves the right to refuse, cancel, or suspend any order for non-payment, suspected fraud, pricing errors, or other reasonable business grounds.
+                    </p>
+
+                    <h2 class="sec-ttl">3. Order Acceptance</h2>
+                    <p>Submission of an order request does not constitute acceptance of the order.</p>
+                    <h3>An order is considered confirmed only after:</h3>
+                    <ul class="sec-lbl">
+                        <li>Required payment or deposit has been received;</li>
+                        <li>Order details have been reviewed and approved;</li>
+                        <li>Confirmation has been issued by Irresistible Cakes.</li>
+                    </ul>
+                    <p>Irresistible Cakes reserves the right to decline any order at its sole discretion. If an order cannot be fulfilled, any payment received will be refunded in full.</p>
+
+                    <h2 class="sec-ttl">4. Design Approval & Custom Products</h2>
+                    <p> All custom cakes and specialty products are created based on the information, instructions, and approvals provided by the customer.</p>
+                    <p>Reference photographs, inspiration images, sketches, and examples are provided for guidance only and do not guarantee an exact replica.</p>
+                    <p>Due to the handmade nature of custom cakes, reasonable variations in colour, decoration, finishing techniques, edible printing, texture, and overall appearance may occur.</p>
+                    <p>Such variations shall not be considered defects and do not qualify for refunds, credits, or replacements.</p>
+                    <h3>Customers are solely responsible for verifying:</h3>
+                    <ul class="sec-lbl">
+                        <li>Names</li>
+                        <li>Dates</li>
+                        <li>Spellings</li>
+                        <li>Messages</li>
+                        <li>Colours</li>
+                        <li>Design specifications</li>
+                    </ul>
+                    <p>prior to final approval.</p>
+
+                    <h2 class="sec-ttl">5. Order Modifications</h2>
+
+                    <p>Requests to modify an order may be accepted at the sole discretion of Irresistible Cakes.</p>
+
+                    <p>Modification requests submitted within 14 days of the scheduled pickup or delivery date may be declined due to production schedules, ingredient procurement, and operational limitations.</p>
+
+                    <p>Any approved modifications must be confirmed in writing.</p>
+
+
+                    <h2 class="sec-ttl">6. Cancellations, Refunds &amp; Store Credits</h2>
+
+                    <p>Cancellation requests, refund eligibility, store credits, and quality-related claims are governed by our Refund Policy.</p>
+
+                    <p>By placing an order, you acknowledge and agree to the <strong>Refund Policy</strong> published on our website, which forms part of these Terms &amp; Conditions.</p>
+
+
+                    <h2 class="sec-ttl">7. Delivery &amp; Pickup</h2>
+
+                    <p>Delivery dates and estimated delivery windows are provided in good faith but are not guaranteed.</p>
+
+                    <p>Irresistible Cakes (iCakes) shall not be liable for delays resulting from:</p>
+
+                    <ul>
+                        <li>Traffic conditions</li>
+                        <li>Weather events</li>
+                        <li>Road closures</li>
+                        <li>Venue access restrictions</li>
+                        <li>Customer unavailability</li>
+                        <li>Circumstances beyond our reasonable control</li>
+                    </ul>
+
+                    <p>For wedding cakes and large event orders, delivery may occur within an agreed delivery window rather than at a specific time.</p>
+
+                    <p>Customers are responsible for ensuring that a designated recipient is available to accept the order at the agreed location.</p>
+
+                    <p>Orders delivered through third-party delivery providers are subject to the policies and handling practices of those providers. Irresistible Cakes shall not be liable for loss, delay, or damage occurring after custody has been transferred to a third-party carrier.</p>
+
+
+                    <h2 class="sec-ttl">8. Equipment Rentals &amp; Security Deposits</h2>
+
+                    <p>Certain orders may include rented equipment, including but not limited to cake stands, columns, pillars, fountains, display structures, and decorative accessories.</p>
+
+                    <p>A refundable security deposit may be required.</p>
+
+                    <p>Equipment remains the property of Irresistible Cakes at all times and must be returned to our Woodbridge location in the same condition in which it was supplied.</p>
+
+                    <p>Failure to return rented equipment within the agreed timeframe may result in forfeiture of the security deposit and additional replacement charges.</p>
+
+
+                    <h2 class="sec-ttl">9. Food Safety, Allergens &amp; Dietary Information</h2>
+
+                    <p>Irresistible Cakes operates in accordance with applicable food safety regulations and public health requirements.</p>
+
+                    <p>Our facility does not use any nuts including peanuts or tree nuts in production. While strict procedures are followed to reduce the risk of cross-contact, no facility can guarantee the complete absence of trace allergens.</p>
+
+                    <p>Customers with food allergies or dietary restrictions are responsible for notifying us before placing an order.</p>
+
+                    <p>Dietary claims, including but not limited to eggless, gluten-free, vegan, lactose-free, and halal-friendly products, are prepared according to the information available at the time of production.</p>
+
+
+                    <h2 class="sec-ttl">10. Edible Images &amp; Customer Content</h2>
+
+                    <p>Customers who provide photographs, logos, artwork, trademarks, or other content for edible image printing represent and warrant that they possess the necessary rights and permissions to use such content.</p>
+
+                    <p>Irresistible Cakes shall not be responsible for any copyright, trademark, licensing, or intellectual property claims arising from customer-supplied materials. Printed edible image colours may vary from digital files or printed originals.</p>
+
+                    <p>Unless requested otherwise in writing before production, Irresistible Cakes may photograph completed cakes and use those images on our website, social media, marketing materials, and advertising. By placing an order, you consent to this use.</p>
+
+
+                    <h2 class="sec-ttl">11. Storage, Handling &amp; Product Care</h2>
+
+                    <p>Customers are responsible for following all storage, transportation, handling, and serving instructions provided by Irresistible Cakes.</p>
+
+                    <p>Irresistible Cakes shall not be responsible for deterioration, damage, or product quality issues resulting from improper handling, storage, transportation, or environmental conditions after pickup or delivery.</p>
+
+
+                    <h2 class="sec-ttl">14. Non-Edible Decorations</h2>
+
+                    <p>Certain cakes may contain non-edible structural components, including wooden dowels, floral wires, plastic supports, separators, and decorative accessories.</p>
+
+                    <p>Customers are responsible for ensuring that all non-edible components are removed prior to serving.</p>
+
+                    <p>Irresistible Cakes shall not be liable for injuries, damages, or losses arising from the consumption or misuse of non-edible components.</p>
+
+
+                    <h2 class="sec-ttl">15. Intellectual Property</h2>
+
+                    <p>All website content, product photography, cake designs, logos, graphics, text, and branding materials are the property of Irresistible Cakes and are protected by applicable intellectual property laws.</p>
+
+                    <p>No content may be copied, reproduced, distributed, or used without prior written consent.</p>
+
+
+                    <h2 class="sec-ttl">16. Privacy &amp; Electronic Communications</h2>
+
+                    <p>By providing your <strong>phone number or email address</strong>, you consent to receive transactional communications from Irresistible Cakes, including order confirmations, appointment reminders, delivery updates, pickup notifications, next year's order reminders, and customer service communications by <strong>SMS, WhatsApp, phone call, or email</strong>.</p>
+
+                    <p>Message frequency may vary. Standard message and data rates may apply.</p>
+
+                    <p>Reply STOP to unsubscribe from SMS communications or HELP for assistance.</p>
+
+                    <p>Personal information is collected, used, and protected in accordance with our <strong>Privacy Policy</strong>.</p>
+
+
+                    <h2 class="sec-ttl">17. Limitation of Liability</h2>
+
+                    <p>To the maximum extent permitted by law, the total liability of Irresistible Cakes arising from any claim, dispute, or cause of action shall not exceed the amount paid for the applicable order.</p>
+
+                    <p>Irresistible Cakes shall not be liable for indirect, incidental, consequential, special, punitive, or exemplary damages, including but not limited to loss of profits, event disruption, venue expenses, travel costs, replacement purchases, or business interruption.</p>
+
+
+                    <h2 class="sec-ttl">18. Governing Law</h2>
+
+                    <p>These Terms &amp; Conditions shall be governed by and interpreted in accordance with the laws of the Province of Ontario and the applicable laws of Canada.</p>
+
+                    <p>Any dispute arising under these Terms shall be subject to the exclusive jurisdiction of the courts of Ontario.</p>
+
+
+                    <h2 class="sec-ttl">19. Amendments</h2>
+
+                    <p>Irresistible Cakes reserves the right to modify, update, or replace these Terms &amp; Conditions at any time without prior notice.</p>
+
+                    <p>Updated versions shall become effective upon publication on our website.</p>
+
+
+                    <h2 class="sec-ttl">20. Privacy Statement</h2>
+
+                    <p>Irresistible Cakes does not sell, rent, trade, or share customer personal information with third parties for their marketing purposes. Customer information is used only for order processing, customer service, communications, and business operations as outlined in our Privacy Policy.</p>
+
+
+                    <h2 class="sec-ttl">21. Complaints &amp; Quality Concerns</h2>
+
+                    <p>Where Irresistible Cakes determines that a significant error has occurred due to our fault, including but not limited to the wrong cake being supplied, an incorrect custom message, substantial deviation from the approved design, or failure to provide the ordered product, a store credit, partial refund, or full refund may be issued.</p>
+
+                    <p>As a condition of refund review, customers may be required to return the product to our Woodbridge location for inspection.</p>
+
+
+                    <h2 class="sec-ttl">22. Service Charges &amp; Taxes</h2>
+
+                    <p>We charge 13% of your order for service charges.</p>
+
+                    <p>We charge 13% HST for delivery.</p>
+
+                    <p>Delivery fees, setup fees, service charges, rental fees, and other applicable charges may apply depending on the order type, location, and services selected.</p>
+
+                    <p>Such charges will be disclosed during the ordering process whenever possible.</p>
+
+
+                    <h2 class="sec-ttl">23. Privacy &amp; Payment Security</h2>
+
+                    <p>Payments are processed through secure third-party payment providers. Irresistible Cakes does not store complete credit card information on its servers.</p>
+
+                    <p>Reasonable administrative, technical, and physical safeguards are used to protect customer information.</p>
+
+
+                    <h2 class="sec-ttl">24. Pickup Locations</h2>
+
+                    <p>Irresistible Cakes offers multiple pickup locations throughout the Greater Toronto Area and Southern Ontario.</p>
+
+                    <p>Except for our main location at 4040 Steeles Ave West, Woodbridge, Ontario, pickup locations may be operated by independent businesses and may be changed, relocated, or discontinued without notice. Customers will be notified if any such change affects an existing order.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="ftr">
+            <div class="c">
+                <div class="ftr-g">
+                    <div>
+                    <div class="ftr-logo">
+                        <img src="image/iCakes.png" alt="logo" />
+                    </div>
+                    <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+                    <div style="margin-top: 20px">
+                        <div class="ftr-ci">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        (905) 850-2253
+                        </div>
+                        <div class="ftr-ci">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-mail-icon lucide-mail">
+                            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                        </svg>
+                        info@icakes.ca
+                        </div>
+                        <div class="ftr-ci">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                            <path
+                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5
+                        </div>
+                        <button class="btn-p">All Locations</button>
+                    </div>
+                    </div>
+                    <div class="ftr-col">
+                    <h4>Shop</h4>
+                    <div class="ftr-links">
+                        <a href="#">All Cakes</a>
+                        <a href="#">Wedding Cakes</a>
+                        <a href="#">Birthday Cakes</a>
+                        <a href="#">Kids Cakes</a>
+                        <a href="#">Corporate Cakes</a>
+                        <a href="#">Desserts</a>
+                        <a href="#">Cupcakes</a>
+                        <a href="#">Cake Pops</a>
+                        <a href="#">Cake Finder</a>
+                    </div>
+                    </div>
+                    <div class="ftr-col">
+                    <h4>Company</h4>
+                    <div class="ftr-links">
+                        <a href="#">About Us</a>
+                        <a href="#">Quality</a>
+                        <a href="#">Flavours</a>
+                        <a href="#">Locations</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Wholesale</a>
+                        <a href="#">Partnership</a>
+                        <a href="#">Contact</a>
+                        <a href="#">FAQs</a>
+                    </div>
+                    </div>
+                    <div class="ftr-col">
+                    <h4>Legal</h4>
+                    <div class="ftr-links">
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Return Policy</a>
+                        <a href="#">Shipping Policy</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                    <h4 style="margin-top: 28px">Hours</h4>
+                    <div class="ftr-links">
+                        <a href="#">Tue – Sat: 10AM – 6PM</a>
+                        <a href="#">Sunday: 10AM – 1PM</a>
+                        <a href="#">Sunday: Closed</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="ftr-bot">
+                    <p>
+                    © 2026 iCakes.ca · Irresistible Cakes Since 1962 · All rights
+                    reserved.
+                    </p>
+                    <div class="ftr-bot-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="bottom-bar">
+            <div class="bottom-bat-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-house-icon lucide-house">
+                <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                <path
+                    d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                </svg>
+                <span>Home</span>
+            </div>
+            <div class="bottom-bat-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-list-icon lucide-list">
+                <path d="M3 5h.01" />
+                <path d="M3 12h.01" />
+                <path d="M3 19h.01" />
+                <path d="M8 5h13" />
+                <path d="M8 12h13" />
+                <path d="M8 19h13" />
+                </svg>
+                <span>Products</span>
+            </div>
+            <div class="bottom-bat-button cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-shopping-bag-icon lucide-shopping-bag">
+                <path d="M16 10a4 4 0 0 1-8 0" />
+                <path d="M3.103 6.034h17.794" />
+                <path
+                    d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+                </svg>
+                <span class="cart-count">3</span>
+                <span>Cart</span>
+            </div>
+            <div class="bottom-bat-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-log-in-icon lucide-log-in">
+                <path d="m10 17 5-5-5-5" />
+                <path d="M15 12H3" />
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                </svg>
+                <span>Login</span>
+            </div>
+            <div class="bottom-bat-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-user-key-icon lucide-user-key">
+                <path d="M20 11v6" />
+                <path d="M20 13h2" />
+                <path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578" />
+                <circle cx="10" cy="7" r="4" />
+                <circle cx="20" cy="19" r="2" />
+                </svg>
+                <span>Signup</span>
+            </div>
+        </div>
+
+        <div class="flotingIcon" style="display: none">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+                viewBox="0 0 16 16">
+                <path
+                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232">
+                </path>
+            </svg>
+            </a>
+            <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+            </svg>
+            </a>
+        </div>
+
+        <button class="bktop" id="bktop">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-arrow-up-icon lucide-arrow-up">
+            <path d="m5 12 7-7 7 7" />
+            <path d="M12 19V5" />
+            </svg>
+        </button>
+
+        <script src="script/script.js" defer></script>
+
+    </body>
+</html>

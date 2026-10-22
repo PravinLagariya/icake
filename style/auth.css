@@ -1,0 +1,398 @@
+/* ==========================================
+   AUTHENTICATION & GUEST FLOW STYLES
+   Project: Irresistible Cakes Redesign
+   Uses Root.css CSS custom variables.
+   ========================================== */
+
+/* Outer Auth Area Wrapper */
+.auth-section {
+  padding: 80px 0;
+  background: radial-gradient(circle at top right, var(--gold-pale) 0%, var(--cream) 60%);
+  min-height: calc(100vh - 240px); /* Subtract header/footer approximation */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Card Styling */
+.auth-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(209, 39, 100, 0.08);
+  position: relative;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.auth-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 70px -15px rgba(41, 44, 129, 0.28);
+}
+
+/* Titles and Typography */
+.auth-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-title {
+  font-family: var(--font-display), var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+  color: var(--primary);
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.auth-subtitle {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* Form Fields */
+.form-group {
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper svg.field-icon {
+  position: absolute;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  color: var(--gray-mid);
+  pointer-events: none;
+  transition: color 0.3s var(--ease);
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px 14px 46px;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  background: var(--white);
+  border: 1.5px solid rgba(74, 42, 31, 0.15);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--gold-pale);
+  background-color: var(--cream);
+}
+
+/* Focused icon highlighting */
+.input-wrapper:focus-within svg.field-icon {
+  color: var(--primary);
+}
+
+/* Password Toggle Icon */
+.password-toggle {
+  position: absolute;
+  right: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  color: var(--gray-mid);
+  transition: color 0.3s var(--ease);
+}
+
+.password-toggle:hover {
+  color: var(--primary);
+}
+
+/* Action Controls (Remember / Forgot) */
+.form-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -6px;
+  margin-bottom: 24px;
+  font-size: 0.88rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--charcoal);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid rgba(74, 42, 31, 0.3);
+  border-radius: 4px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  background: var(--white);
+  transition: all 0.2s;
+  margin: 0;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.checkbox-label input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.forgot-link {
+  color: var(--primary);
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.forgot-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.btn-submit {
+  width: 100%;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s var(--ease);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -6px rgba(209, 39, 100, 0.35);
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #8e1541 100%);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+.btn-submit:disabled {
+  background: var(--gray-mid);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Divider line */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--gray-mid);
+  font-size: 0.82rem;
+  margin: 26px 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1.5px dashed rgba(74, 42, 31, 0.12);
+}
+
+.auth-divider::before {
+  margin-right: 12px;
+}
+
+.auth-divider::after {
+  margin-left: 12px;
+}
+
+/* Social Buttons Grid */
+.social-grid {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.btn-social {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--white);
+  border: 1.5px solid rgba(74, 42, 31, 0.15);
+  border-radius: var(--radius-sm);
+  color: var(--charcoal);
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: all 0.3s var(--ease);
+}
+
+.btn-social:hover {
+  background: var(--cream);
+  border-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.btn-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Auth Footer */
+.auth-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 24px;
+}
+
+.auth-footer a {
+  color: var(--primary);
+  font-weight: 700;
+  margin-left: 4px;
+  transition: color 0.2s;
+}
+
+.auth-footer a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Form Validation Indicators */
+.password-requirements {
+  margin-top: 10px;
+  background: var(--blush);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary);
+}
+
+.requirement-item {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.requirement-item:last-child {
+  margin-bottom: 0;
+}
+
+.requirement-item svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.requirement-item.valid {
+  color: var(--green);
+}
+
+.requirement-item.valid svg {
+  color: var(--green);
+  fill: var(--green);
+}
+
+/* Error/Success Feedback Message Banners */
+.alert {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.alert-success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.alert-error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.alert svg {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 500px) {
+  .auth-section {
+    padding: 40px 0;
+  }
+  .auth-card {
+    padding: 30px 20px;
+    border-radius: var(--radius-md);
+  }
+  .social-grid {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

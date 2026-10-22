@@ -1,0 +1,298 @@
+.loc-hero {
+  padding: 70px 0 50px;
+  background: linear-gradient(
+    135deg,
+    var(--blush) 0%,
+    var(--cream) 60%,
+    var(--white) 100%
+  );
+  border-bottom: 1px solid rgba(209, 39, 100, 0.08);
+  text-align: center;
+}
+
+.loc-hero-cnt {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.loc-hero h1 {
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 18px;
+}
+
+.loc-hero h1 em {
+  font-style: normal;
+  color: var(--primary);
+}
+
+.loc-hero p {
+  color: var(--gray-txt);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+/* ─── 10 Locations Grid ─── */
+.loc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 24px;
+}
+
+.loc-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 30px 26px;
+  border: 1.5px solid rgba(41, 44, 129, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease),
+    border-color 0.3s;
+}
+
+.loc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: rgba(209, 39, 100, 0.3);
+}
+
+.loc-card.featured {
+  background: linear-gradient(135deg, #fffafc 0%, #fff0f5 100%);
+  border: 2px solid var(--primary);
+}
+
+.loc-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+.loc-badge.pickup {
+  background: var(--secondary);
+}
+
+.loc-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+  padding-right: 70px;
+}
+
+.loc-detail {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: var(--gray-txt);
+  line-height: 1.5;
+}
+
+.loc-detail svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.loc-card-actions {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.loc-card-actions a {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.loc-card-actions a:hover {
+  text-decoration: underline;
+}
+
+.loc-hours-tag {
+  font-size: 0.78rem;
+  color: var(--gray-mid);
+  background: var(--cream);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* ─── Woodbridge Showroom Feature Section ─── */
+.showroom-feature-bg {
+  background: var(--charcoal);
+  border-radius: var(--radius-lg);
+  padding: 56px 48px;
+  color: var(--white);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 60px;
+}
+
+.showroom-feature-header {
+  max-width: 750px;
+  margin-bottom: 40px;
+}
+
+.showroom-feature-header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.showroom-feature-header p {
+  font-size: 1rem;
+  line-height: 1.75;
+  opacity: 0.9;
+}
+
+.showroom-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.showroom-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.3s var(--ease),
+    background 0.3s;
+}
+
+.showroom-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.showroom-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.showroom-card-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--secondary);
+}
+
+.showroom-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.showroom-card p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  opacity: 0.88;
+  margin-bottom: 20px;
+}
+
+.showroom-card a {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 2px;
+  width: fit-content;
+}
+
+.showroom-card a:hover {
+  border-color: var(--white);
+  opacity: 1;
+}
+
+/* ─── GTA Delivery Callout ─── */
+.delivery-callout {
+  background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
+  border-radius: var(--radius-md);
+  padding: 44px 40px;
+  border: 1.5px solid rgba(209, 39, 100, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.delivery-callout h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+
+.delivery-callout p {
+  color: var(--gray-txt);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 650px;
+}
+
+/* ─── Responsive Adjustments ─── */
+@media (max-width: 950px) {
+  .showroom-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .loc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .delivery-callout {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .loc-grid {
+    grid-template-columns: 1fr;
+  }
+  .loc-hero {
+    padding: 50px 0 36px;
+  }
+  .showroom-feature-bg {
+    padding: 36px 24px;
+  }
+}

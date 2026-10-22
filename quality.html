@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Irresistible Cakes — Static</title>
+  <meta name="description" content="Static HTML/CSS/JS homepage for Irresistible Cakes." />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+  <!-- common css -->
+  <link rel="stylesheet" href="style/Root.css" />
+  <link rel="stylesheet" href="style/Header.css" />
+  <!-- common css -->
+  <link rel="stylesheet" href="style/newstyle.css" />
+  <link rel="stylesheet" href="style/InnerHero.css" />
+  <link rel="stylesheet" href="style/CardListing.css" />
+  <link rel="stylesheet" href="style/FAQ.css" />
+  <link rel="stylesheet" href="style/newhero.css" />
+  <link rel="stylesheet" href="style/service-dietary.css" />
+
+  <style>
+    /* ===== COMMITMENT INTRO ===== */
+    .commitment {
+      padding: 70px 0 50px;
+      background: var(--cream);
+    }
+
+    .commitment-box {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .commitment-box p {
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* ===== QUALITY AT A GLANCE ===== */
+    .glance {
+      padding: 60px 0 80px;
+      background: var(--cream);
+    }
+
+    .glance-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .glance-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: 0 8px 22px -12px rgba(74, 42, 31, .14);
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+
+    .glance-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .glance-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .glance-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .glance-card h3 {
+      font-size: 1.02rem;
+      margin-bottom: 8px;
+    }
+
+    .glance-card p {
+      color: var(--ink-soft);
+      font-size: .86rem;
+      line-height: 1.6;
+    }
+
+    .glance-cta {
+      text-align: center;
+      margin-top: 38px;
+    }
+
+    /* ===== ALLERGEN-FRIENDLY GRID ===== */
+    .allergen {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .allergen-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .allergen-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 30px 24px;
+      transition: transform .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .allergen-card:hover {
+      transform: translateY(-8px);
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .allergen-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blush), var(--white));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border: 1px solid rgba(209, 39, 100, .15);
+    }
+
+    .allergen-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .allergen-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .allergen-card p {
+      color: var(--ink-soft);
+      font-size: .85rem;
+      line-height: 1.62;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .allergen-card .learn {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .allergen-card .learn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform .3s;
+    }
+
+    .allergen-card:hover .learn svg {
+      transform: translateX(4px);
+    }
+
+    /* ===== QC STEPS ===== */
+    .qc {
+      padding: 80px 0;
+      background: var(--blush);
+    }
+
+    .qc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .qc-step {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: 0 8px 22px -12px rgba(74, 42, 31, .14);
+      position: relative;
+    }
+
+    .qc-num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 2.1rem;
+      color: var(--primary-light);
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .qc-step h3 {
+      font-size: 1rem;
+      letter-spacing: .02em;
+      margin-bottom: 10px;
+    }
+
+    .qc-step p {
+      color: var(--ink-soft);
+      font-size: .86rem;
+      line-height: 1.6;
+    }
+
+    /* ===== ALWAYS / NEVER ===== */
+    .ingredients-policy {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    .policy-card {
+      border-radius: var(--radius-lg);
+      padding: 34px 32px;
+    }
+
+    .policy-card.always {
+      background: var(--blush);
+    }
+
+    .policy-card.never {
+      background: var(--cream);
+      border: 1px solid rgba(74, 42, 31, .1);
+    }
+
+    .policy-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 20px;
+    }
+
+    .policy-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .policy-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: .9rem;
+      color: var(--charcoal);
+      line-height: 1.55;
+    }
+
+    .policy-list svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .policy-card.always svg {
+      stroke: var(--primary);
+    }
+
+    .policy-card.never svg {
+      stroke: var(--secondary);
+    }
+
+    /* ===== FEATURE TEXT SECTIONS (schools / halal) ===== */
+    .feature-text {
+      padding: 80px 0;
+      background: var(--cream);
+    }
+
+    .feature-text:nth-of-type(even) {
+      background: var(--white);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .feature-media {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .feature-copy p {
+      color: var(--ink-soft);
+      font-size: .96rem;
+      line-height: 1.78;
+      margin-bottom: 16px;
+    }
+
+    .stat-callout {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--white);
+      border: 1px solid rgba(209, 39, 100, .15);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      margin: 20px 0;
+      box-shadow: 0 8px 20px -12px rgba(74, 42, 31, .12);
+    }
+
+    .stat-callout .num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .stat-callout span {
+      font-size: .86rem;
+      color: var(--secondary);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .feature-copy .btn {
+      margin-top: 8px;
+    }
+
+    @media (max-width:900px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-media img {
+        height: 260px;
+      }
+
+      .feature-grid .feature-media {
+        order: -1;
+      }
+    }
+
+    /* ===== EGGLESS / GLUTEN-FREE ===== */
+    .egf {
+      padding: 80px 0 100px;
+      background: var(--blush);
+    }
+
+    .egf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    .egf-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 30px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .egf-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .egf-card p {
+      color: var(--ink-soft);
+      font-size: .9rem;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .egf-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .egf-tag {
+      background: var(--cream);
+      border: 1px solid rgba(209, 39, 100, .15);
+      color: var(--secondary);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 100px;
+    }
+
+    @media (max-width:860px) {
+      .egf-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:900px) {
+      .glance-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .allergen-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .qc-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .policy-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width:640px) {
+      .glance-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .allergen-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .qc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .commitment,
+      .glance,
+      .allergen,
+      .qc,
+      .ingredients-policy,
+      .feature-text,
+      .egf {
+        padding: 56px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="c">
+      <div class="tb-l">
+        <span class="tb-deal">Sale</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          (905) 850-2253
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Pickup Locations
+        </span>
+      </div>
+      <div class="tb-r">
+        <a href="#">Login</a>
+        <a href="#">Sign Up</a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+          </svg>
+          Chat with a Cake Expert
+        </a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+            <path d="M16 14v2.2l1.6 1"></path>
+            <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+            <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+            <circle cx="16" cy="16" r="6"></circle>
+            <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+          </svg>
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hdr">
+    <div class="c">
+      <div class="search-box">
+        <div class="c">
+          <div class="search-box-inner">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-search-icon lucide-search">
+              <path d="m21 21-4.34-4.34" />
+              <circle cx="11" cy="11" r="8" />
+            </svg>
+            <input type="search" placeholder="Search any cake design..." name="" id="">
+          </div>
+          <div class="search-results">
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Wedding Cakes Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Custom Birthday Cakes in Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Kids Birthday Cakes
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Wedding Cakes Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Custom Birthday Cakes in Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Kids Birthday Cakes
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hdr-i">
+        <div class="logo dashbord-logo">
+          <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+        </div>
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About Us</a>
+          <a class="nav-link" href="#">Cakes</a>
+          <!-- <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Cakes</a>
+                <div class="dropdown-menu">
+                  <a href="#">Wedding Cakes Toronto</a>
+                  <a href="#">Custom Birthday Cakes in Toronto</a>
+                  <a href="#">Kids Birthday Cakes</a>
+                  <a href="#">Corporate Cakes</a>
+                  <a href="#">Religious Cakes</a>
+                  <a href="#">Graduation Cakes</a>
+                  <a href="#">Baby Shower Cakes</a>
+                  <a href="#">Bridal Shower Cakes</a>
+                  <a href="#">Sweet Sixteen Cakes</a>
+                  <a href="#">Regular Cakes</a>
+                  <a href="#">Anniversary Cakes</a>
+                  <a href="#">Celebration Cakes</a>
+                  <a href="#">Christmas Cakes</a>
+                </div>
+              </div> -->
+          <a class="nav-link" href="#">Desserts</a>
+          <a class="nav-link" href="#">Quality</a>
+          <a class="nav-link" href="#">Flavour</a>
+          <a class="nav-link" href="#">City</a>
+          <a class="nav-link" href="#">Cakes Finder</a>
+          <a class="nav-link" href="#blogs">Blogs</a>
+          <a class="nav-link" href="#blogs">Contact us</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn search" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+          <button class="icon-btn cart" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-count">3</span>
+          </button>
+          <div class="logo mobile-logo">
+            <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+          </div>
+          <button class="burger" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-menu-icon lucide-menu">
+              <path d="M4 5h16" />
+              <path d="M4 12h16" />
+              <path d="M4 19h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-tb">
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+          </svg>
+          Chat with a Cake Expert
+        </a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+            <path d="M16 14v2.2l1.6 1"></path>
+            <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+            <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+            <circle cx="16" cy="16" r="6"></circle>
+            <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+          </svg>
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-header">
+      <img src="https://www.icakes.ca/assets/images/icakeslogo.webp" style="height: 44px" alt="logo" />
+      <button class="mobile-close" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="about.html">About Us</a>
+    <a class="nav-link" href="#">Cakes</a>
+    <a class="nav-link" href="#">Desserts</a>
+    <a class="nav-link" href="#">Quality</a>
+    <a class="nav-link" href="#">Flavour</a>
+    <a class="nav-link" href="#">City</a>
+    <a class="nav-link" href="#">Cakes Finder</a>
+    <a class="nav-link" href="#blogs">Blogs</a>
+    <a class="nav-link" href="#blogs">Contact us</a>
+  </nav>
+
+  <section class="HeroInner">
+    <div class="c">
+      <div class="hero-a-box reveal">
+        <div class="hero-a-text">
+          <span class="sec-lbl">35+ Custom, Eggless & Gluten-Free Options</span>
+          <h1 class="sec-ttl">Cake Flavours <em>in Toronto</em></h1>
+          <p>
+            Over 35 flavours, built from recipes refined across more than 60 years of baking for GTA families. Every
+            flavour on this menu is nut-free and lactose-free as standard, and most are available in eggless,
+            gluten-free, dairy-free, or vegan versions. Whether you're ordering a birthday cake in Brampton, a wedding
+            cake in Mississauga, or a celebration cake anywhere across the GTA, this is the full list of what's
+            available.
+          </p>
+          <div class="h-ctas" style="margin-top: 20px">
+            <button class="btn-p">Browse All Cakes →</button>
+            <button class="btn-o">Connect On WhatsApp</button>
+          </div>
+        </div>
+        <div class="hero-a-media">
+          <div class="frame">
+            <img src="image/Our Story.jpeg" alt="Custom birthday cake Toronto GTA" />
+          </div>
+          <div class="hero-a-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-calendar-days-icon lucide-calendar-days">
+              <path d="M8 2v4"></path>
+              <path d="M16 2v4"></path>
+              <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+              <path d="M3 10h18"></path>
+              <path d="M8 14h.01"></path>
+              <path d="M12 14h.01"></path>
+              <path d="M16 14h.01"></path>
+              <path d="M8 18h.01"></path>
+              <path d="M12 18h.01"></path>
+              <path d="M16 18h.01"></path>
+            </svg>
+            <div>
+              <strong>Since 1962</strong><span>Toronto's trusted GTA bakery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="diet-section">
+    <div class="container">
+      <div class="content">
+        <div class="sec-lbl">
+          Our Commitment
+        </div>
+        <h2 class="sec-ttl">
+          <em>Quality & Safety Commitment</em> at Irresistible Cakes
+        </h2>
+        <p style="color: var(--gray-txt); margin-top: 18px; line-height: 1.75;">
+          Most bakeries in the GTA will tell you they take quality seriously. At Irresistible Cakes (iCakes), the proof
+          is in the process — a QC Passed Stamp on every single cake box, a 100% nut-free production facility, and a
+          quality commitment that has not changed since 1962
+        </p>
+
+        <p style="color: var(--gray-txt); margin-top: 18px; line-height: 1.75;">
+          Whether you are ordering a custom birthday cake, a multi-tier wedding centrepiece, or a ready-made celebration
+          cake for tonight — every product that leaves our facility meets the same standard. Not most. All of them.
+        </p>
+
+        <div class="info-box">
+          <div class="icon">
+            <figure>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-cake-icon lucide-cake">
+                <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path>
+                <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"></path>
+                <path d="M2 21h20"></path>
+                <path d="M7 8v3"></path>
+                <path d="M12 8v3"></path>
+                <path d="M17 8v3"></path>
+                <path d="M7 4h.01"></path>
+                <path d="M12 4h.01"></path>
+                <path d="M17 4h.01"></path>
+              </svg>
+            </figure>
+          </div>
+          <div>
+            <strong>New to iCakes?</strong>
+            <p>Learn more about <b><a href="#">who we are and how we bake</a></b> — or <b><a href="#"></a>browse the
+                full cake range</a></b> to find your occasion.</p>
+          </div>
+        </div>
+        <a href="#" class="btn-p">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232">
+            </path>
+          </svg>
+          Chat with a Cake Expert
+        </a>
+      </div>
+
+      <div class="image-area">
+        <div class="circle"></div>
+        <img src="image/iCakes.png" alt="Cake">
+      </div>
+    </div>
+  </section>
+
+  <!-- DIETARY -->
+  <section class="dietary" id="dietary">
+    <div class="c">
+      <div class="section-head reveal dietary-hd">
+        <p class="sec-lbl">Every Option We Offer</p>
+        <h2 class="sec-ttl"><em>Allergen-Friendly</em> Cakes GTA</h2>
+        <p style="color: var(--gray-txt); margin-top: 18px; line-height: 1.75">
+          For families across Brampton, Mississauga, Scarborough, Woodbridge, and Toronto, a cake that works for every
+          guest at the table is not a luxury — it is a requirement. These are the dietary options iCakes provides as a
+          standard part of how we operate, not as exceptions or special requests.
+        </p>
+      </div>
+
+      <div class="dietary-grid reveal-stagger">
+        <div class="dietary-card">
+          <div class="dietary-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.5 4.20573C5.56566 5.32252 4.85134 7.61813 6.0359 9.66983C6.38397 10.2727 6.86005 10.6249 7.54765 11.1297C8.02029 11.4767 8.5738 11.885 9.08149 12.4807L7.61428 13.8431C7.26718 13.4168 6.85327 13.101 6.36413 12.7419L6.27874 12.6794C5.6495 12.2186 4.86748 11.6461 4.30385 10.6698C2.54288 7.61975 3.65141 4.11832 6.5 2.47368C9.34859 0.829048 12.9352 1.61975 14.6962 4.66983C15.0933 5.35764 15.2626 6.03914 15.3576 6.65294L13.5486 8.33269C13.5173 8.11448 13.4942 7.90598 13.4725 7.70898C13.3792 6.86113 13.3122 6.27271 12.9641 5.66983C11.7795 3.61813 9.43434 3.08894 7.5 4.20573ZM10.7193 10.9599L11.9781 9.79096C11.8821 9.33896 11.4806 8.99988 11 8.99988C10.4477 8.99988 10 9.44759 10 9.99988C10 10.4547 10.3036 10.8386 10.7193 10.9599ZM8.82111 18.1811L10.5585 16.5678C10.6395 17.2715 10.727 17.7951 11.0359 18.3301C12.2205 20.3818 14.5657 20.911 16.5 19.7942C18.4343 18.6774 19.1487 16.3818 17.9641 14.3301C17.616 13.7272 17.1399 13.375 16.4523 12.8702C16.1341 12.6366 15.7793 12.3752 15.4264 12.0475L16.8979 10.6812C17.1222 10.8773 17.3677 11.0612 17.6359 11.258L17.7213 11.3206C18.3505 11.7813 19.1325 12.3538 19.6962 13.3301C21.4571 16.3802 20.3486 19.8816 17.5 21.5262C14.6514 23.1709 11.0648 22.3802 9.30385 19.3301C9.07942 18.9414 8.92773 18.5547 8.82111 18.1811ZM9 8.99988C9 9.55216 8.55228 9.99988 8 9.99988C7.44772 9.99988 7 9.55216 7 8.99988C7 8.44759 7.44772 7.99988 8 7.99988C8.55228 7.99988 9 8.44759 9 8.99988ZM8 6.99988C8.55228 6.99988 9 6.55216 9 5.99988C9 5.44759 8.55228 4.99988 8 4.99988C7.44772 4.99988 7 5.44759 7 5.99988C7 6.55216 7.44772 6.99988 8 6.99988ZM14 18.9999C14.5523 18.9999 15 18.5522 15 17.9999C15 17.4476 14.5523 16.9999 14 16.9999C13.4477 16.9999 13 17.4476 13 17.9999C13 18.5522 13.4477 18.9999 14 18.9999ZM19.6804 6.73274C20.0852 6.35694 20.1086 5.72421 19.7328 5.3195C19.357 4.91479 18.7243 4.89135 18.3195 5.26716L4.31954 18.2672C3.91483 18.643 3.8914 19.2757 4.2672 19.6804C4.643 20.0851 5.27574 20.1085 5.68045 19.7327L19.6804 6.73274Z"
+                fill="currentColor"></path>
+            </svg>
+          </div>
+          <h3>Nut-Free Cakes</h3>
+          <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            We are a nut-free bakery. All of our products are made without peanuts or tree nuts, so families with nut
+            allergies can feel safe ordering from us.
+          </p>
+          <a href="#" class="learn">Learn more
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></a>
+        </div>
+        <div class="dietary-card">
+          <div class="dietary-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-milk-off-icon lucide-milk-off">
+              <path d="M8 2h8" />
+              <path
+                d="M9 2v1.343M15 2v2.789a4 4 0 0 0 .672 2.219l.656.984a4 4 0 0 1 .672 2.22v1.131M7.8 7.8l-.128.192A4 4 0 0 0 7 10.212V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3" />
+              <path d="M7 15a6.47 6.47 0 0 1 5 0 6.472 6.472 0 0 0 3.435.435" />
+              <line x1="2" x2="22" y1="2" y2="22" />
+            </svg>
+          </div>
+          <h3>Lactose-Free Cakes</h3>
+          <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            Our lactose-free cakes are made with quality ingredients, perfect for those with lactose intolerance, while
+            still delivering the same rich taste and texture everyone loves.
+          </p>
+          <a href="#faq" class="learn">Learn more
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></a>
+        </div>
+        <div class="dietary-card">
+          <div class="dietary-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-egg-off-icon lucide-egg-off">
+              <path d="m2 2 20 20" />
+              <path d="M20 14.347V14c0-6-4-12-8-12-1.078 0-2.157.436-3.157 1.19" />
+              <path d="M6.206 6.21C4.871 8.4 4 11.2 4 14a8 8 0 0 0 14.568 4.568" />
+            </svg>
+          </div>
+          <h3>Eggless & Vegan (on special order)</h3>
+          <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            Choose from a variety of egg-free, vegan and dairy-free cakes and desserts to suit your dietary needs
+            without compromising on flavour.
+          </p>
+          <a href="#faq" class="learn">Learn more
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></a>
+        </div>
+        <div class="dietary-card">
+          <div class="dietary-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 470" width="100%" height="100%">
+              <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Wheat Stalk Base & Center Stem -->
+                <path d="M256 460 V 120" stroke-width="18" />
+                <!-- Top Grain -->
+                <path d="M256 120 C 240 90, 256 50, 256 50 C 256 50, 272 90, 256 120 Z" fill="currentColor" stroke-width="6" />
+
+                <!-- Upper Grains (Above Slash) -->
+                <!-- Left Upper Grain -->
+                <path d="M250 170 C 200 150, 180 110, 210 100 C 240 110, 250 140, 250 170 Z" fill="currentColor" stroke-width="6" />
+                <!-- Right Upper Grain -->
+                <path d="M262 170 C 312 150, 332 110, 302 100 C 272 110, 262 140, 262 170 Z" fill="currentColor" stroke-width="6" />
+
+                <!-- Middle Grains -->
+                <!-- Left Middle Grain -->
+                <path d="M250 240 C 190 220, 170 170, 200 160 C 230 170, 250 210, 250 240 Z" fill="currentColor" stroke-width="6" />
+                <!-- Right Middle Grain -->
+                <path d="M262 240 C 322 220, 342 170, 312 160 C 282 170, 262 210, 262 240 Z" fill="currentColor" stroke-width="6" />
+
+                <!-- Lower Grains -->
+                <!-- Left Lower Grain -->
+                <path d="M250 310 C 180 290, 160 230, 190 220 C 220 230, 250 280, 250 310 Z" fill="currentColor" stroke-width="6" />
+                <!-- Right Lower Grain -->
+                <path d="M262 310 C 332 290, 352 230, 322 220 C 292 230, 262 280, 262 310 Z" fill="currentColor" stroke-width="6" />
+
+                <!-- Bottom Leaves/Grains -->
+                <!-- Left Bottom Grain -->
+                <path d="M250 380 C 170 360, 150 290, 180 280 C 210 290, 250 350, 250 380 Z" fill="currentColor" stroke-width="6" />
+                <!-- Right Bottom Grain -->
+                <path d="M262 380 C 342 360, 362 290, 332 280 C 302 290, 262 350, 262 380 Z" fill="currentColor" stroke-width="6" />
+
+                <!-- Prohibitory Sign (Red Circle and Slash) -->
+                <circle cx="256" cy="256" r="200" stroke="currentColor" stroke-width="32" fill="none" />
+                <line x1="115" y1="115" x2="397" y2="397" stroke="currentColor" stroke-width="32" />
+              </g>
+            </svg>
+          </div>
+          <h3>Gluten-Free (on special order)</h3>
+          <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            We also prepare gluten-free cakes using ingredients that do not contain wheat or gluten.
+          </p>
+          <a href="#faq" class="learn">Learn more
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></a>
+        </div>
+        <div class="dietary-card">
+          <div class="dietary-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-moon-icon lucide-moon">
+              <path
+                d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+            </svg>
+          </div>
+          <h3>Halal Friendly</h3>
+          <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            All products are halal, alcohol-free, and gelatine-free as
+            standard, including every flavouring agent. The vanilla used
+            across the range contains no alcohol, so each product qualifies
+            without a separate request.
+          </p>
+          <a href="#faq" class="learn">Learn more
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QC STEPS -->
+  <section class="how" id="process">
+    <div class="c">
+      <div class="section-head reveal how-hd">
+        <p class="sec-lbl">The Process</p>
+        <h2 class="sec-ttl">How Our <em> Quality Control Works</em></h2>
+        <p style="color: var(--gray-txt); margin-top: 18px; line-height: 1.75">
+          Every order — from a simple slab cake to a custom three-tier design — goes through the same six-step
+          production and inspection process. Here is what happens between when you place your order and when you
+          collect.
+        </p>
+      </div>
+
+      <div class="how-steps reveal-stagger">
+        <div class="how-step">
+          <div class="how-num">01</div>
+          <h3>Ingredient Review</h3>
+          <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            Every ingredient is checked against our allergen and quality standards before entering production.
+          </p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">02</div>
+          <h3>Nut-Free Environment</h3>
+          <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            All surfaces, tools, and equipment are maintained in our 100% nut-free production facility throughout
+            baking.
+          </p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">03</div>
+          <h3>Fresh to Order</h3>
+          <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            Every cake is baked fresh on order. No pre-made batches, no shortcuts, no compromises on texture or
+            freshness.
+          </p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">04</div>
+          <h3>QC Inspection</h3>
+          <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            Each completed order is checked by our quality inspectors before it is packaged — every single order.
+          </p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">05</div>
+          <h3>QC Stamp Applied</h3>
+          <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            A QC Passed Stamp is placed on every cake box as a physical sign-off that the order has met our standard.
+          </p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">06</div>
+          <h3>Pickup & Delivery</h3>
+          <p style=" color: var(--gray-txt); margin-top: 18px; line-height: 1.75; ">
+            Your order will be confirmed, labelled, and ready for collection at your chosen GTA pickup location, or delivered directly to your door anywhere across the GTA.
+          </p>
+        </div>
+      </div>
+
+      <div class="how-cta">
+        <a href="#contact" class="btn-p">Order Now</a>
+        <a href="#contact" class="btn-o">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALWAYS / NEVER -->
+  <section class="ingredients-policy">
+    <div class="c">
+      <div class="section-head reveal how-hd">
+        <span class="sec-lbl">The Recipe, Honestly</span>
+        <h2 class="sec-ttl">What Goes Into <em>Every Cake — And What Never</em> Does</h2>
+        <p>The ingredient decisions at iCakes are deliberate. Every product is formulated to be inclusive without
+          compromising on flavour, texture, or finish. This is not a list of marketing claims — it is what is actually
+          in the recipe.</p>
+      </div>
+
+      <div class="policy-grid reveal-stagger">
+        <div class="policy-card always">
+          <h3>What We Always Use</h3>
+          <ul class="policy-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M9 12l2 2 4-4" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>Lactose-free milk as a core ingredient across most flavours</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M9 12l2 2 4-4" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>Canola oil and non-hydrogenated vegetable shortenings only</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M9 12l2 2 4-4" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>Poly and monounsaturated fats — no trans fats of any kind</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M9 12l2 2 4-4" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>Real fruit, real cream, and natural flavouring agents</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M9 12l2 2 4-4" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>Fresh, locally sourced ingredients baked to order</li>
+          </ul>
+        </div>
+        <div class="policy-card never">
+          <h3>What We Never Use</h3>
+          <ul class="policy-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 9l6 6M15 9l-6 6" />
+              </svg>Peanuts or tree nuts — anywhere in the facility, ever</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 9l6 6M15 9l-6 6" />
+              </svg>Alcohol — including in flavouring agents</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 9l6 6M15 9l-6 6" />
+              </svg>Animal-derived gelatine in any product</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 9l6 6M15 9l-6 6" />
+              </svg>Trans fats or hydrogenated oils</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 9l6 6M15 9l-6 6" />
+              </svg>Pre-made batches or reheated sponge — all freshly baked</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUT-FREE FOR SCHOOLS -->
+  <section class="feature-text">
+    <div class="c">
+      <div class="feature-grid">
+        <div class="feature-copy reveal">
+          <span class="sec-lbl">Families & Schools</span>
+          <h2 class="sec-ttl">Nut-Free Cakes for <em>Schools, Kids' Parties & GTA </em>Families</h2>
+          <p>This is the question that comes up most among GTA parents — particularly those ordering birthday cakes for
+            school-age children. With nut allergies being the most common food allergy among children, the difference
+            between a bakery that avoids nuts and one that bakes in a fully nut-free facility matters.</p>
+
+          <div class="stat-callout">
+            <span class="num">1 in 13</span>
+            <span>Canadians live with a food allergy — and nut allergies are the most common among children.</span>
+          </div>
+
+          <p>At Irresistible Cakes, the entire production facility is nut-free. That means no cross-contamination risk,
+            no "may contain traces" disclaimer, and no need to double-check whether this particular cake is safe. Every
+            cake on the menu is produced in the same nut-free environment — the birthday cake, the kids' character cake,
+            the grab-and-go ready-made, all of them.</p>
+          <p>For families managing multiple allergen requirements, our <a href="#">nut-free cakes page</a> covers the
+            full detail on our facility and what it means for your order. The same applies to school event cakes,
+            daycare celebrations, and large family gatherings in Vaughan, Brampton, Mississauga, Scarborough, and
+            Etobicoke — wherever you are in the GTA, the nut-free guarantee is the same.</p>
+          <a href="#" class="btn-p">Order Now</a>
+        </div>
+        <div class="feature-media reveal">
+          <img src="image/Our Story.jpeg" alt="Nut-free kids birthday cake for GTA families">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HALAL -->
+  <section class="feature-text">
+    <div class="c">
+      <div class="feature-grid">
+        <div class="feature-media reveal">
+          <img src="image/halal-free.png" alt="Halal certified celebration cake GTA">
+        </div>
+        <div class="feature-copy reveal">
+          <span class="sec-lbl">Halal & Alcohol-Free</span>
+          <h2 class="sec-ttl">Halal, Alcohol-Free & Gelatine-Free — <em>What This Means for Your Order</em></h2>
+          <p>All Irresistible Cakes (iCakes) products are halal-certified, alcohol-free, and gelatine-free as standard.
+            This is not a separate product line or a premium tier — it is the base level for every cake on the menu,
+            including the ready-made range.</p>
+          <p>For GTA communities in Vaughan, Brampton, Toronto, Woodbridge, Scarborough, and Mississauga where halal
+            certification is a genuine requirement rather than a preference, this removes a significant source of
+            uncertainty when ordering a celebration cake. You do not need to ask, and you do not need to check — it is
+            part of how the facility operates.</p>
+          <div class="stat-callout">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.8"
+              style="width:26px;height:26px;flex-shrink:0;">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 8v5M12 16h.01" />
+            </svg>
+            <span>Even our flavouring agents are alcohol-free — the rum flavouring used in certain recipes contains no
+              alcohol; the flavour profile is achieved without it.</span>
+          </div>
+          <a href="#" class="btn-p">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- EGGLESS & GLUTEN-FREE -->
+  <section class="egf">
+    <div class="c">
+      <div class="section-head center reveal how-hd">
+        <span class="sec-lbl" style="justify-content:center;">Same Quality, No Compromise</span>
+        <h2 class="sec-ttl">Eggless and<em> Gluten-Free Cakes</em></h2>
+        <p>The two dietary requests that come in most consistently after nut-free and halal are eggless and gluten-free.
+          Both are available at iCakes on special order — and both maintain the same flavour and texture standard as the
+          regular range.</p>
+      </div>
+
+      <div class="egf-grid reveal-stagger">
+        <div class="egf-card">
+          <h3>Eggless Cakes</h3>
+          <p>Egg-free cakes are available across a wide flavour range — same sponge quality, same custard filling, just
+            without eggs. Suitable for vegetarians, those with egg allergies, and guests observing specific dietary
+            requirements.</p>
+          <div class="egf-tags">
+            <span class="egf-tag">French Vanilla</span><span class="egf-tag">French Chocolate</span><span
+              class="egf-tag">Black Forest</span>
+            <span class="egf-tag">Lemon</span><span class="egf-tag">Strawberry</span><span
+              class="egf-tag">Raspberry</span><span class="egf-tag">Pineapple</span><span class="egf-tag">+ more</span>
+          </div>
+        </div>
+        <div class="egf-card">
+          <h3>Gluten-Free Cakes</h3>
+          <p>Made using a dedicated base formulation — not a standard recipe with a flour substitution. Confirm your
+            requirement at the time of ordering.</p>
+          <div class="egf-tags">
+            <span class="egf-tag">French Vanilla</span><span class="egf-tag">Café Latte</span><span
+              class="egf-tag">Lemon Raspberry</span><span class="egf-tag">Fresh Strawberry</span>
+          </div>
+        </div>
+      </div>
+      <div class="how-cta">
+        <a href="flavour.html" class="btn-p">Browse All Flavour</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ -->
+  <section class="faq" id="faq" style="padding: 0 0 130px; margin-top: 20px;">
+    <div class="c">
+      <div class="section-head reveal faq-hd">
+        <p class="sec-lbl">Frequently Asked Questions</p>
+        <h2 class="sec-ttl">Answers Before You<em> Order</em></h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <button class="faq-q">
+            <span>Are all Irresistible Cakes, iCakes products made in a nut-free facility? </span><span class="plus"><svg viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+               Yes — the entire production facility is 100% nut-free. No peanuts or tree nuts are used in any product, across any part of the facility. This applies to every cake on the menu, including ready-made options.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Are iCakes cakes halal?</span><span class="plus"><svg viewBox="0 0 24 24"
+                fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+               Yes. All iCakes products are halal, alcohol-free, and gelatine-free as standard. This is not a specific product line — it covers the full menu.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>What is the QC Passed Stamp?</span><span class="plus"><svg viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Every completed cake box receives a QC Passed Stamp from our quality inspectors before it leaves the facility. It is a physical sign-off that the order has been checked and meets our quality standard — applied to every single order without exception.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Do you offer vegan cakes?</span><span class="plus"><svg viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Yes. Vegan cakes are available on special order — completely egg-free and dairy-free. Confirm the requirement when placing your order and a member of the team will advise on available flavours and designs.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="news">
+    <div class="c">
+      <div class="news-in">
+        <div>
+          <h2 class="sec-ttl">
+            Order a Cake <em> You Can Trust </em>
+          </h2>
+          <p style=" color: var(--gray-txt); margin-top: 18px; line-height: 1.75; ">
+            Over six decades of GTA families have placed their most important celebrations in our hands — and the quality commitment that started in 1962 is exactly the same one that goes into every cake today. Nut-free facility. Halal-certified. QC Passed on every box.</p>
+            <p style="
+                  color: var(--gray-txt);
+                  margin-top: 18px;
+                  line-height: 1.75;
+                ">
+            If you have a question about a dietary requirement before ordering, the team is available via WhatsApp or through the contact page — no automated responses, just a direct conversation about your order.</p>
+          </p>
+          <div class="cta-box-actions">
+            <a href="#types" class="btn btn-o">Browse All Cakes</a>
+            <a href="#" class="btn btn-o">Book a Consultation</a>
+            <a href="https://wa.me/19056054900" target="_blank" rel="noopener" class="btn btn-o">
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+        <div class="news-vis">
+          <img
+            src="https://www.icakes.ca/upload/products/cakes/ftrimg/kidscakes/soccer-sports-messi-edible-photo-picture-cake-from-icakes-brampton.webp"
+            alt="newsletter" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="ftr">
+    <div class="c">
+      <div class="ftr-g">
+        <div>
+          <div class="ftr-logo">
+            <img src="image/iCakes.png" alt="logo" />
+          </div>
+          <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+          <div style="margin-top: 20px">
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              (905) 850-2253
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-mail-icon lucide-mail">
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+              </svg>
+              info@icakes.ca
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-map-pin-icon lucide-map-pin">
+                <path
+                  d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5
+            </div>
+            <button class="btn-p">All Locations</button>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Shop</h4>
+          <div class="ftr-links">
+            <a href="#">All Cakes</a>
+            <a href="#">Wedding Cakes</a>
+            <a href="#">Birthday Cakes</a>
+            <a href="#">Kids Cakes</a>
+            <a href="#">Corporate Cakes</a>
+            <a href="#">Desserts</a>
+            <a href="#">Cupcakes</a>
+            <a href="#">Cake Pops</a>
+            <a href="#">Cake Finder</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Company</h4>
+          <div class="ftr-links">
+            <a href="#">About Us</a>
+            <a href="#">Quality</a>
+            <a href="#">Flavours</a>
+            <a href="#">Locations</a>
+            <a href="#">Blog</a>
+            <a href="#">Wholesale</a>
+            <a href="#">Partnership</a>
+            <a href="#">Contact</a>
+            <a href="#">FAQs</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Legal</h4>
+          <div class="ftr-links">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Return Policy</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+          <h4 style="margin-top: 28px">Hours</h4>
+          <div class="ftr-links">
+            <a href="#">Tue – Sat: 10AM – 6PM</a>
+            <a href="#">Sunday: 10AM – 1PM</a>
+            <a href="#">Sunday: Closed</a>
+          </div>
+        </div>
+      </div>
+      <div class="ftr-bot">
+        <p>
+          © 2026 iCakes.ca · Irresistible Cakes Since 1962 · All rights
+          reserved.
+        </p>
+        <div class="ftr-bot-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-house-icon lucide-house">
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path
+          d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      </svg>
+      <span>Home</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-list-icon lucide-list">
+        <path d="M3 5h.01" />
+        <path d="M3 12h.01" />
+        <path d="M3 19h.01" />
+        <path d="M8 5h13" />
+        <path d="M8 12h13" />
+        <path d="M8 19h13" />
+      </svg>
+      <span>Products</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-shopping-bag-icon lucide-shopping-bag">
+        <path d="M16 10a4 4 0 0 1-8 0" />
+        <path d="M3.103 6.034h17.794" />
+        <path
+          d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+      </svg>
+      <span>Cart</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-log-in-icon lucide-log-in">
+        <path d="m10 17 5-5-5-5" />
+        <path d="M15 12H3" />
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+      </svg>
+      <span>Login</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-user-key-icon lucide-user-key">
+        <path d="M20 11v6" />
+        <path d="M20 13h2" />
+        <path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578" />
+        <circle cx="10" cy="7" r="4" />
+        <circle cx="20" cy="19" r="2" />
+      </svg>
+      <span>Signup</span>
+    </div>
+  </div>
+
+  <div class="flotingIcon" style="display: none">
+    <a href="#" target="_blank" rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+        viewBox="0 0 16 16">
+        <path
+          d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232">
+        </path>
+      </svg>
+    </a>
+    <a href="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+        </path>
+      </svg>
+    </a>
+  </div>
+
+  <button class="bktop" id="bktop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="lucide lucide-arrow-up-icon lucide-arrow-up">
+      <path d="m5 12 7-7 7 7" />
+      <path d="M12 19V5" />
+    </svg>
+  </button>
+  <script src="script/script.js" defer></script>
+</body>
+
+</html>

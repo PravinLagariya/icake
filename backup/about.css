@@ -1,0 +1,213 @@
+section h2 {
+  font-size: 30px;
+  color: var(--choco);
+  margin: 30px 0 10px 0;
+}
+
+section.employe {
+  padding: 80px 0;
+  background: var(--gold-pale);
+}
+
+section.employe h2 {
+  margin-top: 0;
+}
+
+section h3 {
+  font-size: 26px;
+  color: var(--choco);
+  margin: 20px 0 10px 0;
+}
+
+section h4,
+section h5,
+section h6 {
+  font-size: 24px;
+  color: var(--choco);
+  margin: 18px 0 8px 0;
+}
+
+section {
+  padding: 50px 0;
+}
+
+section ul {
+  padding-left: 20px;
+}
+
+section li::marker {
+  color: var(--gold);
+  font-size: 28px;
+  line-height: 0.5;
+}
+
+section p,
+section li {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--gray-txt);
+  margin: 6px 0;
+}
+
+section a {
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+section strong {
+  font-weight: 600;
+}
+
+.employe-contant {
+  margin-bottom: 60px;
+}
+
+.employe-card {
+  margin-top: 30px;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+
+  position: sticky;
+  top: 100px;
+}
+
+.employe-card h3 {
+  margin-top: 0;
+}
+
+.card1 {
+  top: 100px;
+  z-index: 1;
+}
+
+.card2 {
+  top: 150px;
+  z-index: 2;
+}
+
+.card3 {
+  top: 200px;
+  z-index: 3;
+}
+
+.card4 {
+  top: 250px;
+  z-index: 4;
+}
+
+
+.employe-card figure {
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex: 0 0 auto;
+}
+
+
+.contact-Section {
+  padding: 80px 0;
+  background: var(--gold-pale);
+}
+
+.contact-Section .contact-location {
+  background: var(--white);
+  border-radius: 20px;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.contact-Section .contact-location figure {
+  background: var(--gold-pale);
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+}
+
+.contact-Section .contact-location figure svg {
+  width: 80px;
+  height: 80px;
+  color: var(--gold);
+}
+
+.contact-Section .contact-location p {
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--gold);
+}
+
+.contact-Section .contact-location .social-contact svg {
+  width: 30px;
+  height: 30px;
+  color: var(--gold);
+}
+
+
+
+.social-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    width: 100%;
+}
+
+.store-location {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 10px;
+}
+
+.contact-Section .store-location p {
+  margin-top: 0;
+  color: var(--black);
+}
+
+.contact-Section .follow-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 10px;
+}
+
+.contact-Section .follow-section .social-icon{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-Section .follow-section .social-icon a{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.contact-Section .follow-section .social-icon a svg{
+  width: 50px;
+  height: 50px;
+  fill: var(--gold);
+}
+
+.contact-Section .follow-section p.follow-text {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.contact-Section .follow-section p.follow-text span {
+  font-weight: 800;
+  color: var(--gold);
+}

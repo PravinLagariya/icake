@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart (1 item) | iCakes Toronto</title>
+  <meta name="description" content="Review your cart items, customize order details, add matching treats and essentials, and proceed to checkout at iCakes Toronto.">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="style/Root.css" />
+  <link rel="stylesheet" href="style/Header.css" />
+  <link rel="stylesheet" href="style/newstyle.css" />
+  <link rel="stylesheet" href="style/InnerHero.css" />
+  <link rel="stylesheet" href="style/FAQ.css" />
+  <link rel="stylesheet" href="style/Cart2.css" />
+</head>
+<body>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="c">
+      <div class="tb-l">
+        <span class="tb-deal">Sale Active</span>
+        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (905) 850-2253</span>
+        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 10 Pickup Locations Across GTA</span>
+      </div>
+      <div class="tb-r">
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="#" class="button-top">Chat with a Cake Expert</a>
+      </div>
+    </div>
+  </div>
+  <!-- HEADER -->
+  <header class="hdr">
+    <div class="c">
+      <div class="hdr-i">
+        <div class="logo dashbord-logo">
+          <a href="index.html"><img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" /></a>
+        </div>
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About Us</a>
+          <a class="nav-link" href="product-detail.html">Cakes</a>
+          <a class="nav-link" href="locations.html">Locations</a>
+          <a class="nav-link" href="wholesale.html">Wholesale</a>
+          <a class="nav-link" href="sale.html">Sale &amp; Deals</a>
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn search" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+          <button class="icon-btn cart" aria-label="Cart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 1-2 2h14a2 2 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="cart-count">1</span></button>
+          <button class="burger" aria-label="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- MAIN CART 2 SECTION -->
+  <section class="cart2-section">
+    <div class="c">
+      <!-- BREADCRUMBS -->
+      <div class="cart2-breadcrumbs">
+        <a href="index.html">Home</a> <span class="sep">/</span> <span class="current">Cart</span>
+      </div>
+      <!-- DESKTOP 2-COLUMN MAIN GRID -->
+      <div class="cart2-main-grid">
+        <!-- LEFT AREA: CART ITEM TABLE & ADD-ON SECTION -->
+        <div class="cart2-left-area">
+          <div class="cart2-title-row">
+            <h1 class="sec-ttl">Your Cart (1 item)</h1>
+          </div>
+          <!-- CART TABLE CARD -->
+          <div class="cart2-table-card">
+            <div class="cart2-table-header">
+              <div class="th-product">Product</div>
+              <div class="th-center">Quantity</div>
+              <div class="th-right">Price</div>
+              <div class="th-right">Total</div>
+              <div class="th-center">Action</div>
+            </div>
+            <!-- CART ITEM ROW -->
+            <div class="cart2-item-row" id="mainItemRow">
+              <!-- FIRST ROW CELLS -->
+              <div class="cart2-prod-thumb">
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="Srijeet Ambassador Edible Photo Cake" />
+              </div>
+              <div class="cart2-qty-cell">
+                <div class="cart2-qty-stepper">
+                  <button type="button" id="btnQtyDec" class="cart2-qty-btn">-</button>
+                  <input type="text" id="cartQtyInput" class="cart2-qty-input" value="1" readonly />
+                  <button type="button" id="btnQtyInc" class="cart2-qty-btn">+</button>
+                </div>
+              </div>
+              <div class="cart2-price-cell">$102</div>
+              <div class="cart2-total-cell" id="mainItemTotalDisplay">$102</div>
+              <div class="cart2-action-cell">
+                <button type="button" class="cart2-remove-btn" id="btnRemoveMainItem" title="Remove Item">&times;</button>
+              </div>
+              <!-- SECOND ROW DETAILS -->
+              <div class="cart2-prod-details">
+                <h3>Srijeet Ambassador Edible Photo Cake (Round 10 Inches)</h3>
+                <div class="cart2-flavor-tag">*Flavour: Eggless Black Forest</div>
+                <!-- <div class="cart2-customs-list" id="customsListContainer">
+                  <div>Customizations (Pre-filled):</div>
+                  <div style="padding-left:8px;margin-top:2px;">
+                    <ul>
+                      <li>
+                        Decor Color: <span class="note-red">Royal Blue</span> <small style="color:#666;">(if blank, as per image)</small>
+                      </li>
+                      <li>
+                        Writing Color: <span class="note-red">Gold</span> <small style="color:#666;">(if blank, as per image)</small>
+                      </li>
+                      <li>
+                        Inscription: <span class="note-red">'Happy Birthday Riya'</span> <small style="color:#666;">(if blank, no writing)</small>
+                      </li>
+                      <li>
+                        Uploaded Image: <img src="https://www.icakes.ca/upload/category/birthday-cake.png" style="width:22px;height:22px;border-radius:50%;vertical-align:middle;margin-left:4px;" /> <small style="color:#666;">(if not attached, as per image)</small>
+                      </li>
+                      <li>
+                        Special Notes: <span class="note-red">'Should Be Good Looking Cake'</span> <small style="color:#666;">(if blank, remove this field)</small>
+                      </li>
+                    </ul>
+                  </div>
+                </div> -->
+                <span class="cart2-edit-btn" id="btnEditCustomDetails">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  VIEW / EDIT CUSTOM DETAILS
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- CROSS-SELL / ADD-ON TREATS GRID CARD (HOME PAGE DESIGN SYSTEM) -->
+          <div class="cart2-addons-card" id="addonsCard">
+            <div class="cart2-addons-header">
+              <span class="sec-lbl">Party Extras &amp; Add-ons</span>
+              <h2>Complete Your <em>Celebration!</em> Add matching treats &amp; essentials</h2>
+              <p>Enhance your party with freshly baked matching cupcakes, party candles, custom cards, and toppers.</p>
+            </div>
+            <div class="cart2-addons-grid">
+              <!-- ITEM 1 -->
+              <div class="cart2-addon-item">
+                <span class="cart2-addon-badge">Most Popular</span>
+                <div class="cart2-addon-img"><img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="Cupcake pictures" /></div>
+                <div class="cart2-addon-title">Cupcake pictures</div>
+                <!-- <div class="cart2-addon-price-lbl">$16.00 / 4pc</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="cupcakes" data-name="Matching cupcakes (4pc)" data-price="16.00" data-criteria="true">ADD+</button>
+              </div>
+              <!-- ITEM 2 -->
+              <div class="cart2-addon-item">
+                <span class="cart2-addon-badge">Most Popular</span>
+                <div class="cart2-addon-img"><img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="Cookies pictures" /></div>
+                <div class="cart2-addon-title">Cookies pictures</div>
+                <!-- <div class="cart2-addon-price-lbl">$7.00 / 10 pcs</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="cookies" data-name="Oven fresh cookies (10 pcs)" data-price="7.00">ADD+</button>
+              </div>
+              <!-- ITEM 3 -->
+              <div class="cart2-addon-item">
+                <div class="cart2-addon-img"><img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="Cake pops pictures" /></div>
+                <div class="cart2-addon-title">Cake pops pictures</div>
+                <!-- <div class="cart2-addon-price-lbl">From $16.00</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="cakepops" data-name="Kids Favorite Cake pops" data-price="16.00">ADD+</button>
+              </div>
+              <!-- ITEM 4 -->
+              <div class="cart2-addon-item">
+                <span class="cart2-addon-badge new-badge">New</span>
+                <div class="cart2-addon-img"><img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="Dessert cups pictures" /></div>
+                <div class="cart2-addon-title">Dessert cups pictures</div>
+                <!-- <div class="cart2-addon-price-lbl">$20.00 / 4 cups</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="dessertcups" data-name="Dessert Cup 150g (4 cups)" data-price="20.00">ADD+</button>
+              </div>
+              <!-- ITEM 5 -->
+              <div class="cart2-addon-item">
+                <span class="cart2-addon-badge new-badge">New</span>
+                <div class="cart2-addon-img"><img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="Cakesicles pictures" /></div>
+                <div class="cart2-addon-title">Cakesicles pictures</div>
+                <!-- <div class="cart2-addon-price-lbl">$20.00 / 4 pcs</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="cakesicles" data-name="Cakesicles 110g (4 pcs)" data-price="20.00">ADD+</button>
+              </div>
+              <!-- ITEM 6 -->
+              <div class="cart2-addon-item">
+                <div class="cart2-addon-img"><img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="Candle pic-multicolor" /></div>
+                <div class="cart2-addon-title">Candle pic-multicolor</div>
+                <!-- <div class="cart2-addon-price-lbl">$3.00</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="candles" data-name="Multi color Candles" data-price="3.00">ADD+</button>
+              </div>
+              <!-- ITEM 7 -->
+              <div class="cart2-addon-item">
+                <div class="cart2-addon-img"><img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="Musical candle pic" /></div>
+                <div class="cart2-addon-title">Musical candle pic</div>
+                <!-- <div class="cart2-addon-price-lbl">$8.00</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="musical_candle" data-name="Musical Candles" data-price="8.00">ADD+</button>
+              </div>
+              <!-- ITEM 8 -->
+              <div class="cart2-addon-item">
+                <div class="cart2-addon-title">Number Candles pic</div>
+                <!-- <div class="cart2-addon-price-lbl">$2.00 / pc</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="number_candles" data-name="Number Candles (1 pc)" data-price="2.00" data-criteria="true">ADD+</button>
+              </div>
+              <!-- ITEM 9 -->
+              <div class="cart2-addon-item">
+                <div class="cart2-addon-img"><img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="Generic Birthday Card" /></div>
+                <div class="cart2-addon-title">Generic Birthday Card</div>
+                <!-- <div class="cart2-addon-price-lbl">$10.00</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="generic_card" data-name="Generic Birthday Card (3.5x5&quot;)" data-price="10.00">ADD +</button>
+              </div>
+              <!-- ITEM 10 -->
+              <div class="cart2-addon-item">
+                <div class="cart2-addon-img"><img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="Custom Greeting Card" /></div>
+                <div class="cart2-addon-title">Custom Greeting Card</div>
+                <!-- <div class="cart2-addon-price-lbl">$35.00</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="custom_card" data-name="Custom Greeting Card with photo 5x7&quot;" data-price="35.00" data-criteria="true">ADD +</button>
+              </div>
+              <!-- ITEM 11 -->
+              <div class="cart2-addon-item">
+                <div class="cart2-addon-title">Acrylic Number toppers</div>
+                <!-- <div class="cart2-addon-price-lbl">$10.00</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="acrylic_number" data-name="Acrylic Number Topper" data-price="10.00">ADD+</button>
+              </div>
+              <!-- ITEM 12 -->
+              <div class="cart2-addon-item">
+                <div class="cart2-addon-title">Acrylic cake Topper</div>
+                <!-- <div class="cart2-addon-price-lbl">$10.00</div> -->
+                <button type="button" class="cart2-addon-btn" data-id="acrylic_cake" data-name="Acrylic Cake Topper" data-price="10.00">ADD+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT AREA: STICKY ORDER SUMMARY (BESIDE ADD-ONS IN DESKTOP) -->
+        <div class="cart2-right-sidebar">
+          <div class="cart2-summary-card">
+            <h2>Order Summary</h2>
+            <div class="cart2-summary-row">
+              <span>Subtotal :</span>
+              <span id="subtotalDisplay">$102.00</span>
+            </div>
+            <div class="cart2-added-treats-list" id="addedTreatsContainer"></div>
+            <div class="cart2-summary-note" id="addedTreatsNote">
+              When additional items clicked and selected, they update here with price, e.g. 4 pc cupcakes $16.00
+            </div>
+            <div class="cart2-summary-total-row">
+              <span>Total :</span>
+              <span id="totalDisplay">$102.00</span>
+            </div>
+            <button type="button" class="cart2-checkout-btn">
+              PROCEED TO CHECKOUT
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- MODAL 1: EDIT CUSTOM DETAILS -->
+  <div class="cart2-modal-overlay" id="editDetailsModalOverlay">
+    <div class="cart2-modal-card  ">
+      <button type="button" class="cart2-modal-close" id="btnCloseEditModal">&times;</button>
+      <h3>Edit Custom Details</h3>
+      <div class="cart2-modal-field">
+        <label>Cake Flavour:</label>
+        <select id="editFlavor" class="cart2-modal-select">
+          <option value="Eggless Black Forest" selected>Eggless Black Forest</option>
+          <option value="French Vanilla Custard">French Vanilla Custard</option>
+          <option value="Chocolate Fudge">Chocolate Fudge</option>
+          <option value="Red Velvet">Red Velvet</option>
+        </select>
+      </div>
+
+      <div class="cart2-modal-field">
+        <lable>Decorations / Trims Color:</lable>
+
+        <!-- Custom Color Dropdown -->
+        <div class="color-dropdown" id="colorDropdown">
+
+          <!-- Selected Color -->
+          <button type="button" class="color-dropdown-selected" id="colorDropdownBtn">
+            <span class="color-circle  other-circle"></span>
+            <span id="selectedColorText">Select Decoration Color</span>
+            <span class="dropdown-arrow">▼</span>
+          </button>
+
+          <!-- Dropdown Options -->
+          <div class="color-dropdown-options" id="colorOptions">
+            <button type="button" class="color-option" data-colorname="As Per Selected Image">
+              As Per Selected Image
+            </button>
+            <button type="button" class="color-option" data-hex="#000080" data-colorname="Navy Blue">
+              <span class="color-circle" style="background:#000080;"></span>
+              Navy Blue
+            </button>
+
+            <button type="button" class="color-option" data-hex="#4169E1" data-colorname="Royal Blue">
+              <span class="color-circle" style="background:#4169E1;"></span>
+              Royal Blue
+            </button>
+
+            <button type="button" class="color-option" data-hex="#FFB6C1" data-colorname="Light Pink">
+              <span class="color-circle" style="background:#FFB6C1;"></span>
+              Light Pink
+            </button>
+
+            <button type="button" class="color-option" data-hex="#FF1493" data-colorname="Deep Pink">
+              <span class="color-circle" style="background:#FF1493;"></span>
+              Deep Pink
+            </button>
+
+            <button type="button" class="color-option" data-hex="#FF0000" data-colorname="Red">
+              <span class="color-circle" style="background:#FF0000;"></span>
+              Red
+            </button>
+
+            <button type="button" class="color-option" data-hex="#FF8C00" data-colorname="Dark Orange">
+              <span class="color-circle" style="background:#FF8C00;"></span>
+              Dark Orange
+            </button>
+
+            <button type="button" class="color-option" data-hex="#2E8B57" data-colorname="Sea Green">
+              <span class="color-circle" style="background:#2E8B57;"></span>
+              Sea Green
+            </button>
+
+            <button type="button" class="color-option" data-hex="#FFD700" data-colorname="Gold">
+              <span class="color-circle" style="background:#FFD700;"></span>
+              Gold
+            </button>
+
+            <button type="button" class="color-option" data-hex="#1A1A1A" data-colorname="Black">
+              <span class="color-circle" style="background:#1A1A1A;"></span>
+              Black
+            </button>
+
+            <!-- Other Color -->
+            <button type="button" class="color-option other-color-option" data-colorname="Other Color">
+              <span class="color-circle other-circle">+</span>
+              Other Color
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Other Color Text Field -->
+        <input type="text" id="decorColor" name="DecorColor" class="cart2-modal-input mt-3" placeholder="Write the color name" value="">
+
+      </div>
+      <div class="cart2-modal-field">
+        <label>Writing Message:</label>
+        <input type="text" id="editInscription" class="cart2-modal-input" value="Happy Birthday Riya" />
+      </div>
+      <div class="cart2-modal-field">
+        <label>Writing Color:</label>
+          <!-- Custom Color Dropdown -->
+          <div class="color-dropdown" id="writtingColorDropdown">
+            <!-- Selected Color -->
+            <button type="button" class="color-dropdown-selected" id="writtingColorDropdownBtn">
+              <span class="writting-color-circle  writting-other-circle"></span>
+              <span id="writtingSelectedColorText">Select Writting Color</span>
+              <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="color-dropdown-options" id="colorOptions">
+              <button type="button" class="writting-color-option" data-colorname="As Per Selected Image">
+                As Per Selected Image
+              </button>
+              <button type="button" class="writting-color-option" data-hex="#000080" data-colorname="Navy Blue">
+                <span class="color-circle" style="background:#000080;"></span>
+                Navy Blue
+              </button>
+
+              <button type="button" class="writting-color-option" data-hex="#4169E1" data-colorname="Royal Blue">
+                <span class="color-circle" style="background:#4169E1;"></span>
+                Royal Blue
+              </button>
+
+              <button type="button" class="writting-color-option" data-hex="#FFB6C1" data-colorname="Light Pink">
+                <span class="color-circle" style="background:#FFB6C1;"></span>
+                Light Pink
+              </button>
+
+              <button type="button" class="writting-color-option" data-hex="#FF1493" data-colorname="Deep Pink">
+                <span class="color-circle" style="background:#FF1493;"></span>
+                Deep Pink
+              </button>
+
+              <button type="button" class="writting-color-option" data-hex="#FF0000" data-colorname="Red">
+                <span class="color-circle" style="background:#FF0000;"></span>
+                Red
+              </button>
+
+              <button type="button" class="writting-color-option" data-hex="#FF8C00" data-colorname="Dark Orange">
+                <span class="color-circle" style="background:#FF8C00;"></span>
+                Dark Orange
+              </button>
+
+              <button type="button" class="writting-color-option" data-hex="#2E8B57" data-colorname="Sea Green">
+                <span class="color-circle" style="background:#2E8B57;"></span>
+                Sea Green
+              </button>
+
+              <button type="button" class="writting-color-option" data-hex="#FFD700" data-colorname="Gold">
+                <span class="color-circle" style="background:#FFD700;"></span>
+                Gold
+              </button>
+
+              <button type="button" class="writting-color-option" data-hex="#1A1A1A" data-colorname="Black">
+                <span class="color-circle" style="background:#1A1A1A;"></span>
+                Black
+              </button>
+
+              <!-- Other Color -->
+              <button type="button" class="writting-color-option writting-other-color-option" data-colorname="Other Color">
+                <span class="color-circle other-circle">+</span>
+                Other Color
+              </button>
+            </div>
+          </div>
+            <!-- Other Color Text Field -->
+          <input type="text" id="writtingColor" name="WrittingColor" class="cart2-modal-input mt-3" placeholder="Write the color name" value="">
+
+       </div>
+      <div class="cart2-modal-field">
+        <label>Special Notes for Baker:</label>
+        <input type="text" id="editNotes" class="cart2-modal-input" value="Should Be Good Looking Cake" />
+      </div>
+      <button type="button" class="btn-p" id="btnSaveCustomDetails" style="width:100%;margin-top:10px;">Save Custom Details</button>
+    </div>
+  </div>
+  <!-- MODAL 2: ADD CRITERIA OPTIONS -->
+  <div class="cart2-modal-overlay" id="criteriaModalOverlay">
+    <div class="cart2-modal-card">
+      <button type="button" class="cart2-modal-close" id="btnCloseCriteriaModal">&times;</button>
+      <h3 id="criteriaModalTitle">Select Options</h3>
+      <input type="hidden" id="criteriaTreatId" />
+      <div id="criteriaOptionsBox"></div>
+      <button type="button" class="btn-p" id="btnConfirmCriteria" style="width:100%;margin-top:14px;">Confirm &amp; Add to Cart</button>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <footer class="ftr">
+    <div class="c">
+      <div class="ftr-g">
+        <div>
+          <div class="ftr-logo"><img src="image/iCakes.png" alt="logo" /></div>
+          <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+          <div style="margin-top: 20px">
+            <div class="ftr-ci"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(905) 850-2253</div>
+            <div class="ftr-ci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>info@icakes.ca</div>
+            <div class="ftr-ci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5</div>
+          </div>
+        </div>
+        <div class="ftr-col"><h4>Shop</h4><div class="ftr-links"><a href="#">All Cakes</a><a href="sale.html">Cake Sale &amp; Deals</a><a href="product-detail.html">Photo Cakes</a><a href="#">Birthday Cakes</a><a href="#">Kids Cakes</a><a href="#">Desserts</a></div></div>
+        <div class="ftr-col"><h4>Company</h4><div class="ftr-links"><a href="about.html">About Us</a><a href="locations.html">Locations</a><a href="wholesale.html">Wholesale</a><a href="sale.html">Current Sale</a><a href="contact.html">Contact Us</a></div></div>
+        <div class="ftr-col"><h4>Legal</h4><div class="ftr-links"><a href="return.html">Return Policy</a><a href="#">Terms &amp; Conditions</a><a href="#">Privacy Policy</a></div></div>
+      </div>
+      <div class="ftr-bot"><p>&copy; 2026 iCakes.ca &middot; Irresistible Cakes Since 1962 &middot; All rights reserved.</p></div>
+    </div>
+  </footer>
+  <script src="script/cart2.js" defer></script>
+  <script src="script/script.js" defer></script>
+</body>
+</html>
