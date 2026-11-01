@@ -59,7 +59,7 @@ table.qg-table {
 }
 
 .qg-table thead th {
-    background: linear-gradient(120deg, var(--secondary), var(--primary-dark));
+    background: var(--gold);
     color: var(--white);
     text-align: left;
     padding: 16px 22px;
@@ -221,7 +221,8 @@ table.qg-table {
 
 .flav-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    justify-content: center;
     gap: 22px;
 }
 
@@ -251,7 +252,7 @@ table.qg-table {
 }
 
 .flav-img {
-    aspect-ratio: 16/10;
+    aspect-ratio: 10/10;
     overflow: hidden;
 }
 
@@ -485,7 +486,7 @@ table.gf-table {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width:900px) {
-    .flav-grid {
+    .flav-grid, .eggless-grid {
     grid-template-columns: repeat(2, 1fr);
     }
 
@@ -499,7 +500,7 @@ table.gf-table {
 }
 
 @media (max-width:640px) {
-    .flav-grid {
+    .flav-grid, .eggless-grid {
     grid-template-columns: 1fr;
     }
 

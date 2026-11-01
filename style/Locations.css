@@ -270,9 +270,109 @@
   line-height: 1.7;
   max-width: 650px;
 }
+.cake-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 36px;
+  align-items: start;
+}
 
-/* ─── Responsive Adjustments ─── */
+.cake-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 20px;
+}
+
+.products-main {
+  width: 100%;
+}
+
+/*==========================
+   FILTER CARDS (Sidebar)
+===========================*/
+
+.filter-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid #ede7f6;
+}
+
+.card-head {
+  background: var(--gold-pale, #fde8f2);
+  padding: 14px 18px;
+}
+
+.card-head h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary, #d12764);
+  margin: 0;
+}
+/* Categories List */
+.category-list {
+  list-style: none;
+  padding: 8px 12px;
+  height: 500px;
+  overflow: auto;
+}
+
+.category-list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 12px;
+  color: #444;
+  font-size: 0.88rem;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.category-list li a:hover {
+  background: var(--gold-pale, #fde8f2);
+  color: var(--primary, #d12764);
+  font-weight: 600;
+}
+
+.category-list li span {
+  background: #f0eaf5;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  color: var(--primary, #d12764);
+}
+.search-product input {
+  width: 100%;
+  height: 44px;
+  border: 1.5px solid #e0d8ec;
+  border-radius: 999px;
+  padding: 0 18px;
+  outline: none;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  background: #faf7fc;
+}
+
+.search-product input:focus {
+  border-color: var(--primary, #d12764);
+  background: #fff;
+}
+  /* ─── Responsive Adjustments ─── */
 @media (max-width: 950px) {
+  .cake-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .cake-sidebar {
+    display: contents;
+    position: static;
+  }
   .showroom-cards-grid {
     grid-template-columns: 1fr;
   }

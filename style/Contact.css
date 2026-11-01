@@ -482,6 +482,71 @@
   flex-shrink: 0;
 }
 
+.tc-agreement-row {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: var(--cream);
+  border: 1px solid rgba(209, 39, 100, 0.15);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.tc-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.tc-custom-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary-light);
+  border-radius: 5px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s var(--ease);
+}
+.tc-checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.tc-label-text {
+  font-size: 0.88rem;
+  color: var(--gray-txt);
+  line-height: 1.4;
+}
+
+.tc-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.tc-checkbox-label input[type="checkbox"]:checked + .tc-custom-box {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.tc-checkbox-label input[type="checkbox"]:checked + .tc-custom-box::after {
+  opacity: 1;
+}
+
+.tc-custom-box::after {
+content: '';
+  width: 5px;
+  height: 9px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  margin-bottom: 2px;
+}
 /* ─── Responsive Adjustments ─── */
 @media (max-width: 950px) {
   .contact-quick-cards,
