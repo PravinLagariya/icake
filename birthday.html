@@ -22,6 +22,126 @@
   <link rel="stylesheet" href="style/FAQ.css" />
   <link rel="stylesheet" href="style/newhero.css" />
   <link rel="stylesheet" href="style/product.css" />
+  <style>
+    /* Image Slider */
+    .pi-image-slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pi-slider-track {
+      display: flex;
+      transition: transform 0.45s ease;
+      width: 100%;
+    }
+
+    .pi-slide {
+      min-width: 100%;
+      flex: 0 0 100%;
+    }
+
+    .pi-slide img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Navigation Arrows */
+    .pi-slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      color: var(--gold);
+      font-size: 15px;
+      cursor: pointer;
+      z-index: 3;
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .pi-image-slider:hover .pi-slider-arrow {
+      opacity: 1;
+    }
+
+    .pi-prev {
+      left: 12px;
+    }
+
+    .pi-next {
+      right: 12px;
+    }
+
+    /* Pagination Dots */
+    .pi-slider-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      z-index: 3;
+    }
+
+    .pi-slider-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      border: none;
+      padding: 0;
+      background: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .pi-slider-dot.active {
+      width: 20px;
+      border-radius: 10px;
+      background: var(--gold);
+    }
+
+    /* Mobile */
+    @media(max-width: 768px) {
+      .pi-slider-arrow {
+        opacity: 1;
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .pd-breadcrumbs {
+      font-size: 0.88rem;
+      color: var(--gray-mid);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pd-breadcrumbs a {
+      color: var(--gray-txt);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .pd-breadcrumbs a:hover { color: var(--primary); }
+
+    .pd-breadcrumbs span.sep { opacity: 0.4; }
+
+    .pd-breadcrumbs span.current {
+      color:var(--choco-mid);
+      font-weight: 700;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -255,6 +375,13 @@
     <div class="c">
       <div class="hero-a-box reveal">
         <div class="hero-a-text">
+          <!-- New Design -->
+          <div class="pd-breadcrumbs">
+            <a href="index.html">Home</a>
+            <span class="sep">/</span>
+            <a href="#">Custom Birthday Cakes</a>
+          </div>
+          <!-- New design end -->
           <span class="sec-lbl">Toronto &amp; GTA</span>
           <h1 class="sec-ttl">Birthday Cakes in <em> Toronto & GTA</em></h1>
           <p>
@@ -438,14 +565,37 @@
               </select>
             </div>
           </div>
-          <!-- Product Grid (Cards match product-details.html "You May Also Love" style) -->
           <div class="cake-grid">
-            <a href="product-details.html" class="pi-rel-card">
-              <div class="pi-rel-img-wrap">
-                <!-- <span class="pi-rel-tag">SALE</span> -->
-                <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="Vintage Buttercream Cake" />
+
+            <!-- New Design -->
+            <div class="pi-rel-card">
+              <div class="pi-rel-img-wrap pi-image-slider">
+                <div class="pi-slider-track">
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 2">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 3">
+                  </div>
+
+                </div>
+
+                <button class="pi-slider-arrow pi-prev" type="button" aria-label="Previous image">&#10094;</button>
+
+                <button class="pi-slider-arrow pi-next" type="button" aria-label="Next image">&#10095;</button>
+
+                <div class="pi-slider-dots"></div>
+
               </div>
-              <div class="pi-rel-body">
+              <a class="pi-rel-body" href="product-detail.html">
                 <span class="pi-rel-cat">Birthday Collection</span>
                 <h3 class="pi-rel-name">Vintage Buttercream Cake</h3>
                 <div class="pi-rel-footer">
@@ -462,8 +612,241 @@
                     </svg>
                   </span>
                 </div>
+              </a>
+            </div>
+
+            <!-- New Design End -->
+             <div class="pi-rel-card">
+              <div class="pi-rel-img-wrap pi-image-slider">
+                <div class="pi-slider-track">
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 2">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 3">
+                  </div>
+
+                </div>
+
+                <button class="pi-slider-arrow pi-prev" type="button" aria-label="Previous image">&#10094;</button>
+
+                <button class="pi-slider-arrow pi-next" type="button" aria-label="Next image">&#10095;</button>
+
+                <div class="pi-slider-dots"></div>
+
               </div>
-            </a>
+              <a class="pi-rel-body" href="product-detail.html">
+                <span class="pi-rel-cat">Birthday Collection</span>
+                <h3 class="pi-rel-name">Vintage Buttercream Cake</h3>
+                <div class="pi-rel-footer">
+                  <div class="pi-rel-price-block">
+                    <span class="pi-rel-price-lbl">From</span>
+                    <span class="pi-rel-price-val">$59</span>
+                  </div>
+                  <span class="pi-rel-action-btn">
+                    Order Now
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div class="pi-rel-card">
+              <div class="pi-rel-img-wrap pi-image-slider">
+                <div class="pi-slider-track">
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 2">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 3">
+                  </div>
+
+                </div>
+
+                <button class="pi-slider-arrow pi-prev" type="button" aria-label="Previous image">&#10094;</button>
+
+                <button class="pi-slider-arrow pi-next" type="button" aria-label="Next image">&#10095;</button>
+
+                <div class="pi-slider-dots"></div>
+
+              </div>
+              <a class="pi-rel-body" href="product-detail.html">
+                <span class="pi-rel-cat">Birthday Collection</span>
+                <h3 class="pi-rel-name">Vintage Buttercream Cake</h3>
+                <div class="pi-rel-footer">
+                  <div class="pi-rel-price-block">
+                    <span class="pi-rel-price-lbl">From</span>
+                    <span class="pi-rel-price-val">$59</span>
+                  </div>
+                  <span class="pi-rel-action-btn">
+                    Order Now
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </div>
+
+            <div class="pi-rel-card">
+              <div class="pi-rel-img-wrap pi-image-slider">
+                <div class="pi-slider-track">
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 2">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 3">
+                  </div>
+
+                </div>
+
+                <button class="pi-slider-arrow pi-prev" type="button" aria-label="Previous image">&#10094;</button>
+
+                <button class="pi-slider-arrow pi-next" type="button" aria-label="Next image">&#10095;</button>
+
+                <div class="pi-slider-dots"></div>
+
+              </div>
+              <a class="pi-rel-body" href="product-detail.html">
+                <span class="pi-rel-cat">Birthday Collection</span>
+                <h3 class="pi-rel-name">Vintage Buttercream Cake</h3>
+                <div class="pi-rel-footer">
+                  <div class="pi-rel-price-block">
+                    <span class="pi-rel-price-lbl">From</span>
+                    <span class="pi-rel-price-val">$59</span>
+                  </div>
+                  <span class="pi-rel-action-btn">
+                    Order Now
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div class="pi-rel-card">
+              <div class="pi-rel-img-wrap pi-image-slider">
+                <div class="pi-slider-track">
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 2">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 3">
+                  </div>
+
+                </div>
+
+                <button class="pi-slider-arrow pi-prev" type="button" aria-label="Previous image">&#10094;</button>
+
+                <button class="pi-slider-arrow pi-next" type="button" aria-label="Next image">&#10095;</button>
+
+                <div class="pi-slider-dots"></div>
+
+              </div>
+              <a class="pi-rel-body" href="product-detail.html">
+                <span class="pi-rel-cat">Birthday Collection</span>
+                <h3 class="pi-rel-name">Vintage Buttercream Cake</h3>
+                <div class="pi-rel-footer">
+                  <div class="pi-rel-price-block">
+                    <span class="pi-rel-price-lbl">From</span>
+                    <span class="pi-rel-price-val">$59</span>
+                  </div>
+                  <span class="pi-rel-action-btn">
+                    Order Now
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div class="pi-rel-card">
+              <div class="pi-rel-img-wrap pi-image-slider">
+                <div class="pi-slider-track">
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 2">
+                  </div>
+
+                  <div class="pi-slide">
+                    <img src="https://www.icakes.ca/upload/category/wedding-cakes.png"
+                        alt="Vintage Buttercream Cake Design 3">
+                  </div>
+
+                </div>
+
+                <button class="pi-slider-arrow pi-prev" type="button" aria-label="Previous image">&#10094;</button>
+
+                <button class="pi-slider-arrow pi-next" type="button" aria-label="Next image">&#10095;</button>
+
+                <div class="pi-slider-dots"></div>
+
+              </div>
+              <a class="pi-rel-body" href="product-detail.html">
+                <span class="pi-rel-cat">Birthday Collection</span>
+                <h3 class="pi-rel-name">Vintage Buttercream Cake</h3>
+                <div class="pi-rel-footer">
+                  <div class="pi-rel-price-block">
+                    <span class="pi-rel-price-lbl">From</span>
+                    <span class="pi-rel-price-val">$59</span>
+                  </div>
+                  <span class="pi-rel-action-btn">
+                    Order Now
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </div>
 
             <a href="product-details.html" class="pi-rel-card">
               <div class="pi-rel-img-wrap">
@@ -1546,6 +1929,63 @@
 
       observer.observe(section);
     });
+
+    document.querySelectorAll('.pi-image-slider').forEach(slider => {
+
+      const track = slider.querySelector('.pi-slider-track');
+      const slides = slider.querySelectorAll('.pi-slide');
+      const prev = slider.querySelector('.pi-prev');
+      const next = slider.querySelector('.pi-next');
+      const dotsContainer = slider.querySelector('.pi-slider-dots');
+
+      let currentIndex = 0;
+
+      // Create pagination dots
+      slides.forEach((slide, index) => {
+          const dot = document.createElement('button');
+
+          dot.classList.add('pi-slider-dot');
+
+          if (index === 0) {
+              dot.classList.add('active');
+          }
+
+          dot.setAttribute('aria-label', `Go to image ${index + 1}`);
+
+          dot.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              showSlide(index);
+          });
+
+          dotsContainer.appendChild(dot);
+      });
+
+      const dots = dotsContainer.querySelectorAll('.pi-slider-dot');
+
+      function showSlide(index) {
+          currentIndex = (index + slides.length) % slides.length;
+
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+          dots.forEach((dot, i) => {
+              dot.classList.toggle('active', i === currentIndex);
+          });
+      }
+
+      prev.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          showSlide(currentIndex - 1);
+      });
+
+      next.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          showSlide(currentIndex + 1);
+      });
+
+  });
   </script>
 </body>
 

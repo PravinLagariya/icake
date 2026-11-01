@@ -19,6 +19,126 @@
   <link rel="stylesheet" href="style/newstyle.css" />
   <link rel="stylesheet" href="style/Hero.css" />
   <link rel="stylesheet" href="style/FAQ.css" />
+  <style>
+    /* Side Drawer Overlay */
+    .product-list-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 27, 46, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+    }
+
+    .product-list-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Side Drawer Panel */
+    .product-list-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 480px;
+      max-width: 90vw;
+      height: 100vh;
+      background: var(--white);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.18);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 0.84, 0.44, 1);
+      z-index: 10000;
+    }
+
+    .product-list-overlay.active .product-list-panel {
+      transform: translateX(0);
+    }
+
+    .product-list-header {
+      padding: 22px 24px;
+      border-bottom: 1px solid rgba(41, 44, 129, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--cream);
+    }
+
+    .product-list-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+    }
+
+    .product-list-title-wrap h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--choco);
+      margin: 0;
+    }
+
+    .product-list-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(41, 44, 129, 0.06);
+      color: var(--choco);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .product-list-close:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .product-list-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .product-list-sec {
+      background: var(--cream);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--primary);
+    }
+
+    .product-list-sec h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .product-list-sec p {
+      font-size: 0.84rem;
+      color: var(--gray-txt);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .product-list-sec li {
+      padding: 10px 20px;
+      border-bottom: 1px solid var(--gold);
+      list-style-type: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -155,8 +275,10 @@
                   <polyline points="2 17 12 22 22 17"/>
                   <polyline points="2 12 12 17 22 12"/>
                 </svg>
-                Our Cakes
-              </div>
+                <a href="">
+                  Our Cakes
+                </a>
+                </div>
               <div class="dropdown-body">
                 <a class="dropdown-item" href="#"><span>Wedding Cakes Toronto</span></a>
                 <a class="dropdown-item" href="#"><span>Birthday Cakes in Toronto &amp; GTA</span></a>
@@ -309,7 +431,7 @@
     </div>
     <a class="nav-link" href="index.html">Home</a>
     <a class="nav-link" href="about.html">About Us</a>
-<!-- Cakes Mobile Accordion -->
+    <!-- Cakes Mobile Accordion -->
     <div class="mob-dd-wrap">
       <button class="nav-link mob-dd-toggle" aria-expanded="false">
         Cakes
@@ -2005,7 +2127,7 @@
       </svg>
       <span>Home</span>
     </div>
-    <div class="bottom-bat-button">
+    <div class="bottom-bat-button"  id="openTcDrawer">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         class="lucide lucide-list-icon lucide-list">
@@ -2081,13 +2203,97 @@
       <path d="M12 19V5" />
     </svg>
   </button>
+
+  <!-- Product Drawer -->
+  <div id="tcDrawerOverlay" class="product-list-overlay">
+    <div class="product-list-panel">
+      <!-- Drawer Header -->
+      <div class="product-list-header">
+        <div class="product-list-title-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu">
+            <path d="M4 5h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 19h16"></path>
+          </svg>
+          <h3>Categories</h3>
+        </div>
+        <button type="button" id="closeTcDrawer" class="product-list-close" aria-label="Close">&times;</button>
+      </div>
+      <!-- Cakes Mobile Accordion -->
+      <div class="mob-dd-wrap">
+        <button class="nav-link mob-dd-toggle" aria-expanded="false">
+          Cakes
+          <svg class="dd-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="mob-dd-list">
+          <li><a class="mob-dd-item" href="#">Wedding Cakes Toronto</a></li>
+          <li><a class="mob-dd-item" href="#">Birthday Cakes in Toronto &amp; GTA</a></li>
+          <li><a class="mob-dd-item" href="#">Kids Birthday Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Corporate Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Religious Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Graduation Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Baby Shower Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Bridal Shower Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Sweet Sixteen Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Regular Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Anniversary Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Celebration Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Christmas Cakes</a></li>
+        </ul>
+      </div>
+
+      <!-- Desserts Mobile Accordion -->
+      <div class="mob-dd-wrap">
+        <button class="nav-link mob-dd-toggle" aria-expanded="false">
+          Desserts
+          <svg class="dd-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="mob-dd-list">
+          <li><a class="mob-dd-item" href="#">Cake Pops</a></li>
+          <li><a class="mob-dd-item" href="#">Cupcakes</a></li>
+          <li><a class="mob-dd-item" href="#">Regular Cookies</a></li>
+          <li><a class="mob-dd-item" href="#">Cookies</a></li>
+          <li><a class="mob-dd-item" href="#">Other Desserts</a></li>
+        </ul>
+      </div>
+
+      <!-- Quality Mobile Accordion -->
+      <div class="mob-dd-wrap">
+        <button class="nav-link mob-dd-toggle" aria-expanded="false">
+          Quality
+          <svg class="dd-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="mob-dd-list">
+          <li><a class="mob-dd-item" href="#">Nut Free Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Lactose Free Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Eggless Cakes</a></li>
+          <li><a class="mob-dd-item" href="#">Gluten Free Cakes</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+    // ---- Product Side Drawer Control ----
+    const tcOverlay = document.getElementById('tcDrawerOverlay');
+    const openTcBtn = document.getElementById('openTcDrawer');
+    const closeTcBtn = document.getElementById('closeTcDrawer');
+
+    function openTcDrawer() {
+      if (tcOverlay) tcOverlay.classList.add('active');
+    }
+
+    function closeTcDrawer() {
+      if (tcOverlay) tcOverlay.classList.remove('active');
+    }
+    if (openTcBtn) openTcBtn.addEventListener('click', openTcDrawer);
+    if (closeTcBtn) closeTcBtn.addEventListener('click', closeTcDrawer);
+
+  </script>
+  <!-- Product Drawer End -->
   <script src="script/script.js" defer></script>
   <script src="script/slider.js" defer></script>
   <script src="script/scroller.js"></script>
 
-  <script>
-
-  </script>
 </body>
 
 </html>
