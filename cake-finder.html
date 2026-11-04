@@ -115,6 +115,18 @@
         height: 30px;
       }
     }
+    @media (max-width: 991px) {
+      .cake-sidebar-finder {
+        order: 2 !important;
+      }
+      .products-main {
+        order: 1 !important;
+      }
+
+      .products-top {
+        flex-direction: row;
+      }
+    }
     
   </style>
 </head>
@@ -346,17 +358,17 @@
     <a class="nav-link" href="#blogs">Contact us</a>
   </nav>
 
-  <section class="HeroInner">
-    <div class="c">
-      <div class="hero-a-box reveal">
-        <div class="hero-a-text">
-          <div class="pd-breadcrumbs">
-            <a href="index.html">Home</a>
-            <span class="sep">/</span>
-            <a href="#" class="current">Cake Finder</a>
-          </div>
-          <h1 class="sec-ttl">Cakes Finder</h1>
-        </div>
+  <section class="hero">
+    <div class="h-slide">
+      <div class="h-bg" style="background-image: url('https://www.icakes.ca/v2/images/refund.png')"></div>
+      <div class="h-ov"></div>
+      <div class="h-cnt">
+        <h1 class="h-ttl">Cake Finder</h1>
+        <nav class="h-crumb">
+          <a href="https://www.icakes.ca">Home</a>
+          <span class="sep">/</span>
+          <span class="cur">Cake Finder</span>
+        </nav>
       </div>
     </div>
   </section>
@@ -388,10 +400,11 @@
           </div>
         </aside>
         <main class="products-main">
-          <div class="products-top">
-            <div class="search-product"  style="max-width: 100%;">
+          <div class="products-top" style="justify-content: left;">
+            <div class="search-product">
               <input type="text" placeholder="Search by Tags..." />
             </div>
+            <button class="btn btn-o">Search</button>
           </div>
           <div class="cake-grid">
             <a href="product-details.html" class="pi-rel-card">
