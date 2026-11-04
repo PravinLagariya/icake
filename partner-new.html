@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Irresistible Cakes — Static</title>
+    <meta name="description" content="Static HTML/CSS/JS homepage for Irresistible Cakes." />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- common css -->
+    <link rel="stylesheet" href="style/Root.css" />
+    <link rel="stylesheet" href="style/Header.css" />
+    <!-- common css -->
+    <link rel="stylesheet" href="style/newstyle.css" />
+    <link rel="stylesheet" href="style/newhero.css" />
+    <link rel="stylesheet" href="style/FAQ.css" />
+    <style>
+
+      .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:12px;}
+      .eyebrow svg{width:15px;height:15px;}
+      .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+      .section-head h2{font-size:clamp(1.65rem,3.3vw,2.25rem);margin-bottom:12px;}
+      .section-head p{color:var(--ink-soft);font-size:.98rem;line-height:1.75;}
+
+      /* ===== TWO WAYS ===== */
+      .ways{padding:100px 0 80px;}
+      .ways-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top: 20px;}
+      .way-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);display:flex;flex-direction:column;transition:transform .45s var(--ease), box-shadow .45s var(--ease);}
+      .way-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-soft);}
+      .way-img{position:relative;aspect-ratio:16/10;overflow:hidden;}
+      .way-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+      .way-card:hover .way-img img{transform:scale(1.07);}
+      .way-img::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg, rgba(43,31,28,.55) 0%, transparent 55%);}
+      .way-num{position:absolute;left:20px;bottom:16px;z-index:2;font-family:var(--font-display);font-weight:700;color:var(--white);font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.35);padding:7px 15px;border-radius:100px;}
+      .way-body{padding:30px 32px 34px;display:flex;flex-direction:column;flex:1;}
+      .way-body h3{font-size:1.55rem;margin-bottom:12px;}
+      .way-body p{color:var(--ink-soft);font-size:.96rem;line-height:1.75;margin-bottom:20px;}
+      .way-points{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;}
+      .way-pt{background:var(--blush);color:var(--primary);font-size:.76rem;font-weight:800;padding:7px 14px;border-radius:100px;}
+      @media (max-width:900px){.ways-grid{grid-template-columns:1fr;}}
+
+      /* ===== CAFE MENU ===== */
+      .menu{padding:90px 0;background:var(--white);}
+      .menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top: 20px;}
+      .menu-card{border-radius:var(--radius-md);overflow:hidden;position:relative;background:var(--cream);box-shadow:0 8px 24px -14px rgba(74,42,31,.18);transition:transform .4s var(--ease), box-shadow .4s var(--ease);}
+      .menu-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-card);}
+      .menu-img{aspect-ratio:1/1;overflow:hidden;}
+      .menu-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
+      .menu-card:hover .menu-img img{transform:scale(1.08);}
+      .menu-body{padding:20px 20px 24px;}
+      .menu-body h3{font-size:1.1rem;margin-bottom:8px;}
+      .menu-body p{color:var(--ink-soft);font-size:.84rem;line-height:1.65;}
+      @media (max-width:1000px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
+      @media (max-width:560px){.menu-grid{grid-template-columns:1fr;}}
+
+      /* ===== RIGHT FOR YOU ===== */
+      .fit{padding:100px 0;}
+      .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+      .fit-media{position:relative;}
+      .fit-media .main{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);aspect-ratio:4/5;}
+      .fit-media .main img{width:100%;height:100%;object-fit:cover;}
+      .fit-badge{position:absolute;right:-18px;bottom:36px;background:var(--white);border-radius:18px;padding:16px 20px;box-shadow:var(--shadow-card);display:flex;align-items:center;gap:14px;border:1px solid rgba(209,39,100,.12);}
+      .fit-badge .ic{width:46px;height:46px;border-radius:50%;background:var(--blush);display:flex;align-items:center;justify-content:center;}
+      .fit-badge svg{width:22px;height:22px;stroke:var(--primary);}
+      .fit-badge b{display:block;font-family:var(--font-display);font-size:1rem;color:var(--secondary);}
+      .fit-badge span{font-size:.78rem;color:var(--ink-soft);}
+      .fit-list{display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+      .fit-item{display:flex;gap:16px;align-items:flex-start;background:var(--white);border-radius:var(--radius-md);padding:18px 20px;box-shadow:0 6px 18px -14px rgba(74,42,31,.2);border:1px solid rgba(74,42,31,.06);transition:transform .35s var(--ease), box-shadow .35s var(--ease);}
+      .fit-item:hover{transform:translateX(8px);box-shadow:var(--shadow-card);}
+      .fit-item svg{width:24px;height:24px;stroke:var(--primary);flex-shrink:0;margin-top:1px;}
+      .fit-item span{font-size:.95rem;color:var(--secondary);font-weight:600;line-height:1.55;}
+      @media (max-width:900px){.fit-grid{grid-template-columns:1fr;gap:40px;}.fit-media .main{aspect-ratio:16/11;}.fit-badge{right:12px;}}
+
+      /* ===== WHY ICAKES ===== */
+      .why{padding:100px 0;position:relative;overflow:hidden;background: var(--choco);}
+      .why-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+      .why-text h2{color:var(--white);font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:18px;}
+      .why-text p{color:rgba(255,255,255,.86);font-size:1rem;line-height:1.85;margin-bottom:16px;}
+      .why-stats{display:flex;flex-direction:column;gap:16px;}
+      .why-stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(12px);border-radius:20px;padding:24px 28px;display:flex;align-items:center;gap:22px;transition:transform .35s var(--ease), background .35s;}
+      .why-stat:hover{transform:translateX(-8px);background:rgba(255,255,255,.16);}
+      .why-stat b{font-family:var(--font-display);font-size:2.6rem;line-height:1;color:var(--gold);min-width:110px;}
+      .why-stat span{color:var(--white);font-size:.92rem;font-weight:600;line-height:1.5;}
+      @media (max-width:900px){.why-inner{grid-template-columns:1fr;gap:36px;}}
+
+      /* ===== WHAT WE OFFER ===== */
+      .offer{padding:100px 0;background:var(--white);}
+      .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+      .offer-card{background:var(--cream);border-radius:var(--radius-md);padding:30px 26px;border:1px solid rgba(74,42,31,.06);transition:transform .4s var(--ease), box-shadow .4s var(--ease), background .4s;position:relative;overflow:hidden;}
+      .offer-card:hover{transform:translateY(-8px);background:var(--white);box-shadow:var(--shadow-card);}
+      .offer-card::before{content:'';position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--primary),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease);}
+      .offer-card:hover::before{transform:scaleX(1);}
+      .offer-ico{width:58px;height:58px;border-radius:16px;background:var(--blush);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+      .offer-ico svg{width:28px;height:28px;stroke:var(--primary);}
+      .offer-card h3{font-size:1.12rem;margin-bottom:10px;}
+      .offer-card p{color:var(--ink-soft);font-size:.9rem;line-height:1.72;}
+      @media (max-width:980px){.offer-grid{grid-template-columns:repeat(2,1fr);}}
+      @media (max-width:620px){.offer-grid{grid-template-columns:1fr;}}
+
+      /* ===== WHAT YOU BRING ===== */
+      .bring{padding:100px 0;background:var(--blush);}
+      .bring-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center;}
+      .bring-photo{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);aspect-ratio:4/4.4;}
+      .bring-photo img{width:100%;height:100%;object-fit:cover;}
+      .bring-list{display:flex;flex-direction:column;gap:14px;}
+      .bring-item{display:flex;gap:18px;align-items:center;background:var(--white);border-radius:var(--radius-md);padding:18px 22px;box-shadow:0 6px 18px -14px rgba(74,42,31,.2);}
+      .bring-n{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);font-family:var(--font-display);font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+      .bring-item span{font-size:.95rem;color:var(--secondary);font-weight:600;line-height:1.55;}
+      @media (max-width:900px){.bring-grid{grid-template-columns:1fr;}.bring-photo{aspect-ratio:16/10;}}
+
+      /* ===== ALWAYS / NEVER ===== */
+      .ingredients-policy {padding: 80px 0;background: var(--white);}
+      .policy-grid {display: grid;grid-template-columns: 1fr 1fr;gap: 26px;}
+      .policy-card {border-radius: var(--radius-lg);padding: 34px 32px;}
+      .policy-card.always {background: var(--blush);}
+      .policy-card.never {background: var(--cream);border: 1px solid rgba(74, 42, 31, .1);}
+      .policy-card h3 {font-size: 1.15rem;margin-bottom: 20px;}
+      .policy-list {display: flex;flex-direction: column;gap: 14px;}
+      .policy-list li {display: flex;align-items: flex-start;gap: 12px;font-size: .9rem;color: var(--charcoal);line-height: 1.55;}
+      .policy-list svg {width: 20px;height: 20px;flex-shrink: 0;margin-top: 2px;}
+      .policy-card.always svg {stroke: var(--primary);}
+      .policy-card.never svg {stroke: var(--secondary);}
+
+      /* ===== COSTS BY LOCATION ===== */
+      .costs{padding:100px 0;}
+      .tab-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+      .tab-pill{background:var(--gold);color:var(--white);font-size:.76rem;font-weight:800;padding:7px 14px;border-radius:100px;}
+      .costs-note{margin:30px auto 0;text-align:center;background:var(--gold-soft);border:1px dashed var(--gold);border-radius:var(--radius-md);padding:18px 24px;color:var(--gold);font-size:.92rem;line-height:1.7;font-weight:600;}
+      @media (max-width:860px){.tab-panel.active{grid-template-columns:1fr;}.tab-img{min-height:220px;}.tab-text{padding:30px 26px;}}
+      @media (max-width:520px){.tab{padding:12px 18px;font-size:.82rem;}}
+
+      /* ===== ONGOING SUPPORT ===== */
+      .support{padding:100px 0; background: white;}
+      .support-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top: 20px;}
+      .support-card{background:var(--blush);border-radius:var(--radius-md);padding:28px 22px;text-align:center;box-shadow:0 8px 24px -14px rgba(74,42,31,.18);transition:transform .4s var(--ease), box-shadow .4s var(--ease);}
+      .support-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-card);}
+      .support-ico{width:60px;height:60px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+      .support-ico svg{width:28px;height:28px;stroke:var(--primary);}
+      .support-card p{font-size:.9rem;color:var(--choco-mid);font-weight:600;line-height:1.65;}
+      @media (max-width:980px){.support-grid{grid-template-columns:repeat(2,1fr);}}
+      @media (max-width:520px){.support-grid{grid-template-columns:1fr;}}
+
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="c">
+        <div class="tb-l">
+          <span class="tb-deal">Sale</span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            (905) 850-2253
+          </span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Pickup Locations
+          </span>
+        </div>
+        <div class="tb-r">
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+          <a href="#" class="button-top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+              viewBox="0 0 16 16">
+              <path
+                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+            </svg>
+            Chat with a Cake Expert
+          </a>
+          <a href="#" class="button-top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+              <path d="M16 14v2.2l1.6 1"></path>
+              <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+              <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+              <circle cx="16" cy="16" r="6"></circle>
+              <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+            </svg>
+            Book an Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <header class="hdr">
+      <div class="c">
+        <div class="search-box">
+          <div class="c">
+            <div class="search-box-inner">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-search-icon lucide-search">
+                <path d="m21 21-4.34-4.34" />
+                <circle cx="11" cy="11" r="8" />
+              </svg>
+              <input type="search" placeholder="Search any cake design..." name="" id="">
+            </div>
+            <div class="search-results">
+              <div class="search-result-item">
+                <div class="sri-img">
+                  <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="">
+                </div>
+                <div class="sri-txt">
+                  Wedding Cakes Toronto
+                </div>
+              </div>
+              <div class="search-result-item">
+                <div class="sri-img">
+                  <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+                </div>
+                <div class="sri-txt">
+                  Custom Birthday Cakes in Toronto
+                </div>
+              </div>
+              <div class="search-result-item">
+                <div class="sri-img">
+                  <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+                </div>
+                <div class="sri-txt">
+                  Kids Birthday Cakes
+                </div>
+              </div>
+              <div class="search-result-item">
+                <div class="sri-img">
+                  <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="">
+                </div>
+                <div class="sri-txt">
+                  Wedding Cakes Toronto
+                </div>
+              </div>
+              <div class="search-result-item">
+                <div class="sri-img">
+                  <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+                </div>
+                <div class="sri-txt">
+                  Custom Birthday Cakes in Toronto
+                </div>
+              </div>
+              <div class="search-result-item">
+                <div class="sri-img">
+                  <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+                </div>
+                <div class="sri-txt">
+                  Kids Birthday Cakes
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hdr-i">
+          <div class="logo dashbord-logo">
+            <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+          </div>
+          <nav class="main-nav">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="about.html">About Us</a>
+            <a class="nav-link" href="#">Cakes</a>
+            <a class="nav-link" href="#">Desserts</a>
+            <a class="nav-link" href="#">Quality</a>
+            <a class="nav-link" href="#">Flavour</a>
+            <a class="nav-link" href="#">City</a>
+            <a class="nav-link" href="#">Cakes Finder</a>
+            <a class="nav-link" href="#blogs">Blogs</a>
+            <a class="nav-link" href="#blogs">Contact us</a>
+          </nav>
+          <div class="header-actions">
+            <button class="icon-btn search" aria-label="Search">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+            <button class="icon-btn cart" aria-label="Cart">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                <path d="M3 6h18" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
+              <span class="cart-count">3</span>
+            </button>
+            <div class="logo mobile-logo">
+              <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+            </div>
+            <button class="burger" aria-label="Menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-menu-icon lucide-menu">
+                <path d="M4 5h16" />
+                <path d="M4 12h16" />
+                <path d="M4 19h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="mobile-tb">
+          <a href="#" class="button-top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+              viewBox="0 0 16 16">
+              <path
+                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+            </svg>
+            Chat with a Cake Expert
+          </a>
+          <a href="#" class="button-top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+              <path d="M16 14v2.2l1.6 1"></path>
+              <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+              <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+              <circle cx="16" cy="16" r="6"></circle>
+              <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+            </svg>
+            Book an Appointment
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <div class="mobile-header">
+        <img src="https://www.icakes.ca/assets/images/icakeslogo.webp" style="height: 44px" alt="logo" />
+        <button class="mobile-close" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About Us</a>
+      <a class="nav-link" href="#">Cakes</a>
+      <a class="nav-link" href="#">Desserts</a>
+      <a class="nav-link" href="#">Quality</a>
+      <a class="nav-link" href="#">Flavour</a>
+      <a class="nav-link" href="#">City</a>
+      <a class="nav-link" href="#">Cakes Finder</a>
+      <a class="nav-link" href="#blogs">Blogs</a>
+      <a class="nav-link" href="#blogs">Contact us</a>
+    </nav>
+
+    <section class="HeroInner">
+      <div class="c">
+        <div class="hero-a-box reveal">
+          <div class="hero-a-text">
+            <div class="pd-breadcrumbs">
+              <a href="index.html">Home</a>
+              <span class="sep">/</span>
+              <a href="#" class="current">Partnership</a>
+            </div>
+            <h1 class="sec-ttl">Business <em>Partnership Opportunities</em></h1>
+            <p>
+              Irresistible Cakes (iCakes) is inviting applications for business partnerships across Ontario. If you're interested in building a business around a well-established cake and dessert brand, we'd like to hear from you.
+            </p>
+          </div>
+          <div class="hero-a-media">
+            <div class="frame">
+              <img src="image/Our Story.jpeg" alt="Custom birthday cake Toronto GTA" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+    <!-- TWO WAYS -->
+    <section class="ways" id="ways">
+      <div class="c">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">
+            Your Choice</span>
+          <h2 class="sec-ttl">Two <em>Ways to Partner</em></h2>
+          <p style="color: var(--gray-txt);margin-top: 18px;line-height: 1.75;">There are two formats to choose from, depending on the kind of business you want to build.</p>
+        </div>
+
+        <div class="ways-grid reveal-stagger">
+          <article class="way-card">
+            <div class="way-img">
+              <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=1000&q=80" alt="Custom wedding cake"><span class="way-num">Format 01</span></div>
+            <div class="way-body">
+              <h3>Custom Cakes</h3>
+              <p>A made-to-order business built around custom cake sales, with pickup as the primary way customers receive their order.</p>
+              <div class="way-points"><span class="way-pt">Made-to-order</span><span class="way-pt">Custom cake sales</span><span class="way-pt">Pickup-led</span></div>
+            </div>
+          </article>
+          <article class="way-card">
+            <div class="way-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80" alt="Coffee and dessert at a cafe table"><span class="way-num">Format 02</span></div>
+            <div class="way-body">
+              <h3>Dessert Cafe</h3>
+              <p>A dine-in space where customers can enjoy desserts alongside coffee, tea, or ice cream, plus takeout of ready-made items and custom orders for parties and events.</p>
+              <div class="way-points"><span class="way-pt">Dine-in</span><span class="way-pt">Takeout</span><span class="way-pt">Party &amp; event orders</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAFE MENU -->
+    <section class="menu">
+      <div class="c">
+        <div class="section-head center reveal">
+          <span class="sec-lbl">The Dessert Cafe Menu</span>
+          <h2 class="sec-ttl">What a <em>Dessert Cafe Offers</em></h2>
+          <p>A Dessert Cafe location typically carries a broader everyday menu than a Custom Cakes location, built around dine-in and takeout together.</p>
+        </div>
+
+        <div class="menu-grid reveal-stagger">
+          <div class="menu-card">
+            <div class="menu-img"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=75" alt="Display cakes and cake slices" loading="lazy"></div>
+            <div class="menu-body"><h3>Cakes &amp; Custom Orders</h3><p>Display cakes, cake slices, and custom orders for any party or occasion.</p></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-img"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=75" alt="Donuts and baked goods" loading="lazy"></div>
+            <div class="menu-body"><h3>Baked Goods &amp; Pastries</h3><p>Pastries, muffins, scones, cream rolls, brownies, cupcakes, cookies, and donuts.</p></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-img"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=75" alt="Specialty dessert cups" loading="lazy"></div>
+            <div class="menu-body"><h3>Specialty Desserts</h3><p>Mousse cups (including triple chocolate, strawberry, and mango), cake balls, and milk cakes.</p></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-img"><img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=600&q=75" alt="Ice cream and beverages" loading="lazy"></div>
+            <div class="menu-body"><h3>Beverages</h3><p>Coffee, tea, hot chocolate, milkshakes, smoothies, and ice cream (vanilla and chocolate).</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT FOR YOU -->
+    <section class="fit">
+      <div class="c fit-grid">
+        <div class="fit-media reveal">
+          <div class="main">
+            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=900&q=80" alt="Cafe owner serving customers" loading="lazy"></div>
+          <div class="fit-badge"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div>
+            <b>No baking needed</b><span>Run the business, not the oven</span></div></div>
+        </div>
+        <div class="reveal">
+          <span class="sec-lbl"> Is It For You?</span>
+          <h2 class="sec-ttl">Is This <em>Opportunity Right </em>for You?</h2>
+          <p >This partnership works well for people who:</p>
+          <div class="fit-list">
+            <div class="fit-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span>Want to run a retail or business operation, without needing to bake themselves</span></div>
+            <div class="fit-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span>Are comfortable managing a team and handling day-to-day customer service</span></div>
+            <div class="fit-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span>Know their local market and community well</span></div>
+            <div class="fit-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span>Are ready to invest both time and capital into building a business</span></div>
+            <div class="fit-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span>Would rather start with existing training, support, and brand recognition than build something from scratch entirely</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY ICAKES -->
+    <section class="why">
+      <div class="c why-inner">
+        <div class="why-text reveal">
+          <span class="sec-lbl">The Right Partner</span>
+          <h2 class="sec-ttl">What Makes <em>Irresistible Cakes (iCakes)</em> the Right Partner</h2>
+          <p>When you partner with iCakes, you're building on a name that already carries weight. We've been part of Ontario's cake and dessert industry since 1962 — over six decades of experience that customers recognize and trust.</p>
+          <p>The brand already operates 10 pickup locations across the GTA, and our dedicated nut-free facility has helped build a reputation for quality and dietary care that would otherwise take a new business years to establish on its own. You're not introducing an unfamiliar name to your market — you're extending one people may already know.</p>
+        </div>
+        <div class="why-stats reveal-stagger">
+          <div class="why-stat"><b>1962</b><span>Part of Ontario's cake and dessert industry for over six decades</span></div>
+          <div class="why-stat"><b>10</b><span>Pickup locations already operating across the GTA</span></div>
+          <div class="why-stat"><b>100%</b><span>Dedicated nut-free facility — a reputation for quality and dietary care</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE OFFER -->
+    <section class="offer">
+      <div class="c">
+        <div class="section-head center reveal">
+          <span class="sec-lbl"> Partner Benefits</span>
+          <h2 class="sec-ttl">What<em> We Offer Partners</em></h2>
+        </div>
+
+        <div class="offer-grid reveal-stagger">
+          <div class="offer-card">
+            <div class="offer-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M14.8 9a3 3 0 00-2.8-1.5c-1.7 0-3 .9-3 2.2 0 3 6 1.5 6 4.5 0 1.3-1.3 2.3-3 2.3a3.3 3.3 0 01-3-1.8M12 6v1.5M12 16.5V18"/></svg></div>
+            <h3>Low Set-Up Costs &amp; Low Overheads</h3>
+            <p>We've structured our partnership model to help keep your initial investment and ongoing overheads manageable, so more of your revenue can go toward growing your business rather than covering fixed costs.</p>
+          </div>
+          <div class="offer-card">
+            <div class="offer-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M22 10L12 5 2 10l10 5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
+            <h3>Full Training &amp; Support</h3>
+            <p>You don't need to come in as a cake industry expert. Our team provides hands-on training covering day-to-day operations, and you'll have access to an experienced decorator to help maintain the quality and presentation our brand is known for.</p>
+          </div>
+          <div class="offer-card">
+            <div class="offer-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="10" r="3"/><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/></svg></div>
+            <h3>Help Choosing the Right Location</h3>
+            <p>Where you set up matters. We support you with demographic analysis to help identify a location with strong potential, and help you prepare the space for opening.</p>
+          </div>
+          <div class="offer-card">
+            <div class="offer-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></div>
+            <h3>A Ready-to-Launch Package</h3>
+            <p>We aim to make opening your business as straightforward as possible, with a package designed to help you move from initial agreement to opening day efficiently.</p>
+          </div>
+          <div class="offer-card">
+            <div class="offer-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+            <h3>Operational Tools From Day One</h3>
+            <p>Partners get access to an online ordering platform and a modern phone system, so your business has the tools it needs to operate smoothly from the start, without having to build these systems yourself.</p>
+          </div>
+          <div class="offer-card">
+            <div class="offer-ico" style="background:rgba(255,255,255,.18);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 011.12 4.18 2 2 0 013.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg></div>
+            <h3>Let's Talk It Through</h3>
+            <p>Curious which format fits you? Our team will walk you through everything in more detail.</p>
+            <a href="mailto:alex@icakes.ca" style="margin-top: 10px;" class="btn btn-o">Email the team →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU BRING -->
+    <section class="bring">
+      <div class="c bring-grid">
+        <div class="bring-photo reveal">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Freshly baked goods on display" loading="lazy"></div>
+        <div class="reveal">
+          <span class="sec-lbl"> Both Sides</span>
+          <h2 class="sec-ttl">What You <em>Bring as a Partner</em> </h2>
+          <p style="color:var(--ink-soft);font-size:.98rem;line-height:1.75;margin-bottom:24px;">A partnership works both ways. Alongside the support we provide, partners are generally expected to bring:</p>
+          <div class="bring-list reveal-stagger">
+            <div class="bring-item"><div class="bring-n">1</div><span>Capital investment for setup, based on your specific location and business plan</span></div>
+            <div class="bring-item"><div class="bring-n">2</div><span>Day-to-day management of the business, including operations and customer experience</span></div>
+            <div class="bring-item"><div class="bring-n">3</div><span>Local staffing — hiring, training, and managing your own team</span></div>
+            <div class="bring-item"><div class="bring-n">4</div><span>A commitment to keeping quality and presentation consistent with the Irresistible Cakes brand</span></div>
+            <div class="bring-item"><div class="bring-n">5</div><span>Local marketing and community engagement, working alongside the support we provide centrally</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ingredients-policy">
+      <div class="c">
+        <div class="section-head reveal how-hd">
+          <span class="sec-lbl">Be Upfront</span>
+          <h2 class="sec-ttl">How Costs & <em>Operations Work, </em>By Location</h2>
+          <p>The way a partnership operates — and what it costs — depends heavily on where your business is located, so we want to be upfront about this before you reach out.</p>
+        </div>
+
+        <div class="policy-grid reveal-stagger">
+          <div class="policy-card always">
+            <h3>Within the GTA</h3>
+              <p style="color: var(--gray-txt);margin-top: 18px;line-height: 1.75;">Your business receives cakes and desserts ready-made from our central bakery, so you won't need your own baking setup or expertise. Because production is centralized, equipment and setup costs are typically lower, and your focus stays on sales, customer service, and presentation.</p>
+              <p style="color: var(--gray-txt);margin-top: 18px;line-height: 1.75;">If you need a full setup in your facility, our team is happy to help.</p>
+              <div class="tab-pills">
+                <span class="tab-pill">Ready-made from central bakery</span>
+                <span class="tab-pill">No baking setup needed</span>
+                <span class="tab-pill">Typically lower setup costs</span>
+              </div>
+          </div>
+          <div class="policy-card never">
+            <h3>Outside the GTA</h3>
+            <p style="color: var(--gray-txt);margin-top: 18px;line-height: 1.75;">Since central delivery isn't practical at greater distances, partners outside the GTA generally bake on-site as part of running the business. This brings additional equipment, training, and setup costs into the picture, on top of the standard costs that apply everywhere — things like location setup, initial inventory, and day-to-day operating expenses.</p>
+            <div class="tab-pills">
+              <span class="tab-pill">Bake on-site</span>
+              <span class="tab-pill">Added equipment & training</span>
+              <span class="tab-pill">Plus standard setup costs</span>
+            </div>
+          </div>
+        </div>
+        <div class="costs-note reveal">
+          Because these details vary so much by location, our team will walk you through exactly what applies to your situation during our first conversation, rather than publish generic numbers that might not reflect your actual costs.
+        </div>
+      </div>
+    </section>
+
+    <!-- Process STEPS -->
+    <section class="how" id="process">
+      <div class="c">
+        <div class="section-head reveal how-hd">
+          <p class="sec-lbl">Step by Step</p>
+          <h2 class="sec-ttl">The <em>Partnership Process</em></h2>
+        </div>
+
+        <div class="how-steps reveal-stagger">
+          <div class="how-step">
+            <div class="how-num">01</div>
+            <h3>Initial Inquiry</h3>
+            <p style="color: var(--gray-txt);margin-top: 18px;line-height: 1.75;">
+              Reach out to our team and share a bit about yourself and your goals.
+            </p>
+          </div>
+          <div class="how-step">
+            <div class="how-num">02</div>
+            <h3>Introductory Discussion</h3>
+            <p style=" color: var(--gray-txt); margin-top: 18px; line-height: 1.75; ">
+             We'll walk you through the partnership model and what's expected on both sides.
+            </p>
+          </div>
+          <div class="how-step">
+            <div class="how-num">03</div>
+            <h3>Location Review</h3>
+            <p style=" color: var(--gray-txt); margin-top: 18px; line-height: 1.75; ">
+              If applicable, we support a location evaluation, including demographic analysis to help find a strong site.
+            </p>
+          </div>
+          <div class="how-step">
+            <div class="how-num">04</div>
+            <h3>Agreement</h3>
+            <p style=" color: var(--gray-txt); margin-top: 18px; line-height: 1.75; ">
+              Once terms are agreed, we finalize the partnership agreement together.
+            </p>
+          </div>
+          <div class="how-step">
+            <div class="how-num">05</div>
+            <h3>Training</h3>
+            <p style=" color: var(--gray-txt); margin-top: 18px; line-height: 1.75; ">
+             You'll receive hands-on training, plus support from an experienced decorator, to get ready for opening.
+            </p>
+          </div>
+          <div class="how-step">
+            <div class="how-num">06</div>
+            <h3>Launch</h3>
+            <p style=" color: var(--gray-txt); margin-top: 18px; line-height: 1.75; ">
+              Your business opens with tools like our online ordering platform and phone system ready from day one.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONGOING SUPPORT -->
+    <section class="support">
+      <div class="c">
+        <div class="section-head center reveal">
+          <span class="sec-lbl">We're Still There</span>
+          <h2 class="sec-ttl">Ongoing <em>Support After You</em> Open</h2>
+          <p>Support doesn't end once your business opens. Partners continue to receive:</p>
+        </div>
+
+        <div class="support-grid reveal-stagger">
+          <div class="support-card"><div class="support-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div><p>Access to an experienced decorator for ongoing quality and presentation support</p></div>
+          <div class="support-card"><div class="support-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 19V6a2 2 0 012-2h8l6 6v9a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M8 12h8M8 16h5"/></svg></div><p>Product and menu updates as the Irresistible Cakes range evolves</p></div>
+          <div class="support-card"><div class="support-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><p>Continued use of the online ordering platform and phone system</p></div>
+          <div class="support-card"><div class="support-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M21 12a9 9 0 11-4.2-7.6L21 3l-1.4 4.2A8.96 8.96 0 0121 12z"/><path d="M8 10h8M8 14h5"/></svg></div><p>An ongoing point of contact with our team for questions as your business grows</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="news">
+    <div class="c">
+      <div class="news-in">
+        <div>
+          <h2 class="sec-ttl">Start the<em> Conversation</em></h2>
+          <p style=" color: var(--gray-txt); margin-top: 18px; line-height: 1.75; ">
+           Ready to explore a business partnership with Irresistible Cakes? Reach out to our team today — we'll walk you through everything above in more detail, answer your questions, and help you decide whether this is the right fit for you.</p>
+            <p style="color: var(--gray-txt);margin-top: 18px;line-height: 1.75;">
+            If you're ready to build a business with an established, trusted brand behind you, send us an email to get started.</p>
+          </p>
+          <div class="cta-box-actions">
+            <a href="mailto:alex@icakes.ca" class="btn btn-o">alex@icakes.ca</a>
+            <a href="tel:+19058502253" class="btn btn-o">(905) 850-2253</a>
+            <a href="mailto:alex@icakes.ca" target="_blank" rel="noopener" class="btn btn-o">
+              Email Us to Get Started
+            </a>
+          </div>
+        </div>
+        <div class="news-vis">
+          <img
+            src="https://www.icakes.ca/upload/products/cakes/ftrimg/kidscakes/soccer-sports-messi-edible-photo-picture-cake-from-icakes-brampton.webp"
+            alt="newsletter" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <footer class="ftr">
+      <div class="c">
+        <div class="ftr-g">
+          <div>
+            <div class="ftr-logo">
+              <img src="image/iCakes.png" alt="logo" />
+            </div>
+            <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+            <div style="margin-top: 20px">
+              <div class="ftr-ci">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                (905) 850-2253
+              </div>
+              <div class="ftr-ci">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-mail-icon lucide-mail">
+                  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                </svg>
+                info@icakes.ca
+              </div>
+              <div class="ftr-ci">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-map-pin-icon lucide-map-pin">
+                  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5
+              </div>
+              <button class="btn-p">All Locations</button>
+            </div>
+          </div>
+          <div class="ftr-col">
+            <h4>Shop</h4>
+            <div class="ftr-links">
+              <a href="#">All Cakes</a>
+              <a href="#">Wedding Cakes</a>
+              <a href="#">Birthday Cakes</a>
+              <a href="#">Kids Cakes</a>
+              <a href="#">Corporate Cakes</a>
+              <a href="#">Desserts</a>
+              <a href="#">Cupcakes</a>
+              <a href="#">Cake Pops</a>
+              <a href="#">Cake Finder</a>
+            </div>
+          </div>
+          <div class="ftr-col">
+            <h4>Company</h4>
+            <div class="ftr-links">
+              <a href="#">About Us</a>
+              <a href="#">Quality</a>
+              <a href="#">Flavours</a>
+              <a href="#">Locations</a>
+              <a href="#">Blog</a>
+              <a href="#">Wholesale</a>
+              <a href="#">Partnership</a>
+              <a href="#">Contact</a>
+              <a href="#">FAQs</a>
+            </div>
+          </div>
+          <div class="ftr-col">
+            <h4>Legal</h4>
+            <div class="ftr-links">
+              <a href="#">Terms & Conditions</a>
+              <a href="#">Return Policy</a>
+              <a href="#">Shipping Policy</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+            <h4 style="margin-top: 28px">Hours</h4>
+            <div class="ftr-links">
+              <a href="#">Tue – Sat: 10AM – 6PM</a>
+              <a href="#">Sunday: 10AM – 1PM</a>
+              <a href="#">Sunday: Closed</a>
+            </div>
+          </div>
+        </div>
+        <div class="ftr-bot">
+          <p>
+            © 2026 iCakes.ca · Irresistible Cakes Since 1962 · All rights
+            reserved.
+          </p>
+          <div class="ftr-bot-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="bottom-bar">
+      <div class="bottom-bat-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-house-icon lucide-house">
+          <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+          <path
+            d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        </svg>
+        <span>Home</span>
+      </div>
+      <div class="bottom-bat-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-list-icon lucide-list">
+          <path d="M3 5h.01" />
+          <path d="M3 12h.01" />
+          <path d="M3 19h.01" />
+          <path d="M8 5h13" />
+          <path d="M8 12h13" />
+          <path d="M8 19h13" />
+        </svg>
+        <span>Products</span>
+      </div>
+      <div class="bottom-bat-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-shopping-bag-icon lucide-shopping-bag">
+          <path d="M16 10a4 4 0 0 1-8 0" />
+          <path d="M3.103 6.034h17.794" />
+          <path
+            d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+        </svg>
+        <span>Cart</span>
+      </div>
+      <div class="bottom-bat-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-log-in-icon lucide-log-in">
+          <path d="m10 17 5-5-5-5" />
+          <path d="M15 12H3" />
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+        </svg>
+        <span>Login</span>
+      </div>
+      <div class="bottom-bat-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-user-key-icon lucide-user-key">
+          <path d="M20 11v6" />
+          <path d="M20 13h2" />
+          <path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578" />
+          <circle cx="10" cy="7" r="4" />
+          <circle cx="20" cy="19" r="2" />
+        </svg>
+        <span>Signup</span>
+      </div>
+    </div>
+
+    <div class="flotingIcon" style="display: none">
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+          viewBox="0 0 16 16">
+          <path
+            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232">
+          </path>
+        </svg>
+      </a>
+      <a href="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+          </path>
+        </svg>
+      </a>
+    </div>
+
+    <button class="bktop" id="bktop">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-arrow-up-icon lucide-arrow-up">
+        <path d="m5 12 7-7 7 7" />
+        <path d="M12 19V5" />
+      </svg>
+    </button>
+    <script src="script/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </body>
+</html>
