@@ -441,7 +441,7 @@
   color: var(--gray-txt);
 }
 
-.sampling-note-box a {
+.sampling-note-box a{
   color: var(--primary);
   font-weight: 700;
   text-decoration: none;
