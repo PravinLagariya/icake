@@ -1,0 +1,1075 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Irresistible Cakes — Static</title>
+  <meta name="description" content="Static HTML/CSS/JS homepage for Irresistible Cakes." />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- common css -->
+  <link rel="stylesheet" href="style/Root.css" />
+  <link rel="stylesheet" href="style/Header.css" />
+  <!-- common css -->
+  <link rel="stylesheet" href="style/newstyle.css" />
+  <link rel="stylesheet" href="style/InnerHero.css" />
+  <link rel="stylesheet" href="style/CardListing.css" />
+  <link rel="stylesheet" href="style/FAQ.css" />
+  <link rel="stylesheet" href="style/newhero.css" />
+  <link rel="stylesheet" href="style/product.css" />
+  <style>
+    /* Image Slider */
+    .pi-image-slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pi-slider-track {
+      display: flex;
+      transition: transform 0.45s ease;
+      width: 100%;
+    }
+
+    .pi-slide {
+      min-width: 100%;
+      flex: 0 0 100%;
+    }
+
+    .pi-slide img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Navigation Arrows */
+    .pi-slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      color: var(--gold);
+      font-size: 15px;
+      cursor: pointer;
+      z-index: 3;
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .pi-image-slider:hover .pi-slider-arrow {
+      opacity: 1;
+    }
+
+    .pi-prev {
+      left: 12px;
+    }
+
+    .pi-next {
+      right: 12px;
+    }
+
+    /* Pagination Dots */
+    .pi-slider-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      z-index: 3;
+    }
+
+    .pi-slider-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      border: none;
+      padding: 0;
+      background: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .pi-slider-dot.active {
+      width: 20px;
+      border-radius: 10px;
+      background: var(--gold);
+    }
+
+    /* Mobile */
+    @media(max-width: 768px) {
+      .pi-slider-arrow {
+        opacity: 1;
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .pd-breadcrumbs {
+      font-size: 0.88rem;
+      color: var(--gray-mid);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pd-breadcrumbs a {
+      color: var(--gray-txt);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .pd-breadcrumbs a:hover { color: var(--primary); }
+
+    .pd-breadcrumbs span.sep { opacity: 0.4; }
+
+    .pd-breadcrumbs span.current {
+      color:var(--choco-mid);
+      font-weight: 700;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="c">
+      <div class="tb-l">
+        <span class="tb-deal">Sale</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          (905) 850-2253
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Pickup Locations
+        </span>
+      </div>
+      <div class="tb-r">
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+          </svg>
+          Chat with a Cake Expert
+        </a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+            <path d="M16 14v2.2l1.6 1"></path>
+            <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+            <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+            <circle cx="16" cy="16" r="6"></circle>
+            <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+          </svg>
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hdr">
+    <div class="c">
+      <div class="search-box">
+        <div class="c">
+          <div class="search-box-inner">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-search-icon lucide-search">
+              <path d="m21 21-4.34-4.34" />
+              <circle cx="11" cy="11" r="8" />
+            </svg>
+            <input type="search" placeholder="Search any cake design..." name="" id="">
+          </div>
+          <div class="search-results">
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Wedding Cakes Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Custom Birthday Cakes in Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Kids Birthday Cakes
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Wedding Cakes Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Custom Birthday Cakes in Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Kids Birthday Cakes
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hdr-i">
+        <div class="logo dashbord-logo">
+          <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+        </div>
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About Us</a>
+          <a class="nav-link" href="#">Cakes</a>
+          <!-- <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Cakes</a>
+                <div class="dropdown-menu">
+                  <a href="#">Wedding Cakes Toronto</a>
+                  <a href="#">Custom Birthday Cakes in Toronto</a>
+                  <a href="#">Kids Birthday Cakes</a>
+                  <a href="#">Corporate Cakes</a>
+                  <a href="#">Religious Cakes</a>
+                  <a href="#">Graduation Cakes</a>
+                  <a href="#">Baby Shower Cakes</a>
+                  <a href="#">Bridal Shower Cakes</a>
+                  <a href="#">Sweet Sixteen Cakes</a>
+                  <a href="#">Regular Cakes</a>
+                  <a href="#">Anniversary Cakes</a>
+                  <a href="#">Celebration Cakes</a>
+                  <a href="#">Christmas Cakes</a>
+                </div>
+              </div> -->
+          <a class="nav-link" href="#">Desserts</a>
+          <a class="nav-link" href="#">Quality</a>
+          <a class="nav-link" href="#">Flavour</a>
+          <a class="nav-link" href="#">City</a>
+          <a class="nav-link" href="#">Cakes Finder</a>
+          <a class="nav-link" href="#blogs">Blogs</a>
+          <a class="nav-link" href="#blogs">Contact us</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn search" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+          <button class="icon-btn cart" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-count">3</span>
+          </button>
+          <div class="logo mobile-logo">
+            <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+          </div>
+          <button class="burger" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-menu-icon lucide-menu">
+              <path d="M4 5h16" />
+              <path d="M4 12h16" />
+              <path d="M4 19h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-tb">
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+          </svg>
+          Chat with a Cake Expert
+        </a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+            <path d="M16 14v2.2l1.6 1"></path>
+            <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+            <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+            <circle cx="16" cy="16" r="6"></circle>
+            <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+          </svg>
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-header">
+      <img src="https://www.icakes.ca/assets/images/icakeslogo.webp" style="height: 44px" alt="logo" />
+      <button class="mobile-close" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="about.html">About Us</a>
+    <a class="nav-link" href="#">Cakes</a>
+    <a class="nav-link" href="#">Desserts</a>
+    <a class="nav-link" href="#">Quality</a>
+    <a class="nav-link" href="#">Flavour</a>
+    <a class="nav-link" href="#">City</a>
+    <a class="nav-link" href="#">Cakes Finder</a>
+    <a class="nav-link" href="#blogs">Blogs</a>
+    <a class="nav-link" href="#blogs">Contact us</a>
+  </nav>
+
+  <section class="HeroInner">
+    <div class="c">
+      <div class="hero-a-box reveal">
+        <div class="hero-a-text">
+          <div class="pd-breadcrumbs">
+            <a href="index.html">Home</a>
+            <span class="sep">/</span>
+            <a href="#" class="current">Cake Finder</a>
+          </div>
+          <h1 class="sec-ttl">Cakes Finder</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cake-section">
+    <div class="c">
+      <div class="cake-layout">
+        <aside class="cake-sidebar-finder">
+          <div class="filter-card pop-searches-card">
+            <div class="card-head">
+              <div class="search-product">
+                <h3>Products by Category</h3>
+              </div>
+            </div>
+            <ul class="category-list">
+              <li><a href="#">Wedding Cakes <span>65</span></a></li>
+              <li><a href="#">Custom Birthday Cakes <span>175</span></a></li>
+              <li><a href="#">Kids Cakes <span>127</span></a></li>
+              <li><a href="#">Corporate Cakes <span>14</span></a></li>
+              <li><a href="#">Religious Cakes <span>45</span></a></li>
+              <li><a href="#">Anniversary Cakes <span>91</span></a></li>
+              <li><a href="#">Baby Shower Cakes <span>37</span></a></li>
+              <li><a href="#">Bridal Shower Cakes <span>40</span></a></li>
+              <li><a href="#">Sweet Sixteen Cakes <span>20</span></a></li>
+              <li><a href="#">Regular Cakes <span>7</span></a></li>
+              <li><a href="#">Celebration Cakes <span>18</span></a></li>
+              <li><a href="#">Christmas Cakes <span>6</span></a></li>
+            </ul>
+          </div>
+        </aside>
+        <main class="products-main">
+          <div class="products-top">
+            <div class="search-product"  style="max-width: 100%;">
+              <input type="text" placeholder="Search by Tags..." />
+            </div>
+          </div>
+          <div class="cake-grid">
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">SALE</span> -->
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="Chocolate Birthday Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Birthday Collection</span>
+                <h3 class="pi-rel-name">Chocolate Birthday Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">NEW</span> -->
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="Premium Wedding Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Wedding Collection</span>
+                <h3 class="pi-rel-name">Premium Wedding Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">SALE</span> -->
+                <img src="https://www.icakes.ca/upload/category/religious-cakes.png" alt="Heart Shape Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Custom Design</span>
+                <h3 class="pi-rel-name">Heart Shape Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">SALE</span> -->
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="Chocolate Birthday Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Birthday Collection</span>
+                <h3 class="pi-rel-name">Chocolate Birthday Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">NEW</span> -->
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="Premium Wedding Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Wedding Collection</span>
+                <h3 class="pi-rel-name">Premium Wedding Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">SALE</span> -->
+                <img src="https://www.icakes.ca/upload/category/religious-cakes.png" alt="Heart Shape Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Custom Design</span>
+                <h3 class="pi-rel-name">Heart Shape Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">SALE</span> -->
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="Chocolate Birthday Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Birthday Collection</span>
+                <h3 class="pi-rel-name">Chocolate Birthday Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">NEW</span> -->
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="Premium Wedding Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Wedding Collection</span>
+                <h3 class="pi-rel-name">Premium Wedding Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">SALE</span> -->
+                <img src="https://www.icakes.ca/upload/category/religious-cakes.png" alt="Heart Shape Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Custom Design</span>
+                <h3 class="pi-rel-name">Heart Shape Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">SALE</span> -->
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="Chocolate Birthday Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Birthday Collection</span>
+                <h3 class="pi-rel-name">Chocolate Birthday Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">NEW</span> -->
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="Premium Wedding Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Wedding Collection</span>
+                <h3 class="pi-rel-name">Premium Wedding Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="product-details.html" class="pi-rel-card">
+              <div class="pi-rel-img-wrap">
+                <!-- <span class="pi-rel-tag">SALE</span> -->
+                <img src="https://www.icakes.ca/upload/category/religious-cakes.png" alt="Heart Shape Cake" />
+              </div>
+              <div class="pi-rel-body">
+                <span class="pi-rel-cat">Custom Design</span>
+                <h3 class="pi-rel-name">Heart Shape Cake</h3>
+                <div class="pi-rel-footer">
+                  <span class="pi-rel-action-btn">
+                    View Cakes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="loadbtn">
+            <button class="btn-p">Load More</button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="c">
+      <div class="section-head reveal faq-hd">
+        <p class="sec-lbl">Frequently Asked Questions</p>
+        <h2 class="sec-ttl">Answers Before You<em> Order</em></h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <button class="faq-q">
+            <span>How far in advance do I need to order?</span><span class="plus"><svg viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Standard buttercream designs take 3–5 days. Edible photo cakes
+              take 5–7 days. Fondant, 3D, or multi-tier designs need at least
+              two weeks. During peak season — April through June — add at
+              least one extra week to any lead time. For urgent orders,
+              WhatsApp the team at (905) 605-4900 before placing; rush orders
+              depend on current capacity and cannot always be guaranteed.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>What if I need to cancel or change my order?</span><span class="plus"><svg viewBox="0 0 24 24"
+                fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Because most cakes are made to order, changes and cancellations
+              are time-sensitive. Contact us as early as possible by phone,
+              WhatsApp, or email so we can accommodate your request — see our
+              Return Policy for full details.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>What occasions do you make cakes for?</span><span class="plus"><svg viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Weddings, birthdays, kids' birthdays, anniversaries, baby
+              showers, bridal showers, sweet sixteens, graduations, baptisms,
+              communions, engagements, corporate events, religious
+              celebrations, and holidays like Christmas — plus everyday
+              moments that deserve a cake.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Can I get a custom cake with a photo, logo, or specific
+              theme?</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Yes — edible photo prints, character and cartoon cakes, logo and
+              corporate branding, 3D sculpted designs, and fully personalized
+              themes are all things we build regularly for customers across
+              the GTA.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>What if I'm not sure what design I want?</span><span class="plus"><svg viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Use our Cake Finder tool to search by style or occasion, browse
+              trending designs, or just get in touch — our team can walk you
+              through options based on your event and budget.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="ftr">
+    <div class="c">
+      <div class="ftr-g">
+        <div>
+          <div class="ftr-logo">
+            <img src="image/iCakes.png" alt="logo" />
+          </div>
+          <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+          <div style="margin-top: 20px">
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              (905) 850-2253
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-mail-icon lucide-mail">
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+              </svg>
+              info@icakes.ca
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-map-pin-icon lucide-map-pin">
+                <path
+                  d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5
+            </div>
+            <button class="btn-p">All Locations</button>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Shop</h4>
+          <div class="ftr-links">
+            <a href="#">All Cakes</a>
+            <a href="#">Wedding Cakes</a>
+            <a href="#">Birthday Cakes</a>
+            <a href="#">Kids Cakes</a>
+            <a href="#">Corporate Cakes</a>
+            <a href="#">Desserts</a>
+            <a href="#">Cupcakes</a>
+            <a href="#">Cake Pops</a>
+            <a href="#">Cake Finder</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Company</h4>
+          <div class="ftr-links">
+            <a href="#">About Us</a>
+            <a href="#">Quality</a>
+            <a href="#">Flavours</a>
+            <a href="#">Locations</a>
+            <a href="#">Blog</a>
+            <a href="#">Wholesale</a>
+            <a href="#">Partnership</a>
+            <a href="#">Contact</a>
+            <a href="#">FAQs</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Legal</h4>
+          <div class="ftr-links">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Return Policy</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+          <h4 style="margin-top: 28px">Hours</h4>
+          <div class="ftr-links">
+            <a href="#">Tue – Sat: 10AM – 6PM</a>
+            <a href="#">Sunday: 10AM – 1PM</a>
+            <a href="#">Sunday: Closed</a>
+          </div>
+        </div>
+      </div>
+      <div class="ftr-bot">
+        <p>
+          © 2026 iCakes.ca · Irresistible Cakes Since 1962 · All rights
+          reserved.
+        </p>
+        <div class="ftr-bot-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-house-icon lucide-house">
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path
+          d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      </svg>
+      <span>Home</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-list-icon lucide-list">
+        <path d="M3 5h.01" />
+        <path d="M3 12h.01" />
+        <path d="M3 19h.01" />
+        <path d="M8 5h13" />
+        <path d="M8 12h13" />
+        <path d="M8 19h13" />
+      </svg>
+      <span>Products</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-shopping-bag-icon lucide-shopping-bag">
+        <path d="M16 10a4 4 0 0 1-8 0" />
+        <path d="M3.103 6.034h17.794" />
+        <path
+          d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+      </svg>
+      <span>Cart</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-log-in-icon lucide-log-in">
+        <path d="m10 17 5-5-5-5" />
+        <path d="M15 12H3" />
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+      </svg>
+      <span>Login</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-user-key-icon lucide-user-key">
+        <path d="M20 11v6" />
+        <path d="M20 13h2" />
+        <path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578" />
+        <circle cx="10" cy="7" r="4" />
+        <circle cx="20" cy="19" r="2" />
+      </svg>
+      <span>Signup</span>
+    </div>
+  </div>
+
+  <div class="flotingIcon" style="display: none">
+    <a href="#" target="_blank" rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+        viewBox="0 0 16 16">
+        <path
+          d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232">
+        </path>
+      </svg>
+    </a>
+    <a href="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+        </path>
+      </svg>
+    </a>
+  </div>
+
+  <button class="bktop" id="bktop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="lucide lucide-arrow-up-icon lucide-arrow-up">
+      <path d="m5 12 7-7 7 7" />
+      <path d="M12 19V5" />
+    </svg>
+  </button>
+  <script src="script/script.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll(".counter");
+      let started = false;
+
+      function runCounters() {
+        if (started) return;
+        started = true;
+
+        const duration = 2000; // 2 seconds
+
+        counters.forEach((counter) => {
+          const target = +counter.dataset.target;
+          const suffix = counter.dataset.suffix || "";
+          const startTime = performance.now();
+
+          function update(currentTime) {
+            const progress = Math.min(
+              (currentTime - startTime) / duration,
+              1,
+            );
+
+            const value = Math.floor(progress * target);
+
+            counter.textContent = value + suffix;
+
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              counter.textContent = target + suffix;
+            }
+          }
+
+          requestAnimationFrame(update);
+        });
+      }
+
+      const section = document.querySelector(".trusted-section");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            runCounters();
+            observer.disconnect();
+          }
+        },
+        {
+          threshold: 0.4,
+        },
+      );
+
+      observer.observe(section);
+    });
+
+    document.querySelectorAll('.pi-image-slider').forEach(slider => {
+
+      const track = slider.querySelector('.pi-slider-track');
+      const slides = slider.querySelectorAll('.pi-slide');
+      const prev = slider.querySelector('.pi-prev');
+      const next = slider.querySelector('.pi-next');
+      const dotsContainer = slider.querySelector('.pi-slider-dots');
+
+      let currentIndex = 0;
+
+      // Create pagination dots
+      slides.forEach((slide, index) => {
+          const dot = document.createElement('button');
+
+          dot.classList.add('pi-slider-dot');
+
+          if (index === 0) {
+              dot.classList.add('active');
+          }
+
+          dot.setAttribute('aria-label', `Go to image ${index + 1}`);
+
+          dot.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              showSlide(index);
+          });
+
+          dotsContainer.appendChild(dot);
+      });
+
+      const dots = dotsContainer.querySelectorAll('.pi-slider-dot');
+
+      function showSlide(index) {
+          currentIndex = (index + slides.length) % slides.length;
+
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+          dots.forEach((dot, i) => {
+              dot.classList.toggle('active', i === currentIndex);
+          });
+      }
+
+      prev.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          showSlide(currentIndex - 1);
+      });
+
+      next.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          showSlide(currentIndex + 1);
+      });
+
+  });
+  </script>
+</body>
+
+</html>

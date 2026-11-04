@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Irresistible Cakes — Static</title>
+  <meta name="description" content="Static HTML/CSS/JS homepage for Irresistible Cakes." />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+  <!-- common css -->
+  <link rel="stylesheet" href="style/Root.css" />
+  <link rel="stylesheet" href="style/Header.css" />
+
+  <!-- common css -->
+  <link rel="stylesheet" href="style/newstyle.css" />
+  <link rel="stylesheet" href="style/InnerHero.css" />
+  <link rel="stylesheet" href="style/FAQ.css" />
+<style>
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ===== BREADCRUMB ===== */
+  .pd-breadcrumbs{padding:40px 0 18px;font-size:.84rem;color:var(--ink-soft);display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-weight:600;}
+  .pd-breadcrumbs .current {
+    color: var(--choco-mid);
+    font-weight: 700;
+  }
+  .breadcrumb a{display:inline-flex;align-items:center;gap:6px;color:var(--primary);}
+  .breadcrumb a:hover{text-decoration:underline;text-underline-offset:3px;}
+  .breadcrumb svg{width:15px;height:15px;}
+  .breadcrumb .sep{opacity:.5;}
+  .breadcrumb .cur{color:var(--gold);font-weight:700;}
+
+  /* ===== LAYOUT ===== */
+  .post-layout{display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:start;padding-bottom:80px;}
+
+  /* featured banner */
+  .feature{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:16/8.4;box-shadow:var(--shadow-card);background:var(--blush);}
+  .feature img{width:100%;height:100%;object-fit:cover;}
+  .feature-title{position:absolute;left:5%;top:50%;transform:translateY(-50%);z-index:2;max-width:46%;}
+  .feature-title span{display:block;font-family:var(--font-display);font-style:italic;font-weight:600;font-size:clamp(1.5rem,3.6vw,3rem);line-height:1.12;color:var(--gold);}
+  .feature-title svg{width:min(210px,60%);height:auto;margin-top:12px;}
+
+  /* meta */
+  .post-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 0;margin:24px 0 14px;font-size:.86rem;color:var(--ink-soft);font-weight:600;}
+  .post-meta .m{display:inline-flex;align-items:center;gap:8px;padding:0 18px;border-left:1.5px solid rgba(74,42,31,.18);}
+  .post-meta .m:first-child{padding-left:0;border-left:none;}
+  .post-meta svg{width:18px;height:18px;stroke:var(--primary);}
+  .post-meta a:hover{color:var(--primary);}
+
+  h1.post-title{font-size:clamp(1.8rem,3.8vw,2.6rem);margin-bottom:22px;}
+
+  /* article body */
+  .article{max-width:760px;}
+  .article p{color:#5d4f49;font-size:1.02rem;line-height:1.85;margin-bottom:20px;}
+  .article h2{font-size:1.5rem;margin:44px 0 14px;display:flex;align-items:center;gap:14px;scroll-margin-top:96px;}
+  .article h2 .n{width:38px;height:38px;border-radius:50%;background:var(--blush);color:var(--primary);font-size:.95rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(209,39,100,.18);}
+  .article strong{color:var(--gold);}
+
+  .toc{background:var(--white);border-radius:var(--radius-md);padding:22px 26px;margin:26px 0 8px;box-shadow:0 8px 24px -14px rgba(74,42,31,.18);}
+  .toc h3{font-size:1rem;margin-bottom:12px;font-family:var(--font-body);font-weight:800;text-transform:uppercase;letter-spacing:.07em;font-size:.76rem;color:var(--primary);}
+  .toc ol{list-style:none;counter-reset:t;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;}
+  .toc li{counter-increment:t;}
+  .toc a{font-size:.9rem;font-weight:600;color:var(--gold);display:flex;gap:10px;line-height:1.45;}
+  .toc a::before{content:counter(t);color:var(--primary);font-weight:800;}
+  .toc a:hover{color:var(--primary);}
+  @media (max-width:560px){.toc ol{grid-template-columns:1fr;}}
+
+  .design-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:6px 0 22px;}
+  .design-card{background:var(--white);border-radius:14px;padding:16px 18px;border:1px solid rgba(74,42,31,.07);display:flex;justify-content:space-between;gap:12px;align-items:center;box-shadow:0 6px 18px -14px rgba(74,42,31,.2);}
+  .design-card b{display:block;font-size:.92rem;color:var(--gold);margin-bottom:2px;}
+  .design-card span{font-size:.8rem;color:var(--ink-soft);line-height:1.5;}
+  .design-card em{font-style:normal;font-weight:800;color:var(--primary);font-size:.82rem;white-space:nowrap;background:var(--blush);padding:5px 11px;border-radius:100px;}
+  @media (max-width:560px){.design-grid{grid-template-columns:1fr;}}
+
+  /* author */
+  .author{display:flex;gap:18px;align-items:center;background:var(--white);border-radius:var(--radius-md);padding:22px 24px;box-shadow:0 8px 24px -14px rgba(74,42,31,.18);margin-bottom:26px;}
+  .author .av{width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .author b{display:block;color:var(--gold);font-family:var(--font-display);font-size:1.02rem;margin-bottom:3px;}
+  .author span{font-size:.86rem;color:var(--gold);line-height:1.6;}
+
+  /* ===== SIDEBAR ===== */
+  .sidebar{position:sticky;top:94px;display:flex;flex-direction:column;gap:24px;}
+  .cakes-widget{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);}
+  .cakes-head{background:var(--blush);padding:24px 26px;}
+  .cakes-head h3{font-size:1.5rem;margin-bottom:4px;}
+  .cakes-head p{font-size:.88rem;color:var(--gold);opacity:.8;}
+  .cake-item{display:flex;align-items:center;gap:18px;padding:14px 18px;border-top:1px solid rgba(74,42,31,.08);transition:background .3s;}
+  .cake-item:hover{background:var(--cream);}
+  .cake-thumb{width:104px;height:104px;border-radius:14px;overflow:hidden;flex-shrink:0;background:var(--blush);}
+  .cake-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+  .cake-item:hover .cake-thumb img{transform:scale(1.1);}
+  .cake-info h4{font-family:var(--font-body);font-weight:800;font-size:1rem;color:var(--gold);line-height:1.35;margin-bottom:10px;}
+  .btn btn-o{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--primary);color:var(--primary);font-weight:800;font-size:.8rem;padding:8px 16px;border-radius:100px;transition:.3s var(--ease);}
+  .btn btn-o svg{width:13px;height:13px;transition:transform .3s;}
+  .cake-item:hover .btn btn-o{background:var(--primary);color:var(--white);}
+  .cake-item:hover .btn btn-o svg{transform:translateX(3px);}
+  .cakes-foot{padding:16px 18px 20px;border-top:1px solid rgba(74,42,31,.08);}
+  .cakes-foot .btn{width:100%;justify-content:center;}
+
+  @media (max-width:1020px){
+    .post-layout{grid-template-columns:1fr;}
+    .sidebar{position:static;}
+  }
+  @media (max-width:640px){
+    .feature{aspect-ratio:4/3;}
+    .feature::after{background:linear-gradient(180deg, rgba(253,238,243,.9) 0%, rgba(253,238,243,.55) 45%, rgba(253,238,243,0) 80%);}
+    .feature-title{left:6%;top:9%;transform:none;max-width:88%;}
+    .post-meta .m{padding:0 12px;}
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 25px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  .author-img {
+    flex: 0 0 110px;
+    width: 110px;
+    height: 110px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .author-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .author-content {
+    flex: 1;
+  }
+
+  .author-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #c9a24b;
+  }
+
+  .author-content h3 {
+    margin: 0 0 4px;
+  }
+
+  .author-content h4 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: var(--gold);
+  }
+
+  .author-content p {
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 576px) {
+    .author {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="c">
+      <div class="tb-l">
+        <span class="tb-deal">Sale</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          (905) 850-2253
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Pickup Locations
+        </span>
+      </div>
+      <div class="tb-r">
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+          </svg>
+          Chat with a Cake Expert
+        </a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+            <path d="M16 14v2.2l1.6 1"></path>
+            <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+            <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+            <circle cx="16" cy="16" r="6"></circle>
+            <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+          </svg>
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+  <header class="hdr">
+    <div class="c">
+      <div class="search-box">
+        <div class="c">
+          <div class="search-box-inner">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-search-icon lucide-search">
+              <path d="m21 21-4.34-4.34" />
+              <circle cx="11" cy="11" r="8" />
+            </svg>
+            <input type="search" placeholder="Search any cake design..." name="" id="">
+          </div>
+          <div class="search-results">
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/image/179291153433.webp" alt="">
+              </div>
+              <div class="sri-txt">
+                Wedding Cakes Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Custom Birthday Cakes in Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Kids Birthday Cakes
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/image/179291153433.webp" alt="">
+              </div>
+              <div class="sri-txt">
+                Wedding Cakes Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Custom Birthday Cakes in Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Kids Birthday Cakes
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hdr-i">
+        <div class="logo dashbord-logo">
+          <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+        </div>
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About Us</a>
+          <!-- Cakes Dropdown -->
+          <div class="nv-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">
+              Cakes
+              <svg class="dd-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <div class="dropdown">
+              <div class="dropdown-header">
+                <svg class="dd-hdr-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                  <polyline points="2 17 12 22 22 17"/>
+                  <polyline points="2 12 12 17 22 12"/>
+                </svg>
+                <a href="">
+                  Our Cakes
+                </a>
+                </div>
+              <div class="dropdown-body">
+                <a class="dropdown-item" href="#"><span>Wedding Cakes Toronto</span></a>
+                <a class="dropdown-item" href="#"><span>Birthday Cakes in Toronto &amp; GTA</span></a>
+                <a class="dropdown-item" href="#"><span>Kids Birthday Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Corporate Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Religious Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Graduation Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Baby Shower Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Bridal Shower Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Sweet Sixteen Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Regular Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Anniversary Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Celebration Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Christmas Cakes</span></a>
+              </div>
+              <div class="dropdown-footer">
+                <a href="#">View All Cakes <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desserts Dropdown -->
+          <div class="nv-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">
+              Desserts
+              <svg class="dd-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <div class="dropdown">
+              <div class="dropdown-header">
+                <svg class="dd-hdr-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                  <line x1="6" y1="1" x2="6" y2="4"/>
+                  <line x1="10" y1="1" x2="10" y2="4"/>
+                  <line x1="14" y1="1" x2="14" y2="4"/>
+                </svg>
+                Our Desserts
+              </div>
+              <div class="dropdown-body">
+                <a class="dropdown-item" href="#"><span>Cake Pops</span></a>
+                <a class="dropdown-item" href="#"><span>Cupcakes</span></a>
+                <a class="dropdown-item" href="#"><span>Regular Cookies</span></a>
+                <a class="dropdown-item" href="#"><span>Cookies</span></a>
+                <a class="dropdown-item" href="#"><span>Other Desserts</span></a>
+              </div>
+              <div class="dropdown-footer">
+                <a href="#">View All Desserts <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quality Dropdown -->
+          <div class="nv-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">
+              Quality
+              <svg class="dd-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <div class="dropdown">
+              <div class="dropdown-header">
+                <svg class="dd-hdr-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+                Quality Options
+              </div>
+              <div class="dropdown-body">
+                <a class="dropdown-item" href="#"><span>Nut Free Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Lactose Free Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Eggless Cakes</span></a>
+                <a class="dropdown-item" href="#"><span>Gluten Free Cakes</span></a>
+              </div>
+              <div class="dropdown-footer">
+                <a href="#">View All Options <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <a class="nav-link" href="#">Flavour</a>
+          <a class="nav-link" href="#">City</a>
+          <a class="nav-link" href="#">Cakes Finder</a>
+          <a class="nav-link" href="#blogs">Blogs</a>
+          <a class="nav-link" href="#blogs">Contact us</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn search" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+          <button class="icon-btn cart" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-count">3</span>
+          </button>
+          <div class="logo mobile-logo">
+            <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+          </div>
+          <button class="burger" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-menu-icon lucide-menu">
+              <path d="M4 5h16" />
+              <path d="M4 12h16" />
+              <path d="M4 19h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-tb">
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+          </svg>
+          Chat with a Cake Expert
+        </a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+            <path d="M16 14v2.2l1.6 1"></path>
+            <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+            <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+            <circle cx="16" cy="16" r="6"></circle>
+            <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+          </svg>
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-header">
+      <img src="https://www.icakes.ca/assets/images/icakeslogo.webp" style="height: 44px" alt="logo" />
+      <button class="mobile-close" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="about.html">About Us</a>
+    <!-- Cakes Mobile Accordion -->
+    <div class="mob-dd-wrap">
+      <button class="nav-link mob-dd-toggle" aria-expanded="false">
+        Cakes
+        <svg class="dd-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <ul class="mob-dd-list">
+        <li><a class="mob-dd-item" href="#">Wedding Cakes Toronto</a></li>
+        <li><a class="mob-dd-item" href="#">Birthday Cakes in Toronto &amp; GTA</a></li>
+        <li><a class="mob-dd-item" href="#">Kids Birthday Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Corporate Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Religious Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Graduation Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Baby Shower Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Bridal Shower Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Sweet Sixteen Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Regular Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Anniversary Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Celebration Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Christmas Cakes</a></li>
+      </ul>
+    </div>
+
+    <!-- Desserts Mobile Accordion -->
+    <div class="mob-dd-wrap">
+      <button class="nav-link mob-dd-toggle" aria-expanded="false">
+        Desserts
+        <svg class="dd-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <ul class="mob-dd-list">
+        <li><a class="mob-dd-item" href="#">Cake Pops</a></li>
+        <li><a class="mob-dd-item" href="#">Cupcakes</a></li>
+        <li><a class="mob-dd-item" href="#">Regular Cookies</a></li>
+        <li><a class="mob-dd-item" href="#">Cookies</a></li>
+        <li><a class="mob-dd-item" href="#">Other Desserts</a></li>
+      </ul>
+    </div>
+
+    <!-- Quality Mobile Accordion -->
+    <div class="mob-dd-wrap">
+      <button class="nav-link mob-dd-toggle" aria-expanded="false">
+        Quality
+        <svg class="dd-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <ul class="mob-dd-list">
+        <li><a class="mob-dd-item" href="#">Nut Free Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Lactose Free Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Eggless Cakes</a></li>
+        <li><a class="mob-dd-item" href="#">Gluten Free Cakes</a></li>
+      </ul>
+    </div>
+
+    <a class="nav-link" href="#">Flavour</a>
+    <a class="nav-link" href="#">City</a>
+    <a class="nav-link" href="#">Cakes Finder</a>
+    <a class="nav-link" href="#blogs">Blogs</a>
+    <a class="nav-link" href="#blogs">Contact us</a>
+  </nav>
+
+  <div class="c">
+   <div class="pd-breadcrumbs">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="blog.html">Blogs</a>
+      <span class="sep">/</span>
+      <a href="#" class="current">How to Choose the Perfect Birthday Cake</a>
+    </div>
+
+    <div class="post-layout">
+      <!-- ========== MAIN ========== -->
+      <main>
+        <div class="feature">
+          <img src="https://www.icakes.ca/upload/image/179325191625.webp" alt="Birthday cake with pink drip, berries and candles">
+        </div>
+
+        <div class="post-meta">
+          <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>Nov 1, 2026</span>
+          <a class="m" href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Cake Tips</a>
+          <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>5 min read</span>
+          <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg>iCakes Quality Team</span>
+        </div>
+
+        <h1 class="post-title">How to Choose the Perfect Birthday Cake</h1>
+
+        <article class="article" id="article">
+          <p>A birthday cake is the centrepiece of the party — but with so many sizes, finishes and flavours, choosing one can feel harder than it should. Here's a simple way to narrow it down, based on what GTA families order most.</p>
+
+          <h2 id="s1"><span >1</span>Start With the Guest Count</h2>
+          <p>Size is the one decision you can't fix later, so settle it first. Count the people who will actually eat cake, then allow a little extra for second slices. A cake that looks right in a photo is sometimes wrong for the room — a 6-inch heart serves around 6–7 people, while a bigger party is better served by a larger round, a slab or a two-tier design.</p>
+          <p>If you're unsure, just tell the team your guest count and they'll recommend a size that fits.</p>
+
+          <h2 id="s2"><span >2</span>Pick a Design That Suits the Person</h2>
+          <p>The best birthday cakes feel personal. Think about who's being celebrated and what they love, then match the style:</p>
+          
+          <p>For kids, character or themed designs are hard to beat. For adults, photo cakes, vintage and sports designs are consistently popular.</p>
+
+          <h2 id="s3"><span >3</span>Choose a Flavour Everyone Will Enjoy</h2>
+          <p>Design gets the attention, but flavour is what people talk about on the drive home. If the guest list spans several ages, <strong>French Vanilla</strong> is the safest pick — it's the most ordered flavour on the menu. For something brighter in summer, try Lemon Raspberry or Vanilla Fresh Strawberry. Chocolate lovers will be happy with Chocolate Chocolate, and Black Forest is a classic that holds up well over a long party.</p>
+          
+          <h2 id="s4"><span >4</span>Check Dietary Needs Early</h2>
+          <p>Before you fall in love with a design, check that it works for every guest. Everything at iCakes is made in a 100% nut-free facility, and every cake is halal, alcohol-free and gelatine-free as standard. Lactose-free milk is used across most flavours, and eggless and gluten-free versions are available on special order.</p>
+          
+          <h2 id="s5"><span >5</span>Order Early Enough</h2>
+          <p>Every cake is baked fresh to order, so timing matters. As a rule of thumb:</p>
+          
+          <p>Last-minute? Message the team directly — rush orders depend on current capacity, so it's always worth asking.</p>
+
+        </article>
+
+        <div class="author">
+          <div class="author-img">
+            <img src="https://www.icakes.ca/upload/author-alex-profile.jpeg" alt="Alex Jasu – Head of Quality, iCakes">
+          </div>
+
+          <div class="author-content">
+            <span class="author-label">Written By</span>
+            <h3>Alex Jasu </h3>
+            <h4>Head of Quality, iCakes</h4>
+            <p>
+              Alex Jasu is the Business Manager and Head of Quality at Irresistible Cakes (iCakes) — the GTA's most trusted specialty cake manufacturer since 1962, bringing Chemical Engineering, Quality Engineering, and Food Safety expertise to every cake.
+            </p>
+            <a href="#" class="btn btn-o">View Author Profile</a>
+          </div>
+        </div>
+      </main>
+
+      <!-- ========== SIDEBAR ========== -->
+      <aside class="sidebar">
+        <div class="cakes-widget">
+          <div class="cakes-head">
+            <h3>Our Cakes</h3>
+            <p>Explore our delicious cake collection</p>
+          </div>
+
+          <a class="cake-item" href="#">
+            <div class="cake-thumb"><img src="https://www.icakes.ca/upload/category/untitled_design__27_-removebg-preview.webp" alt="Chocolate Cake" loading="lazy"></div>
+            <div class="cake-info"><h4>Chocolate<br>Cake</h4><span class="btn btn-o">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          </a>
+          <a class="cake-item" href="#">
+            <div class="cake-thumb"><img src="https://www.icakes.ca/upload/category/untitled_design__27_-removebg-preview.webp" alt="Vanilla Strawberry Cake" loading="lazy"></div>
+            <div class="cake-info"><h4>Vanilla<br>Strawberry Cake</h4><span class="btn btn-o">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          </a>
+          <a class="cake-item" href="#">
+            <div class="cake-thumb"><img src="https://www.icakes.ca/upload/category/untitled_design__27_-removebg-preview.webp" alt="Red Velvet Cake" loading="lazy"></div>
+            <div class="cake-info"><h4>Red Velvet<br>Cake</h4><span class="btn btn-o">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          </a>
+          <a class="cake-item" href="#">
+            <div class="cake-thumb"><img src="https://www.icakes.ca/upload/category/untitled_design__27_-removebg-preview.webp" alt="Black Forest Cake" loading="lazy"></div>
+            <div class="cake-info"><h4>Black Forest<br>Cake</h4><span class="btn btn-o">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          </a>
+          <a class="cake-item" href="#">
+            <div class="cake-thumb"><img src="https://www.icakes.ca/upload/category/untitled_design__27_-removebg-preview.webp" alt="Lemon Raspberry Cake" loading="lazy"></div>
+            <div class="cake-info"><h4>Lemon<br>Raspberry Cake</h4><span class="btn btn-o">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          </a>
+
+          <div class="cakes-foot">
+            <a href="#" class="btn btn-o">View All Cakes </a></div>
+        </div>
+      </aside>
+    </div>
+    <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="c">
+      <div class="section-head faq-hd">
+        <p class="sec-lbl">Frequently Asked Questions</p>
+        <h2 class="sec-ttl">Answers Before You<em> Order</em></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-q">
+            <span>How far in advance do I need to order?</span><span class="plus"><svg viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Standard buttercream designs take 3–5 days. Edible photo cakes
+              take 5–7 days. Fondant, 3D, or multi-tier designs need at least
+              two weeks. During peak season — April through June — add at
+              least one extra week to any lead time. For urgent orders,
+              WhatsApp the team at (905) 605-4900 before placing; rush orders
+              depend on current capacity and cannot always be guaranteed.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>What if I need to cancel or change my order?</span><span class="plus"><svg viewBox="0 0 24 24"
+                fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Because most cakes are made to order, changes and cancellations
+              are time-sensitive. Contact us as early as possible by phone,
+              WhatsApp, or email so we can accommodate your request — see our
+              Return Policy for full details.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>What occasions do you make cakes for?</span><span class="plus"><svg viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Weddings, birthdays, kids' birthdays, anniversaries, baby
+              showers, bridal showers, sweet sixteens, graduations, baptisms,
+              communions, engagements, corporate events, religious
+              celebrations, and holidays like Christmas — plus everyday
+              moments that deserve a cake.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Can I get a custom cake with a photo, logo, or specific
+              theme?</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Yes — edible photo prints, character and cartoon cakes, logo and
+              corporate branding, 3D sculpted designs, and fully personalized
+              themes are all things we build regularly for customers across
+              the GTA.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>What if I'm not sure what design I want?</span><span class="plus"><svg viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Use our Cake Finder tool to search by style or occasion, browse
+              trending designs, or just get in touch — our team can walk you
+              through options based on your event and budget.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <footer class="ftr">
+    <div class="c">
+      <div class="ftr-g">
+        <div>
+          <div class="ftr-logo">
+            <img src="image/iCakes.png" alt="logo" />
+          </div>
+          <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+          <div style="margin-top: 20px">
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              (905) 850-2253
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-mail-icon lucide-mail">
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+              </svg>
+              info@icakes.ca
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-map-pin-icon lucide-map-pin">
+                <path
+                  d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5
+            </div>
+            <button class="btn-p">All Locations</button>
+            <div class="social-section">
+              <!-- Facebook -->
+              <a href="#" class="social-icon facebook" aria-label="Facebook">
+                <svg viewBox="0 0 24 24">
+                  <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5h1.7V3.7c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v1.8H7V13h2.8v8h3.7z" fill="currentColor"/>
+                </svg>
+              </a>
+
+              <!-- X -->
+              <a href="#" class="social-icon twitter" aria-label="X">
+                <svg viewBox="0 0 24 24">
+                  <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20z" fill="currentColor"/>
+                </svg>
+              </a>
+
+              <!-- Instagram -->
+              <a href="#" class="social-icon instagram" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+                </svg>
+              </a>
+
+              <!-- YouTube -->
+              <a href="#" class="social-icon youtube" aria-label="YouTube">
+                <svg viewBox="0 0 24 24">
+                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z" fill="currentColor"/>
+                </svg>
+              </a>
+
+              <!-- TikTok -->
+              <a href="#" class="social-icon tiktok" aria-label="TikTok">
+                <svg viewBox="0 0 24 24">
+                  <path d="M19.6 6.3a5.2 5.2 0 0 1-4.2-4.2V1h-3.8v15.1a2.8 2.8 0 1 1-2.8-2.8c.3 0 .6 0 .9.1v-3.9a7 7 0 1 0 5.7 6.9V8.8a9 9 0 0 0 5.2 1.7V6.7c-.3 0-.7-.1-1-.4z" fill="currentColor"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Shop</h4>
+          <div class="ftr-links">
+            <a href="#">All Cakes</a>
+            <a href="#">Wedding Cakes</a>
+            <a href="#">Birthday Cakes</a>
+            <a href="#">Kids Cakes</a>
+            <a href="#">Corporate Cakes</a>
+            <a href="#">Desserts</a>
+            <a href="#">Cupcakes</a>
+            <a href="#">Cake Pops</a>
+            <a href="#">Cake Finder</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Company</h4>
+          <div class="ftr-links">
+            <a href="#">About Us</a>
+            <a href="#">Quality</a>
+            <a href="#">Flavours</a>
+            <a href="#">Locations</a>
+            <a href="#">Blog</a>
+            <a href="#">Wholesale</a>
+            <a href="#">Partnership</a>
+            <a href="#">Contact</a>
+            <a href="#">FAQs</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Legal</h4>
+          <div class="ftr-links">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Return Policy</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+          <h4 style="margin-top: 28px">Hours</h4>
+          <div class="ftr-links">
+            <a href="#">Tue – Sat: 10AM – 6PM</a>
+            <a href="#">Sunday: 10AM – 1PM</a>
+            <a href="#">Sunday: Closed</a>
+          </div>
+        </div>
+      </div>
+      <div class="ftr-bot">
+        <p>
+          © 2026 iCakes.ca · Irresistible Cakes Since 1962 · All rights
+          reserved.
+        </p>
+        <div class="ftr-bot-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-house-icon lucide-house">
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path
+          d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      </svg>
+      <span>Home</span>
+    </div>
+    <div class="bottom-bat-button"  id="openTcDrawer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-list-icon lucide-list">
+        <path d="M3 5h.01" />
+        <path d="M3 12h.01" />
+        <path d="M3 19h.01" />
+        <path d="M8 5h13" />
+        <path d="M8 12h13" />
+        <path d="M8 19h13" />
+      </svg>
+      <span>Products</span>
+    </div>
+    <div class="bottom-bat-button cart">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-shopping-bag-icon lucide-shopping-bag">
+        <path d="M16 10a4 4 0 0 1-8 0" />
+        <path d="M3.103 6.034h17.794" />
+        <path
+          d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+      </svg>
+      <span class="cart-count">3</span>
+      <span>Cart</span>
+    </div>
+    <div class="bottom-bat-button" onclick="window.location.href='login.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-log-in-icon lucide-log-in">
+        <path d="m10 17 5-5-5-5" />
+        <path d="M15 12H3" />
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+      </svg>
+      <span>Login</span>
+    </div>
+    <div class="bottom-bat-button" onclick="window.location.href='signup.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-user-key-icon lucide-user-key">
+        <path d="M20 11v6" />
+        <path d="M20 13h2" />
+        <path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578" />
+        <circle cx="10" cy="7" r="4" />
+        <circle cx="20" cy="19" r="2" />
+      </svg>
+      <span>Signup</span>
+    </div>
+  </div>
+
+  <div class="flotingIcon" style="display: none">
+    <a href="#" target="_blank" rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+        viewBox="0 0 16 16">
+        <path
+          d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232">
+        </path>
+      </svg>
+    </a>
+    <a href="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+        </path>
+      </svg>
+    </a>
+  </div>
+
+  <button class="bktop" id="bktop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="lucide lucide-arrow-up-icon lucide-arrow-up">
+      <path d="m5 12 7-7 7 7" />
+      <path d="M12 19V5" />
+    </svg>
+  </button>
+
+</body>
+</html>

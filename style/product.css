@@ -360,6 +360,13 @@ img {
   margin-top: 36px;
 }
 
+/* Categories List */
+.cake-sidebar-finder .category-list {
+  list-style: none;
+  padding: 8px 12px;
+  display: block;
+}
+
 /*==========================
    RESPONSIVE ORDERING
    Tab & Mobile:

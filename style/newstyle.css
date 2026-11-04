@@ -1544,7 +1544,7 @@
 }
 
 .story-point span {
-  color: var(--secondary);
+  color: var(--choco-mid);
   font-weight: 600;
   font-size: 0.98rem;
   line-height: 1.5;
