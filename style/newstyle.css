@@ -2306,6 +2306,7 @@
 }
 
 .cta-box-actions {
+  margin-top: 15px;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
