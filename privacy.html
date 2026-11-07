@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Irresistible Cakes — Static</title>
+  <meta name="description" content="Static HTML/CSS/JS homepage for Irresistible Cakes." />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+  <!-- common css -->
+  <link rel="stylesheet" href="style/Root.css" />
+  <link rel="stylesheet" href="style/Header.css" />
+  <!-- common css -->
+  <link rel="stylesheet" href="style/newstyle.css" />
+  <link rel="stylesheet" href="style/InnerHero.css" />
+  <link rel="stylesheet" href="style/newhero.css" />
+  <link rel="stylesheet" href="style/legal.css" />
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="c">
+      <div class="tb-l">
+        <span class="tb-deal">Sale</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          (905) 850-2253
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Pickup Locations
+        </span>
+      </div>
+      <div class="tb-r">
+        <a href="#">Login</a>
+        <a href="#">Sign Up</a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+          </svg>
+          Chat with a Cake Expert
+        </a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+            <path d="M16 14v2.2l1.6 1"></path>
+            <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+            <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+            <circle cx="16" cy="16" r="6"></circle>
+            <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+          </svg>
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hdr">
+    <div class="c">
+      <div class="search-box">
+        <div class="c">
+          <div class="search-box-inner">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-search-icon lucide-search">
+              <path d="m21 21-4.34-4.34" />
+              <circle cx="11" cy="11" r="8" />
+            </svg>
+            <input type="search" placeholder="Search any cake design..." name="" id="">
+          </div>
+          <div class="search-results">
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Wedding Cakes Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Custom Birthday Cakes in Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Kids Birthday Cakes
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/wedding-cakes.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Wedding Cakes Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Custom Birthday Cakes in Toronto
+              </div>
+            </div>
+            <div class="search-result-item">
+              <div class="sri-img">
+                <img src="https://www.icakes.ca/upload/category/kids-birthday-cake.png" alt="">
+              </div>
+              <div class="sri-txt">
+                Kids Birthday Cakes
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hdr-i">
+        <div class="logo dashbord-logo">
+          <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+        </div>
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About Us</a>
+          <a class="nav-link" href="#">Cakes</a>
+          <!-- <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Cakes</a>
+                <div class="dropdown-menu">
+                  <a href="#">Wedding Cakes Toronto</a>
+                  <a href="#">Custom Birthday Cakes in Toronto</a>
+                  <a href="#">Kids Birthday Cakes</a>
+                  <a href="#">Corporate Cakes</a>
+                  <a href="#">Religious Cakes</a>
+                  <a href="#">Graduation Cakes</a>
+                  <a href="#">Baby Shower Cakes</a>
+                  <a href="#">Bridal Shower Cakes</a>
+                  <a href="#">Sweet Sixteen Cakes</a>
+                  <a href="#">Regular Cakes</a>
+                  <a href="#">Anniversary Cakes</a>
+                  <a href="#">Celebration Cakes</a>
+                  <a href="#">Christmas Cakes</a>
+                </div>
+              </div> -->
+          <a class="nav-link" href="#">Desserts</a>
+          <a class="nav-link" href="#">Quality</a>
+          <a class="nav-link" href="#">Flavour</a>
+          <a class="nav-link" href="#">City</a>
+          <a class="nav-link" href="#">Cakes Finder</a>
+          <a class="nav-link" href="#blogs">Blogs</a>
+          <a class="nav-link" href="#blogs">Contact us</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn search" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+          <button class="icon-btn cart" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-count">3</span>
+          </button>
+          <div class="logo mobile-logo">
+            <img src="https://www.icakes.ca/assets/logo/irresistible-cake.webp" alt="iCakes" />
+          </div>
+          <button class="burger" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-menu-icon lucide-menu">
+              <path d="M4 5h16" />
+              <path d="M4 12h16" />
+              <path d="M4 19h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-tb">
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+          </svg>
+          Chat with a Cake Expert
+        </a>
+        <a href="#" class="button-top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock">
+            <path d="M16 14v2.2l1.6 1"></path>
+            <path d="M16 4h2a2 2 0 0 1 2 2v.832"></path>
+            <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"></path>
+            <circle cx="16" cy="16" r="6"></circle>
+            <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+          </svg>
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-header">
+      <img src="https://www.icakes.ca/assets/images/icakeslogo.webp" style="height: 44px" alt="logo" />
+      <button class="mobile-close" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="about.html">About Us</a>
+    <a class="nav-link" href="#">Cakes</a>
+    <a class="nav-link" href="#">Desserts</a>
+    <a class="nav-link" href="#">Quality</a>
+    <a class="nav-link" href="#">Flavour</a>
+    <a class="nav-link" href="#">City</a>
+    <a class="nav-link" href="#">Cakes Finder</a>
+    <a class="nav-link" href="#blogs">Blogs</a>
+    <a class="nav-link" href="#blogs">Contact us</a>
+  </nav>
+
+  <section class="policy-hero" id="return-hero">
+    <div class="c">
+      <div class="policy-hero-cnt reveal">
+        <span class="sec-lbl">Customer Policy</span>
+        <h1 class="sec-ttl">Privacy Policy</h1>
+        <p>This Privacy Policy explains how Irresistible Cakes (iCakes) collects, uses, discloses, and protects personal information in the course of running our business — through our website, over the phone, by email, and in person. It applies to anyone who places an order, creates an account, submits a contact form, or otherwise shares personal information with us.</p>
+        <p>As our business or our obligations under Canadian privacy law evolve, we'll update this page and revise that date accordingly, so it's worth checking back periodically if privacy matters to you.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="policy">
+    <div class="reveal">
+      <div class="policy-pages">
+        <h2 class="sec-ttl">Information We Collect</h2>
+        <p>We collect a limited set of personal information, organized here by category so it's clear exactly what we hold and why.</p>
+      </div>
+      <div class="privacy-grid c">
+        <div class="cancel-card">
+          <h3>Identity Data </h3>
+          <p>Your full name, delivery or pickup address, email address, and phone number, collected when you place an order, book an appointment, submit a contact or inquiry form, or otherwise reach out to us. If you contact us directly, this may also include the subject and content of your message. For certain large or custom orders, we may also request reasonable identification at pickup to verify the person authorized to collect the order.</p>
+        </div>
+        <div class="cancel-card">
+          <h3>Financial Data  </h3>
+          <p>Payment for online orders is processed through Moneris, a secure, independent third-party payment platform. We never see or store your complete credit card number — only confirmation that your payment was successful.</p>
+        </div>
+
+        <div class="cancel-card premium">
+          <h3>Technical Data </h3>
+          <p>When you browse our website, certain information is captured automatically: your IP address, browser type, the device you're using, and tracking identifiers used by our analytics and advertising tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="policy">
+    <div class="policy-pages">
+      <h2 class="sec-ttl">How We Collect Your Data</h2>
+    </div>
+    <div class="c">
+      <div class="cancel-grid">
+        <div class="cancel-card">
+          <h3>Direct Interaction </h3>
+          <p>Most of the information we hold comes directly from you: filling out an order form, requesting a quote for a custom cake, creating an account, submitting a contact or inquiry form, or subscribing to receive offers and updates from us.</p>
+        </div>
+
+        <div class="cancel-card premium">
+          <h3>Automated Technologies </h3>
+          <p>The rest is gathered automatically as you browse our site, through browser cookies and analytics tags. This includes tools such as Google Analytics and Google Tag Manager, which help us understand how visitors use our website, and Meta Pixel, which measures the performance of our advertising on Facebook and Instagram. You can limit or disable these through your browser's cookie settings at any time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="policy">
+    <div class="reveal">
+      <div class="policy-pages">
+        <h2 class="sec-ttl">How We Use Your Information</h2>
+        <p>We collect personal information for specific, limited purposes:</p><br>
+        <ul>
+          <li>To manage, prepare, and fulfill your custom bakery order, from confirmation through pickup or delivery.</li>
+          <li>To send order confirmations, pickup reminders, and delivery updates related to an active order.</li>
+          <li>To respond to questions, quote requests, and customer service inquiries, including those submitted through our contact form.</li>
+          <li>To send promotional offers and updates — strictly on an opt-in basis, and only to customers who've actively consented to receive them.</li>
+        </ul>
+        <p>We don't use your information for purposes beyond these without asking you first.</p>
+        <h2 class="sec-ttl">SMS & Text Message Consent</h2>
+        <p>If you've provided your phone number for order notifications or marketing texts, here's what governs that specifically:</p>
+        <ul>
+          <li>Phone numbers collected for SMS purposes are used only by iCakes for the communications you've agreed to receive — they are not shared with outside parties for their own marketing use.</li>
+          <li>Transactional messages (order confirmations, pickup reminders, delivery updates) and marketing messages (promotions, offers) are treated as separate categories of consent. Marketing texts are sent only if you've specifically opted in to receive them.</li>
+          <li>You can opt out at any time. Reply<strong> STOP</strong> to unsubscribe from text messages, or<strong> HELP</strong> if you need assistance. Commercial electronic messages, including marketing emails and text messages, are sent in accordance with Canada's Anti-Spam Legislation (CASL), including applicable consent, identification, and unsubscribe requirements.</li>
+        </ul>
+        <p>The full consent terms you agree to when placing an order, including message frequency and applicable message and data rates, are set out in our Terms & Conditions at the point of ordering.</p>
+        
+        <h2 class="sec-ttl">Third-Party Data Sharing</h2>
+        <p>We don't sell, rent, or trade your information to third-party advertisers or data brokers, ever. To actually get your cake to you and run our business, though, a limited amount of information does need to pass through a small number of operational partners:</p>
+        <div class="tbl-wrap">
+          <table class="share">
+            <thead><tr><th>Category</th><th>Purpose</th><th>What They May Access</th></tr></thead>
+            <tbody>
+              <tr><td class="who" data-label="Category">Moneris (payment processing)</td><td data-label="Purpose">Securely processing online payments</td><td data-label="What They May Access">Transaction and payment details — never your full card number</td></tr>
+              <tr><td class="who" data-label="Category">Delivery drivers and couriers</td><td data-label="Purpose">Fulfilling delivery orders</td><td data-label="What They May Access">Name, address, phone number, order details</td></tr>
+              <tr><td class="who" data-label="Category">Map and routing providers</td><td data-label="Purpose">Planning and confirming delivery routes</td><td data-label="What They May Access">Delivery address</td></tr>
+              <tr><td class="who" data-label="Category">Google Analytics / Google Tag Manager</td><td data-label="Purpose">Understanding website traffic and usage</td><td data-label="What They May Access">Device, browser, and interaction data</td></tr>
+              <tr><td class="who" data-label="Category">Meta Pixel</td><td data-label="Purpose">Measuring advertising performance on Facebook/Instagram</td><td data-label="What They May Access">Website activity, device identifiers</td></tr>
+              <tr><td class="who" data-label="Category">Email and SMS communication platforms</td><td data-label="Purpose">Sending order and marketing communications</td><td data-label="What They May Access">Name, email address, phone number</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>We take reasonable steps to ensure that service providers receive only the information reasonably necessary for the services they provide, and that they handle it in accordance with applicable privacy requirements and their contractual obligations to us.</p>
+
+        <h2 class="sec-ttl">Where Your Information Is Processed</h2>
+        <p>Some of the services listed above — including Google Analytics, Google Tag Manager, and Meta Pixel — are operated by companies based outside Canada, and the information they collect may be stored or processed on servers in other countries, including the United States. Where this happens, your information may become subject to the laws of that jurisdiction. We choose service providers that maintain reasonable safeguards for personal information, regardless of where it's processed.</p>
+        <h2 class="sec-ttl">Data Security and Retention</h2>
+        <p>
+          We rely on standard technical safeguards to protect your information, including SSL encryption on our website and secure, reputable third-party providers for payment processing and data storage. Access to personal information internally is limited to staff who genuinely need it to do their jobs.
+        </p>
+        <p>
+          We retain personal information only for as long as reasonably necessary to fulfill the purposes for which it was collected, provide our services, meet legal and accounting requirements, resolve disputes, and enforce our agreements. Retention periods vary by the type of information involved — order and accounting records, for instance, are generally kept longer than marketing consent preferences. Once information is no longer needed for these purposes, it's securely deleted or anonymized.
+        </p>
+        <p>
+          No system is completely immune to risk, and we can't promise absolute security. If we experience a privacy breach that requires notification under applicable Canadian law, we will take the required steps to contain the incident, investigate it, and notify affected individuals and regulators as required.
+        </p>
+  
+        <h2 class="sec-ttl">Your Privacy Rights</h2>
+        <p>Under applicable Canadian privacy legislation, you may have rights regarding your personal information, including:</p>
+        <ul>
+          <li><strong>The right to access</strong> the personal information we hold about you.</li>
+          <li><strong>The right to request corrections</strong> to information that's inaccurate or out of date.</li>
+          <li><strong>The right to withdraw consent</strong> for any purpose based on consent, such as marketing communications.</li>
+          <li><strong>The right to request deletion</strong> of your account or personal information where appropriate, subject to information we are required or permitted to retain by law or for legitimate business purposes.</li>
+        </ul>
+        <p>
+          To act on any of these, reach out using the contact details below — we'll respond within the timeframe required by applicable law. If a concern isn't resolved to your satisfaction after contacting us directly, you also have the right to bring it to the Office of the Privacy Commissioner of Canada, the federal body responsible for privacy law oversight nationally.
+        </p>
+  
+        <h2 class="sec-ttl">Privacy Contact Information</h2>
+        <p><strong>Privacy Officer Irresistible Cakes (iCakes)</strong></p>
+        <p>
+          Our Privacy Officer is responsible for overseeing our privacy practices and responding to privacy-related inquiries and requests. For questions about this policy, or to make a request regarding your personal information, reach us at:
+        </p>
+        <ul>
+          <li><strong>Email:</strong><a href="mailto:info@icakes.ca">info@icakes.ca </a></li>
+          <li><strong>Phone:</strong><a href="tel:(905) 850-2253">(905) 850-2253</a></li>
+          <li><strong>Mailing Address:</strong>4040 Steeles Av W, Unit 23, Woodbridge, ON, L4L 4Y5 (Steeles # Weston Rd)</li>
+        </ul>
+    </div>
+  </section>
+  <footer class="ftr">
+    <div class="c">
+      <div class="ftr-g">
+        <div>
+          <div class="ftr-logo">
+            <img src="image/iCakes.png" alt="logo" />
+          </div>
+          <p class="ftr-about">Irresistible Cakes, Since 1962.</p>
+          <div style="margin-top: 20px">
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              (905) 850-2253
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-mail-icon lucide-mail">
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+              </svg>
+              info@icakes.ca
+            </div>
+            <div class="ftr-ci">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-map-pin-icon lucide-map-pin">
+                <path
+                  d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              4040 Steeles Ave W, Unit 23, Woodbridge, ON L4L 4Y5
+            </div>
+            <button class="btn-p">All Locations</button>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Shop</h4>
+          <div class="ftr-links">
+            <a href="#">All Cakes</a>
+            <a href="#">Wedding Cakes</a>
+            <a href="#">Birthday Cakes</a>
+            <a href="#">Kids Cakes</a>
+            <a href="#">Corporate Cakes</a>
+            <a href="#">Desserts</a>
+            <a href="#">Cupcakes</a>
+            <a href="#">Cake Pops</a>
+            <a href="#">Cake Finder</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Company</h4>
+          <div class="ftr-links">
+            <a href="#">About Us</a>
+            <a href="#">Quality</a>
+            <a href="#">Flavours</a>
+            <a href="#">Locations</a>
+            <a href="#">Blog</a>
+            <a href="#">Wholesale</a>
+            <a href="#">Partnership</a>
+            <a href="#">Contact</a>
+            <a href="#">FAQs</a>
+          </div>
+        </div>
+        <div class="ftr-col">
+          <h4>Legal</h4>
+          <div class="ftr-links">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Return Policy</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+          <h4 style="margin-top: 28px">Hours</h4>
+          <div class="ftr-links">
+            <a href="#">Tue – Sat: 10AM – 6PM</a>
+            <a href="#">Sunday: 10AM – 1PM</a>
+            <a href="#">Sunday: Closed</a>
+          </div>
+        </div>
+      </div>
+      <div class="ftr-bot">
+        <p>
+          © 2026 iCakes.ca · Irresistible Cakes Since 1962 · All rights
+          reserved.
+        </p>
+        <div class="ftr-bot-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-house-icon lucide-house">
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path
+          d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      </svg>
+      <span>Home</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-list-icon lucide-list">
+        <path d="M3 5h.01" />
+        <path d="M3 12h.01" />
+        <path d="M3 19h.01" />
+        <path d="M8 5h13" />
+        <path d="M8 12h13" />
+        <path d="M8 19h13" />
+      </svg>
+      <span>Products</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-shopping-bag-icon lucide-shopping-bag">
+        <path d="M16 10a4 4 0 0 1-8 0" />
+        <path d="M3.103 6.034h17.794" />
+        <path
+          d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+      </svg>
+      <span>Cart</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-log-in-icon lucide-log-in">
+        <path d="m10 17 5-5-5-5" />
+        <path d="M15 12H3" />
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+      </svg>
+      <span>Login</span>
+    </div>
+    <div class="bottom-bat-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-user-key-icon lucide-user-key">
+        <path d="M20 11v6" />
+        <path d="M20 13h2" />
+        <path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578" />
+        <circle cx="10" cy="7" r="4" />
+        <circle cx="20" cy="19" r="2" />
+      </svg>
+      <span>Signup</span>
+    </div>
+  </div>
+
+  <div class="flotingIcon" style="display: none">
+    <a href="#" target="_blank" rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25d366" class="bi bi-whatsapp"
+        viewBox="0 0 16 16">
+        <path
+          d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232">
+        </path>
+      </svg>
+    </a>
+    <a href="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+        </path>
+      </svg>
+    </a>
+  </div>
+
+  <button class="bktop" id="bktop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="lucide lucide-arrow-up-icon lucide-arrow-up">
+      <path d="m5 12 7-7 7 7" />
+      <path d="M12 19V5" />
+    </svg>
+  </button>
+  <script src="script/script.js" defer></script>
+</body>
+
+</html>
