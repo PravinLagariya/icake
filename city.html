@@ -31,16 +31,21 @@
     .tl-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card);}
     .tl-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--primary),var(--gold));}
     .tl-type{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;font-weight:800;color:var(--ink-soft);margin-bottom:10px;}
-    .tl-time{font-family:var(--font-display);font-weight:700;color:var(--primary);font-size:1.25rem;line-height:1.25;}
+    .tl-time{font-family:var(--font-display);font-weight:700;color:var(--primary);font-size:1.25rem;line-height:1.25; margin-bottom:20px ;}
     .contact-strip{background:var(--charcoal);border-radius:var(--radius-lg);padding:34px 38px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;box-shadow:var(--shadow-soft);}
     .contact-strip p{color:rgba(255,255,255,.88);font-size:.95rem;line-height:1.65;max-width:520px;}
     .contact-btns{display:flex;gap:12px;flex-wrap:wrap;}
+    
+    .tbar-g {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
     @media (max-width:1000px){.tl-grid{grid-template-columns:repeat(2,1fr);}}
     @media (max-width:560px){.tl-grid{grid-template-columns:1fr;}.contact-strip{padding:28px 24px;}}
 
     /* ===== PICKUP ACROSS GTA ===== */
     .gta{padding:70px 0;background:var(--blush);}
-    .gta-box{display:flex;align-items:center;justify-content:space-between;gap:34px;flex-wrap:wrap;}
+    .gta-box{display:flex;align-items:center;justify-content:space-around;gap:34px;flex-wrap:wrap;}
     .gta-text{max-width:640px;}
     .gta-text h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:12px;}
     .gta-text p{color:var(--ink-soft);font-size:.96rem;line-height:1.75;margin-bottom:16px;}
@@ -53,11 +58,13 @@
       .features{grid-template-columns:1fr;}
       .footer-grid{grid-template-columns:1fr;}
       .find,.cats,.consult,.timelines,.standards,.visit,.gta{padding:56px 0;}
+      .tbar-g{
+        grid-template-columns: 1fr;
+      }
     }
 
-    .tbar-g {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    .more {
+      margin-top: 20px;
     }
     @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important;transition-duration:.001ms !important;}}
   </style>
@@ -378,15 +385,27 @@
         </div>
 
         <div class="tl-grid reveal-stagger">
-          <div class="tl-card"><div class="tl-type">Ready-made / Grab N Go</div><div class="tl-time">Same-day, subject to availability</div></div>
-          <div class="tl-card"><div class="tl-type">Standard custom cakes</div><div class="tl-time">Generally 3–5 days</div></div>
-          <div class="tl-card"><div class="tl-type">Elaborate custom designs</div><div class="tl-time">Often 2+ weeks</div></div>
+          <div class="tl-card">
+            <div class="tl-type">Local Pickup - 6 GTA Areas </div>
+            <div class="tl-time">Order online and collect from a local pickup location.</div>
+            <a class="btn btn-o" href="#local-pickup">Learn More</a>
+          </div>
+          <div class="tl-card">
+            <div class="tl-type">Direct Delivery — 3 GTA Areas </div>
+            <div class="tl-time">No local pickup yet? We deliver your order directly.</div>
+            <a class="btn btn-o" href="##direct-delivery">Learn More</a>
+          </div>
+          <div class="tl-card">
+            <div class="tl-type">Extended Delivery — 10 Areas </div>
+            <div class="tl-time">Wedding and corporate delivery available in additional areas.</div>
+            <a class="btn btn-o" href="#extended-delivery">Learn More</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- LOCATIONS -->
-    <section class="locs">
+    <section class="locs" id="local-pickup">
       <div class="c">
         <div class="section-head reveal locs-hd">
           <p class="sec-lbl">Local Pickup</p>
@@ -562,7 +581,7 @@
     </section>
 
     <!-- LOCATIONS -->
-    <section class="locs">
+    <section class="locs" id="direct-delivery">
       <div class="c">
         <div class="section-head reveal locs-hd">
           <p class="sec-lbl">Direct Delivery</p>
@@ -578,7 +597,7 @@
               <p>
                 No local pickup Have your order delivered directly to your address. 
               </p>
-              <a class="btn-o">View North York Cake Delivery →</a>
+              <a class="btn-o more">View North York Cake Delivery →</a>
             </div>
           </div>
           <div class="loc anim">
@@ -588,7 +607,7 @@
               <p>
                 No local pickup Order online and have your cake brought to your address. 
               </p>
-              <a class="btn-o">View Markham Cake Delivery →</a>
+              <a class="btn-o more">View Markham Cake Delivery →</a>
             </div>
           </div>
           <div class="loc anim">
@@ -598,7 +617,7 @@
               <p>
                 No local pickup No pickup point needed here, just order online for delivery. 
               </p>
-              <a class="btn-o">View Richmond Hill Cake Delivery →</a>
+              <a class="btn-o more">View Richmond Hill Cake Delivery →</a>
             </div>
           </div>
         </div>
@@ -606,7 +625,7 @@
     </section>
 
     <!-- PICKUP ACROSS GTA -->
-    <section class="gta">
+    <section class="gta" id="extended-delivery">
       <div class="c">
         <div class="gta-box reveal">
           <div class="gta-text">
